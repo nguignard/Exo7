@@ -70,7 +70,7 @@
             this.txtVille.Location = new System.Drawing.Point(114, 121);
             this.txtVille.Name = "txtVille";
             this.txtVille.Size = new System.Drawing.Size(278, 20);
-            this.txtVille.TabIndex = 11;
+            this.txtVille.TabIndex = 5;
             // 
             // lalblVillebel6
             // 
@@ -86,7 +86,7 @@
             this.txtAdresse.Location = new System.Drawing.Point(114, 95);
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(278, 20);
-            this.txtAdresse.TabIndex = 9;
+            this.txtAdresse.TabIndex = 4;
             // 
             // lblAdresse
             // 
@@ -102,7 +102,7 @@
             this.txtPrenom.Location = new System.Drawing.Point(114, 69);
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(278, 20);
-            this.txtPrenom.TabIndex = 7;
+            this.txtPrenom.TabIndex = 3;
             // 
             // lblPrenom
             // 
@@ -118,7 +118,7 @@
             this.txtNom.Location = new System.Drawing.Point(114, 43);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(278, 20);
-            this.txtNom.TabIndex = 5;
+            this.txtNom.TabIndex = 2;
             // 
             // lblNom
             // 
@@ -134,7 +134,7 @@
             this.txtCP.Location = new System.Drawing.Point(114, 147);
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(100, 20);
-            this.txtCP.TabIndex = 3;
+            this.txtCP.TabIndex = 6;
             // 
             // lblCP
             // 
