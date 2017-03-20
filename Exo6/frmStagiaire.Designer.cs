@@ -76,10 +76,10 @@
             // 
             this.lalblVillebel6.AutoSize = true;
             this.lalblVillebel6.Location = new System.Drawing.Point(7, 124);
-            this.lalblVillebel6.Name = "lalblVillebel6";
+            this.lalblVillebel6.Name = "lalblVille";
             this.lalblVillebel6.Size = new System.Drawing.Size(54, 13);
             this.lalblVillebel6.TabIndex = 10;
-            this.lalblVillebel6.Text = "labeVillel6";
+            this.lalblVillebel6.Text = "labeVille";
             // 
             // txtAdresse
             // 

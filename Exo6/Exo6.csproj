@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Exo6.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Donnees.cs" />
+    <Compile Include="frmLireStagiaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLireStagiaire.Designer.cs">
+      <DependentUpon>frmLireStagiaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStagiaire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +65,9 @@
     <Compile Include="MStagiaire.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmLireStagiaire.resx">
+      <DependentUpon>frmLireStagiaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStagiaire.resx">
       <DependentUpon>frmStagiaire.cs</DependentUpon>
     </EmbeddedResource>
