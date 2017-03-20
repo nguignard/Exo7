@@ -1,4 +1,6 @@
-﻿namespace Exo6
+﻿using System;
+
+namespace Exo6
 {
     partial class frmAjoutStagiaire
     {
@@ -35,12 +37,14 @@
             // 
             // btnAnnuler
             // 
+            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(340, 203);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 1;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnOK
             // 
@@ -50,15 +54,19 @@
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // frmAjoutStagiaire
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.CancelButton = this.btnAnnuler;
             this.ClientSize = new System.Drawing.Size(427, 238);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAnnuler);
             this.Name = "frmAjoutStagiaire";
             this.ShowInTaskbar = false;
+            this.Text = "Ajouter un stagiaire";
             this.Controls.SetChildIndex(this.grpStagiaire, 0);
             this.Controls.SetChildIndex(this.btnAnnuler, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
@@ -68,9 +76,11 @@
 
         }
 
+
+
         #endregion
 
-        private System.Windows.Forms.Button btnAnnuler;
-        private System.Windows.Forms.Button btnOK;
+        protected System.Windows.Forms.Button btnAnnuler;
+        protected System.Windows.Forms.Button btnOK;
     }
 }

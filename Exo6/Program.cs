@@ -15,7 +15,7 @@ namespace Exo6
         static void Main()
         {
             // au lancement de l'application, initialiser le nombre de stagiaires             
-            MStagiaire.Nstag = 0;
+            MStagiaire.NStag = 0;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

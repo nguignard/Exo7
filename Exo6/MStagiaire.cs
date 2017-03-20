@@ -9,7 +9,7 @@ namespace Exo6
     public class MStagiaire
     {
 
-        public static Int32 Nstag;
+        public static Int32 NStag;
         private int numOsia;
         private string nomStagiaire;
         private string prenomStagiaire;
@@ -39,10 +39,16 @@ namespace Exo6
                         if (!(Char.IsDigit(value[i]))) // charabia ??     
                         { erreur = true; }
                     } // fin de boucle controle chiffres          
-                    if (erreur) //on a rencontre un non-chiffre              
-                    {                 // première solution par simple messagebox         
-                        System.Windows.Forms.MessageBox.Show(value.ToString() + "\n" + "n'est pas un code postal valide : uniquement des chiffres", "Erreur Classe MStagiaire", System.Windows.Forms.MessageBoxButtons.OK);
+                    if (erreur) //on a rencontre un non-chiffre     
+                    {
+                        throw new Exception(value.ToString() + "\n" + "n'est pas un code postal valide : uniquement des chiffres");
                     }
+                            
+                            
+                                     
+                    //{                 // première solution par simple messagebox         
+                    //    System.Windows.Forms.MessageBox.Show(value.ToString() + "\n" + "n'est pas un code postal valide : uniquement des chiffres", "Erreur Classe MStagiaire", System.Windows.Forms.MessageBoxButtons.OK);
+                    //}
                     else
                     {
                         codePostalStagiaire = value;  // tout est bon, on affecte la propriété           
@@ -53,7 +59,6 @@ namespace Exo6
                     System.Windows.Forms.MessageBox.Show(value.ToString() + "\n" + "n'est pas un code postal valide : 5 chiffres, pas plus, pas moins", "Erreur Classe MStagiaire", System.Windows.Forms.MessageBoxButtons.OK);
                 }
             }
-
         }
 
 
