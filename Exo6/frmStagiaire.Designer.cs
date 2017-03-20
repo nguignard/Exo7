@@ -37,9 +37,9 @@
             this.lblPrenom = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lblNom = new System.Windows.Forms.Label();
-            this.txtCP = new System.Windows.Forms.TextBox();
+            this.txtCodePostal = new System.Windows.Forms.TextBox();
             this.lblCP = new System.Windows.Forms.Label();
-            this.txtOsia = new System.Windows.Forms.TextBox();
+            this.txtOSIA = new System.Windows.Forms.TextBox();
             this.lblOsia = new System.Windows.Forms.Label();
             this.grpStagiaire.SuspendLayout();
             this.SuspendLayout();
@@ -54,9 +54,9 @@
             this.grpStagiaire.Controls.Add(this.lblPrenom);
             this.grpStagiaire.Controls.Add(this.txtNom);
             this.grpStagiaire.Controls.Add(this.lblNom);
-            this.grpStagiaire.Controls.Add(this.txtCP);
+            this.grpStagiaire.Controls.Add(this.txtCodePostal);
             this.grpStagiaire.Controls.Add(this.lblCP);
-            this.grpStagiaire.Controls.Add(this.txtOsia);
+            this.grpStagiaire.Controls.Add(this.txtOSIA);
             this.grpStagiaire.Controls.Add(this.lblOsia);
             this.grpStagiaire.Location = new System.Drawing.Point(13, 13);
             this.grpStagiaire.Name = "grpStagiaire";
@@ -72,12 +72,12 @@
             this.txtVille.Size = new System.Drawing.Size(278, 20);
             this.txtVille.TabIndex = 5;
             // 
-            // lalblVillebe
+            // lalblVillebel6
             // 
             this.lalblVillebel6.AutoSize = true;
             this.lalblVillebel6.Location = new System.Drawing.Point(7, 124);
-            this.lalblVillebel6.Name = "lalblVille";
-            this.lalblVillebel6.Size = new System.Drawing.Size(54, 13);
+            this.lalblVillebel6.Name = "lalblVillebel6";
+            this.lalblVillebel6.Size = new System.Drawing.Size(46, 13);
             this.lalblVillebel6.TabIndex = 10;
             this.lalblVillebel6.Text = "labeVille";
             // 
@@ -129,12 +129,12 @@
             this.lblNom.TabIndex = 4;
             this.lblNom.Text = "Nom";
             // 
-            // txtCP
+            // txtCodePostal
             // 
-            this.txtCP.Location = new System.Drawing.Point(114, 147);
-            this.txtCP.Name = "txtCP";
-            this.txtCP.Size = new System.Drawing.Size(100, 20);
-            this.txtCP.TabIndex = 6;
+            this.txtCodePostal.Location = new System.Drawing.Point(114, 147);
+            this.txtCodePostal.Name = "txtCodePostal";
+            this.txtCodePostal.Size = new System.Drawing.Size(100, 20);
+            this.txtCodePostal.TabIndex = 6;
             // 
             // lblCP
             // 
@@ -145,12 +145,12 @@
             this.lblCP.TabIndex = 2;
             this.lblCP.Text = "Code Postal";
             // 
-            // txtOsia
+            // txtOSIA
             // 
-            this.txtOsia.Location = new System.Drawing.Point(114, 17);
-            this.txtOsia.Name = "txtOsia";
-            this.txtOsia.Size = new System.Drawing.Size(100, 20);
-            this.txtOsia.TabIndex = 1;
+            this.txtOSIA.Location = new System.Drawing.Point(114, 17);
+            this.txtOSIA.Name = "txtOSIA";
+            this.txtOSIA.Size = new System.Drawing.Size(100, 20);
+            this.txtOSIA.TabIndex = 1;
             // 
             // lblOsia
             // 
@@ -186,9 +186,9 @@
         protected System.Windows.Forms.Label lblPrenom;
         protected System.Windows.Forms.TextBox txtNom;
         protected System.Windows.Forms.Label lblNom;
-        protected System.Windows.Forms.TextBox txtCP;
+        protected System.Windows.Forms.TextBox txtCodePostal;
         protected System.Windows.Forms.Label lblCP;
-        protected System.Windows.Forms.TextBox txtOsia;
+        protected System.Windows.Forms.TextBox txtOSIA;
         protected System.Windows.Forms.Label lblOsia;
     }
 }

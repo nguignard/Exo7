@@ -20,10 +20,10 @@ namespace Exo6
         private double pointsNotes;
 
         public int NumOsia { get { return numOsia; } set { this.numOsia = value; } }
-        public string NomStagiaire { get { return this.nomStagiaire; } set { this.nomStagiaire = value.Trim().ToUpper(); } }
-        public string PrenomStagiaire { get { return this.prenomStagiaire; } set { this.prenomStagiaire = value.Trim().ToLower(); } }
+        public string Nom { get { return this.nomStagiaire; } set { this.nomStagiaire = value.Trim().ToUpper(); } }
+        public string Prenom { get { return this.prenomStagiaire; } set { this.prenomStagiaire = value.Trim().ToLower(); } }
         public string Rue { get { return this.rue; } set { this.rue = value; } }
-        public string VilleStagiaire { get { return this.villeStagiaire; } set { this.villeStagiaire = value.Trim().ToUpper(); } }
+        public string Ville { get { return this.villeStagiaire; } set { this.villeStagiaire = value.Trim().ToUpper(); } }
         public string CodePostal
         {
             get { return this.codePostalStagiaire; }

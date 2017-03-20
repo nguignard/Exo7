@@ -28,54 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grpDeplacement = new System.Windows.Forms.GroupBox();
-            this.btnPremier = new System.Windows.Forms.Button();
-            this.btnPrecedent = new System.Windows.Forms.Button();
-            this.btnSuivant = new System.Windows.Forms.Button();
+            this.grpDeplacer = new System.Windows.Forms.GroupBox();
+            this.lblNoStagiaire = new System.Windows.Forms.Label();
             this.btnDernier = new System.Windows.Forms.Button();
+            this.btnSuivant = new System.Windows.Forms.Button();
+            this.btnPrecedent = new System.Windows.Forms.Button();
+            this.btnPremier = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
-            this.lblPasDeStagiaire = new System.Windows.Forms.Label();
             this.grpStagiaire.SuspendLayout();
-            this.grpDeplacement.SuspendLayout();
+            this.grpDeplacer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lalblVillebel6
+            // grpDeplacer
             // 
-            this.lalblVillebel6.Size = new System.Drawing.Size(46, 13);
-            this.lalblVillebel6.Text = "labeVille";
+            this.grpDeplacer.Controls.Add(this.lblNoStagiaire);
+            this.grpDeplacer.Controls.Add(this.btnDernier);
+            this.grpDeplacer.Controls.Add(this.btnSuivant);
+            this.grpDeplacer.Controls.Add(this.btnPrecedent);
+            this.grpDeplacer.Controls.Add(this.btnPremier);
+            this.grpDeplacer.Location = new System.Drawing.Point(76, 204);
+            this.grpDeplacer.Name = "grpDeplacer";
+            this.grpDeplacer.Size = new System.Drawing.Size(339, 46);
+            this.grpDeplacer.TabIndex = 1;
+            this.grpDeplacer.TabStop = false;
+            this.grpDeplacer.Text = "Se Déplacer";
             // 
-            // grpDeplacement
+            // lblNoStagiaire
             // 
-            this.grpDeplacement.Controls.Add(this.lblPasDeStagiaire);
-            this.grpDeplacement.Controls.Add(this.btnDernier);
-            this.grpDeplacement.Controls.Add(this.btnSuivant);
-            this.grpDeplacement.Controls.Add(this.btnPrecedent);
-            this.grpDeplacement.Controls.Add(this.btnPremier);
-            this.grpDeplacement.Location = new System.Drawing.Point(76, 204);
-            this.grpDeplacement.Name = "grpDeplacement";
-            this.grpDeplacement.Size = new System.Drawing.Size(339, 46);
-            this.grpDeplacement.TabIndex = 1;
-            this.grpDeplacement.TabStop = false;
-            this.grpDeplacement.Text = "Se Déplacer";
+            this.lblNoStagiaire.AutoSize = true;
+            this.lblNoStagiaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoStagiaire.ForeColor = System.Drawing.Color.Red;
+            this.lblNoStagiaire.Location = new System.Drawing.Point(48, 22);
+            this.lblNoStagiaire.Name = "lblNoStagiaire";
+            this.lblNoStagiaire.Size = new System.Drawing.Size(226, 13);
+            this.lblNoStagiaire.TabIndex = 4;
+            this.lblNoStagiaire.Text = "Il n\'y a aucun stagiaire pour le moment";
             // 
-            // btnPremier
+            // btnDernier
             // 
-            this.btnPremier.Location = new System.Drawing.Point(8, 17);
-            this.btnPremier.Name = "btnPremier";
-            this.btnPremier.Size = new System.Drawing.Size(75, 23);
-            this.btnPremier.TabIndex = 0;
-            this.btnPremier.Text = "<< Pre&mier";
-            this.btnPremier.UseVisualStyleBackColor = true;
-            // 
-            // btnPrecedent
-            // 
-            this.btnPrecedent.Location = new System.Drawing.Point(92, 17);
-            this.btnPrecedent.Name = "btnPrecedent";
-            this.btnPrecedent.Size = new System.Drawing.Size(75, 23);
-            this.btnPrecedent.TabIndex = 1;
-            this.btnPrecedent.Text = "< &Precedent";
-            this.btnPrecedent.UseVisualStyleBackColor = true;
+            this.btnDernier.Location = new System.Drawing.Point(254, 17);
+            this.btnDernier.Name = "btnDernier";
+            this.btnDernier.Size = new System.Drawing.Size(75, 23);
+            this.btnDernier.TabIndex = 3;
+            this.btnDernier.Text = ">> &Dernier";
+            this.btnDernier.UseVisualStyleBackColor = true;
             // 
             // btnSuivant
             // 
@@ -86,14 +83,23 @@
             this.btnSuivant.Text = "> &Suivant";
             this.btnSuivant.UseVisualStyleBackColor = true;
             // 
-            // btnDernier
+            // btnPrecedent
             // 
-            this.btnDernier.Location = new System.Drawing.Point(254, 17);
-            this.btnDernier.Name = "btnDernier";
-            this.btnDernier.Size = new System.Drawing.Size(75, 23);
-            this.btnDernier.TabIndex = 3;
-            this.btnDernier.Text = ">> &Dernier";
-            this.btnDernier.UseVisualStyleBackColor = true;
+            this.btnPrecedent.Location = new System.Drawing.Point(92, 17);
+            this.btnPrecedent.Name = "btnPrecedent";
+            this.btnPrecedent.Size = new System.Drawing.Size(75, 23);
+            this.btnPrecedent.TabIndex = 1;
+            this.btnPrecedent.Text = "< &Precedent";
+            this.btnPrecedent.UseVisualStyleBackColor = true;
+            // 
+            // btnPremier
+            // 
+            this.btnPremier.Location = new System.Drawing.Point(8, 17);
+            this.btnPremier.Name = "btnPremier";
+            this.btnPremier.Size = new System.Drawing.Size(75, 23);
+            this.btnPremier.TabIndex = 0;
+            this.btnPremier.Text = "<< Pre&mier";
+            this.btnPremier.UseVisualStyleBackColor = true;
             // 
             // btnAjouter
             // 
@@ -113,47 +119,36 @@
             this.btnQuitter.Text = "&Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
             // 
-            // lblPasDeStagiaire
-            // 
-            this.lblPasDeStagiaire.AutoSize = true;
-            this.lblPasDeStagiaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPasDeStagiaire.ForeColor = System.Drawing.Color.Red;
-            this.lblPasDeStagiaire.Location = new System.Drawing.Point(48, 22);
-            this.lblPasDeStagiaire.Name = "lblPasDeStagiaire";
-            this.lblPasDeStagiaire.Size = new System.Drawing.Size(226, 13);
-            this.lblPasDeStagiaire.TabIndex = 4;
-            this.lblPasDeStagiaire.Text = "Il n\'y a aucun stagiaire pour le moment";
-            // 
             // frmLireStagiaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(427, 291);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.grpDeplacement);
+            this.Controls.Add(this.grpDeplacer);
             this.Name = "frmLireStagiaire";
             this.Text = "Affiche un Stagiaire";
             this.Controls.SetChildIndex(this.grpStagiaire, 0);
-            this.Controls.SetChildIndex(this.grpDeplacement, 0);
+            this.Controls.SetChildIndex(this.grpDeplacer, 0);
             this.Controls.SetChildIndex(this.btnAjouter, 0);
             this.Controls.SetChildIndex(this.btnQuitter, 0);
             this.grpStagiaire.ResumeLayout(false);
             this.grpStagiaire.PerformLayout();
-            this.grpDeplacement.ResumeLayout(false);
-            this.grpDeplacement.PerformLayout();
+            this.grpDeplacer.ResumeLayout(false);
+            this.grpDeplacer.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpDeplacement;
+        private System.Windows.Forms.GroupBox grpDeplacer;
         private System.Windows.Forms.Button btnDernier;
         private System.Windows.Forms.Button btnSuivant;
         private System.Windows.Forms.Button btnPrecedent;
         private System.Windows.Forms.Button btnPremier;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnQuitter;
-        private System.Windows.Forms.Label lblPasDeStagiaire;
+        private System.Windows.Forms.Label lblNoStagiaire;
     }
 }

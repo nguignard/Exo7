@@ -15,10 +15,12 @@ namespace Exo6
         static void Main()
         {
             // au lancement de l'application, initialiser le nombre de stagiaires             
-            MStagiaire.Nstag = 0; 
-            Application.EnableVisualStyles();
+            MStagiaire.Nstag = 0;
 
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //On modifie le form de demarage sachant que par defaut c'est en plus un abstract
             Application.Run(new frmLireStagiaire());
         }
     }
