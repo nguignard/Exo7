@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Donnees.cs" />
+    <Compile Include="frmAjoutStagiaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjoutStagiaire.Designer.cs">
+      <DependentUpon>frmAjoutStagiaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLireStagiaire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="MStagiaire.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAjoutStagiaire.resx">
+      <DependentUpon>frmAjoutStagiaire.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLireStagiaire.resx">
       <DependentUpon>frmLireStagiaire.cs</DependentUpon>
     </EmbeddedResource>

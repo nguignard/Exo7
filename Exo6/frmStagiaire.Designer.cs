@@ -72,7 +72,7 @@
             this.txtVille.Size = new System.Drawing.Size(278, 20);
             this.txtVille.TabIndex = 5;
             // 
-            // lalblVillebel6
+            // lalblVillebe
             // 
             this.lalblVillebel6.AutoSize = true;
             this.lalblVillebel6.Location = new System.Drawing.Point(7, 124);

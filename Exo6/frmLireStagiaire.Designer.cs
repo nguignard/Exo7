@@ -118,7 +118,7 @@
             this.lblPasDeStagiaire.AutoSize = true;
             this.lblPasDeStagiaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPasDeStagiaire.ForeColor = System.Drawing.Color.Red;
-            this.lblPasDeStagiaire.Location = new System.Drawing.Point(22, 22);
+            this.lblPasDeStagiaire.Location = new System.Drawing.Point(48, 22);
             this.lblPasDeStagiaire.Name = "lblPasDeStagiaire";
             this.lblPasDeStagiaire.Size = new System.Drawing.Size(226, 13);
             this.lblPasDeStagiaire.TabIndex = 4;
@@ -132,6 +132,7 @@
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.grpDeplacement);
             this.Name = "frmLireStagiaire";
+            this.Text = "Affiche un Stagiaire";
             this.Controls.SetChildIndex(this.grpStagiaire, 0);
             this.Controls.SetChildIndex(this.grpDeplacement, 0);
             this.Controls.SetChildIndex(this.btnAjouter, 0);
