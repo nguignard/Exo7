@@ -69,8 +69,7 @@ namespace Exo7
             //On ouvre le stagiaire correspondant au double click
             int iStag; // rang du stagiaire dans le tableau
             iStag = this.dataGridView1.CurrentRow.Index; // n° de stagiaire = n° de la ligne
-
-       
+                  
         }
     }
 }
