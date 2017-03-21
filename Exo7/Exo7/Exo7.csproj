@@ -75,6 +75,9 @@
     <EmbeddedResource Include="frmAjoutStagiaire.resx">
       <DependentUpon>frmAjoutStagiaire.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmExo7.resx">
+      <DependentUpon>frmExo7.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStagiaire.resx">
       <DependentUpon>frmStagiaire.cs</DependentUpon>
     </EmbeddedResource>
