@@ -47,6 +47,7 @@
             this.btnSupprimer.TabIndex = 1;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnValider
             // 
@@ -56,15 +57,18 @@
             this.btnValider.TabIndex = 2;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // btnAnnuler
             // 
+            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(259, 204);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 3;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnFermer
             // 
@@ -74,6 +78,7 @@
             this.btnFermer.TabIndex = 4;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // frmVisuStagiaire
             // 
@@ -87,6 +92,7 @@
             this.Controls.Add(this.btnSupprimer);
             this.Name = "frmVisuStagiaire";
             this.Text = "visu et modif Stagiaire";
+            this.Load += new System.EventHandler(this.frmVisuStagiaire_Load);
             this.Controls.SetChildIndex(this.grpStagiaire, 0);
             this.Controls.SetChildIndex(this.btnSupprimer, 0);
             this.Controls.SetChildIndex(this.btnValider, 0);

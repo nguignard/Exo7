@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdStagiaire = new System.Windows.Forms.DataGridView();
             this.lblNomRecherche = new System.Windows.Forms.Label();
             this.txtRecherche = new System.Windows.Forms.TextBox();
             this.btnRechercher = new System.Windows.Forms.Button();
@@ -36,17 +36,18 @@
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdStagiaire)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // grdStagiaire
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(634, 253);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            this.grdStagiaire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdStagiaire.Location = new System.Drawing.Point(26, 53);
+            this.grdStagiaire.Name = "grdStagiaire";
+            this.grdStagiaire.Size = new System.Drawing.Size(634, 253);
+            this.grdStagiaire.TabIndex = 0;
+            this.grdStagiaire.Click += new System.EventHandler(this.grdStagiaire_Click);
+            this.grdStagiaire.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // lblNomRecherche
             // 
@@ -72,6 +73,7 @@
             this.btnRechercher.TabIndex = 3;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // btnTous
             // 
@@ -81,15 +83,18 @@
             this.btnTous.TabIndex = 4;
             this.btnTous.Text = "Tous";
             this.btnTous.UseVisualStyleBackColor = true;
+            this.btnTous.Click += new System.EventHandler(this.btnTous_Click);
             // 
             // btnSupprimer
             // 
+            this.btnSupprimer.Enabled = false;
             this.btnSupprimer.Location = new System.Drawing.Point(423, 336);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 5;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnAjouter
             // 
@@ -110,6 +115,7 @@
             this.btnQuitter.TabIndex = 7;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // frmExo7
             // 
@@ -125,10 +131,10 @@
             this.Controls.Add(this.btnRechercher);
             this.Controls.Add(this.txtRecherche);
             this.Controls.Add(this.lblNomRecherche);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdStagiaire);
             this.Name = "frmExo7";
             this.Text = "frmExo7";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdStagiaire)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +142,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdStagiaire;
         private System.Windows.Forms.Label lblNomRecherche;
         private System.Windows.Forms.TextBox txtRecherche;
         private System.Windows.Forms.Button btnRechercher;

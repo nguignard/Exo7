@@ -19,13 +19,6 @@ namespace Exo7
         }
 
 
-
-
-
-
-
-
-
         private void afficheStagiaire()
         {
             DataTable dt = new DataTable();
@@ -47,8 +40,11 @@ namespace Exo7
                 dt.Rows.Add(dr); // ajjout d'unne nouvelle ligne, Rows est une collection
             }
 
-            this.dataGridView1.DataSource = dt; // on affecte la source de la datagrid est dt
-            this.dataGridView1.Refresh();
+            
+
+
+            this.grdStagiaire.DataSource = dt.DefaultView; // on affecte la source de la datagrid est dt
+            this.grdStagiaire.Refresh();
             dt = null;
             dr = null;
 
@@ -65,11 +61,51 @@ namespace Exo7
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-
             //On ouvre le stagiaire correspondant au double click
             int iStag; // rang du stagiaire dans le tableau
-            iStag = this.dataGridView1.CurrentRow.Index; // n° de stagiaire = n° de la ligne
-                  
+            iStag = this.grdStagiaire.CurrentRow.Index; // n° de stagiaire = n° de la ligne
+
+            MStagiaire leStagiaire = Donnees.ArrayStag[iStag];
+            frmVisuStagiaire frmVisu = new frmVisuStagiaire(leStagiaire);
+            frmVisu.ShowDialog();
+            this.afficheStagiaire();
+        }
+
+
+
+
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            int iStag = this.grdStagiaire.CurrentRow.Index; // n° de stagiaire = n° de la ligne
+            Donnees.ArrayStag.RemoveAt(iStag);
+            this.afficheStagiaire();
+        }
+
+        private void grdStagiaire_Click(object sender, EventArgs e)
+        {
+            this.btnSupprimer.Enabled = true;
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            if (this.txtRecherche.Text != null)
+            {
+                ((DataView)(this.grdStagiaire.DataSource)).RowFilter = "Nom like'%" + this.txtRecherche.Text + "%'";
+            }
+        }
+
+        private void btnTous_Click(object sender, EventArgs e)
+        {
+            this.txtRecherche.Text = null;
+            ((DataView)(this.grdStagiaire.DataSource)).RowFilter = null;
         }
     }
 }

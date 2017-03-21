@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exo7;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,6 @@ namespace Exo6
 
         private void btnOK_Click(object sender, EventArgs e)
         { //Creer un stagiaire
-
             if (this.controle())
             {
                 if (this.instancie())
@@ -26,65 +26,22 @@ namespace Exo6
                     this.DialogResult = DialogResult.OK;
                 }
             }
-
         }
-
-
-
-
-
-
-
-
-
-
 
 
         private bool controle()
         {
             bool code = true;
-
-            if (!estEntier(this.txtOSIA.Text))
+            
+            if (!Outils.EstEntier(this.txtOSIA.Text))
             {
                 code = false;
                 MessageBox.Show("le n°Osia saisie est incorrecte", "Erreur", MessageBoxButtons.OK);
             }
-            if (!estEntier(this.txtCodePostal.Text))
+            if (!Outils.EstEntier(this.txtCodePostal.Text))
             {
                 code = false;
                 MessageBox.Show("le code Postal saisie est incorrecte", "Erreur", MessageBoxButtons.OK);
-            }
-            return code;
-        }
-
-
-
-        /// <summary>
-        /// Controle si une string est un int32
-        /// </summary>
-        /// <param name="s">string à controler</param>
-        /// <returns></returns>
-        private Boolean estEntier(String s)
-        {
-            // on verifie:
-            // - uniquementdes chiffres
-            // - pas vide
-            // - <9 chiffres : capa max des int32
-            bool code = true;
-
-            if (s.Length < 10 && s.Length > 0)
-            {
-                foreach (char c in s)
-                {
-                    if (!char.IsDigit(c))
-                    {
-                        code = false;
-                    }
-                }
-            }
-            else
-            {
-                code = false;
             }
             return code;
         }

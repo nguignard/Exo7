@@ -75,6 +75,7 @@
       <DependentUpon>frmVisuStagiaire.cs</DependentUpon>
     </Compile>
     <Compile Include="MStagiaire.cs" />
+    <Compile Include="Outils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAjoutStagiaire.resx">
