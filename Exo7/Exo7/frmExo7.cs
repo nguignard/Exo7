@@ -62,5 +62,15 @@ namespace Exo7
 
             if (frmAjout.ShowDialog() == DialogResult.OK) afficheStagiaire(); //si on sort des controles de frmAjout positivement on affiche la table
         }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+
+            //On ouvre le stagiaire correspondant au double click
+            int iStag; // rang du stagiaire dans le tableau
+            iStag = this.dataGridView1.CurrentRow.Index; // n° de stagiaire = n° de la ligne
+
+       
+        }
     }
 }

@@ -62,7 +62,6 @@
     <Compile Include="frmExo7.Designer.cs">
       <DependentUpon>frmExo7.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLireStagiaire.Designer.cs" />
     <Compile Include="frmStagiaire.cs">
       <SubType>Form</SubType>
     </Compile>
