@@ -56,7 +56,7 @@ namespace Exo6
                 }
                 else // il n'y a pas 5 caractères        
                 {                 // première solution par simple messagebox           
-                    System.Windows.Forms.MessageBox.Show(value.ToString() + "\n" + "n'est pas un code postal valide : 5 chiffres, pas plus, pas moins", "Erreur Classe MStagiaire", System.Windows.Forms.MessageBoxButtons.OK);
+                    throw new Exception(value.ToString() + "\n" + "n'est pas un code postal valide : 5 chiffres, pas plus, pas moins");
                 }
             }
         }

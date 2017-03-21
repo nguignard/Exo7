@@ -70,11 +70,6 @@ namespace Exo6
         }
 
 
-      
-
-
-
-
         //GESTION DES FLECHES
         private void btnPremier_Click(object sender, EventArgs e)
         {
@@ -85,7 +80,7 @@ namespace Exo6
 
         private void btnDernier_Click(object sender, EventArgs e)
         {
-            this.iStag = Donnees.ArrayStag.Count-1;
+            this.iStag = Donnees.ArrayStag.Count - 1;
             afficheBoutons();
             afficheUnStagiaire(this.iStag);
         }
@@ -107,7 +102,6 @@ namespace Exo6
 
         private void afficheBoutons()
         {
-
             // on rétablit d’abord tous les boutons           
             this.btnPremier.Enabled = true;
             this.btnPrecedent.Enabled = true;
@@ -130,7 +124,7 @@ namespace Exo6
 
         }
 
-       
+
     }
 
 
