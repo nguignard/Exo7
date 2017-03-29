@@ -81,7 +81,7 @@
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(397, 299);
+            this.btnValider.Location = new System.Drawing.Point(376, 299);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
             this.btnValider.TabIndex = 2;
@@ -90,7 +90,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(316, 301);
+            this.btnAnnuler.Location = new System.Drawing.Point(295, 299);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 3;
@@ -316,14 +316,14 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(235, 299);
+            this.btnAjouter.Location = new System.Drawing.Point(214, 299);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnAjouter.TabIndex = 24;
             this.btnAjouter.Text = "&Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
             // 
-            // frmNewUpdClt
+            // frmClt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -352,7 +352,7 @@
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnSupprimer);
-            this.Name = "frmNewUpdClt";
+            this.Name = "frmClt";
             this.Text = "Fiche Client ABI";
             this.grpTypeClient.ResumeLayout(false);
             this.grpTypeClient.PerformLayout();

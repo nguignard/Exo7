@@ -16,7 +16,5 @@ namespace AbiCommercialDesign
         {
             InitializeComponent();
         }
-
-      
     }
 }

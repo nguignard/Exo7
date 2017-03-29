@@ -88,7 +88,7 @@
             // 
             // btnCltDsAjouter
             // 
-            this.btnCltDsAjouter.Location = new System.Drawing.Point(273, 336);
+            this.btnCltDsAjouter.Location = new System.Drawing.Point(174, 336);
             this.btnCltDsAjouter.Name = "btnCltDsAjouter";
             this.btnCltDsAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnCltDsAjouter.TabIndex = 5;
@@ -115,7 +115,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(355, 336);
+            this.btnModifier.Location = new System.Drawing.Point(255, 336);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 23);
             this.btnModifier.TabIndex = 8;

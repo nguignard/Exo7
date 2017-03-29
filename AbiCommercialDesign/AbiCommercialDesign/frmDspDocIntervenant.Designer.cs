@@ -35,10 +35,9 @@
             this.txtProjet = new System.Windows.Forms.TextBox();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.txtClient = new System.Windows.Forms.TextBox();
             this.lblClient = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -107,14 +106,14 @@
             this.reportViewer1.Size = new System.Drawing.Size(525, 388);
             this.reportViewer1.TabIndex = 6;
             // 
-            // button1
+            // btnExit
             // 
-            this.button1.Location = new System.Drawing.Point(298, 489);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(462, 489);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 7;
+            this.btnExit.Text = "Quiiter";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
             // txtClient
             // 
@@ -140,7 +139,7 @@
             this.ClientSize = new System.Drawing.Size(549, 524);
             this.Controls.Add(this.txtClient);
             this.Controls.Add(this.lblClient);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.lblDate);
@@ -164,10 +163,9 @@
         private System.Windows.Forms.TextBox txtProjet;
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ImageList imageList1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtClient;
         private System.Windows.Forms.Label lblClient;
     }
