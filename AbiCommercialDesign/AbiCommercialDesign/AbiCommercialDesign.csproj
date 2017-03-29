@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContacts.Designer.cs">
+      <DependentUpon>frmContacts.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDocContact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmContacts.resx">
+      <DependentUpon>frmContacts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDocContact.resx">
       <DependentUpon>frmDocContact.cs</DependentUpon>
     </EmbeddedResource>

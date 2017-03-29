@@ -317,6 +317,7 @@
             this.commercialToolStripMenuItem.Name = "commercialToolStripMenuItem";
             this.commercialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.commercialToolStripMenuItem.Text = "Commercial";
+            this.commercialToolStripMenuItem.Click += new System.EventHandler(this.commercialToolStripMenuItem_Click);
             // 
             // projetToolStripMenuItem
             // 

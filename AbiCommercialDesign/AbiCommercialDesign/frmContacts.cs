@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AbiCommercialDesign
 {
-    public partial class frmClt : Form
+    public partial class frmContacts : Form
     {
-        public frmClt()
+        public frmContacts()
         {
             InitializeComponent();
         }

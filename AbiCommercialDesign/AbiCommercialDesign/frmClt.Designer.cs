@@ -57,13 +57,14 @@
             this.txtCommentaires = new System.Windows.Forms.TextBox();
             this.btnContacts = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
             this.grpTypeClient.SuspendLayout();
             this.grpNature.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(478, 299);
+            this.btnSupprimer.Location = new System.Drawing.Point(498, 299);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 0;
@@ -72,7 +73,7 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(559, 299);
+            this.btnFermer.Location = new System.Drawing.Point(579, 299);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(75, 23);
             this.btnFermer.TabIndex = 1;
@@ -81,7 +82,7 @@
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(376, 299);
+            this.btnValider.Location = new System.Drawing.Point(406, 299);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
             this.btnValider.TabIndex = 2;
@@ -90,7 +91,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(295, 299);
+            this.btnAnnuler.Location = new System.Drawing.Point(322, 299);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 3;
@@ -302,7 +303,7 @@
             this.txtCommentaires.Location = new System.Drawing.Point(160, 207);
             this.txtCommentaires.Multiline = true;
             this.txtCommentaires.Name = "txtCommentaires";
-            this.txtCommentaires.Size = new System.Drawing.Size(472, 86);
+            this.txtCommentaires.Size = new System.Drawing.Size(494, 86);
             this.txtCommentaires.TabIndex = 8;
             // 
             // btnContacts
@@ -316,18 +317,28 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(214, 299);
+            this.btnAjouter.Location = new System.Drawing.Point(160, 299);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnAjouter.TabIndex = 24;
-            this.btnAjouter.Text = "&Ajouter";
+            this.btnAjouter.Text = "&Nouveau";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.Location = new System.Drawing.Point(241, 299);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(75, 23);
+            this.btnModifier.TabIndex = 25;
+            this.btnModifier.Text = "&Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
             // 
             // frmClt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 336);
+            this.ClientSize = new System.Drawing.Size(666, 336);
+            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.btnContacts);
             this.Controls.Add(this.txtCommentaires);
@@ -394,5 +405,6 @@
         private System.Windows.Forms.TextBox txtCommentaires;
         private System.Windows.Forms.Button btnContacts;
         private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Button btnModifier;
     }
 }

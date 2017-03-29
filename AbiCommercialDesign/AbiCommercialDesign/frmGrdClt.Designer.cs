@@ -36,14 +36,14 @@
             this.btnCltDsAjouter = new System.Windows.Forms.Button();
             this.btnCltDspSupprimer = new System.Windows.Forms.Button();
             this.btnCltDspQuitter = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
+            this.btnVisualiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdCltDsp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCltDspNomRecherche
             // 
             this.lblCltDspNomRecherche.AutoSize = true;
-            this.lblCltDspNomRecherche.Location = new System.Drawing.Point(13, 13);
+            this.lblCltDspNomRecherche.Location = new System.Drawing.Point(10, 13);
             this.lblCltDspNomRecherche.Name = "lblCltDspNomRecherche";
             this.lblCltDspNomRecherche.Size = new System.Drawing.Size(94, 13);
             this.lblCltDspNomRecherche.TabIndex = 0;
@@ -88,7 +88,7 @@
             // 
             // btnCltDsAjouter
             // 
-            this.btnCltDsAjouter.Location = new System.Drawing.Point(174, 336);
+            this.btnCltDsAjouter.Location = new System.Drawing.Point(144, 336);
             this.btnCltDsAjouter.Name = "btnCltDsAjouter";
             this.btnCltDsAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnCltDsAjouter.TabIndex = 5;
@@ -97,7 +97,7 @@
             // 
             // btnCltDspSupprimer
             // 
-            this.btnCltDspSupprimer.Location = new System.Drawing.Point(450, 336);
+            this.btnCltDspSupprimer.Location = new System.Drawing.Point(336, 336);
             this.btnCltDspSupprimer.Name = "btnCltDspSupprimer";
             this.btnCltDspSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnCltDspSupprimer.TabIndex = 6;
@@ -113,21 +113,21 @@
             this.btnCltDspQuitter.Text = "&Quitter";
             this.btnCltDspQuitter.UseVisualStyleBackColor = true;
             // 
-            // btnModifier
+            // btnVisualiser
             // 
-            this.btnModifier.Location = new System.Drawing.Point(255, 336);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(75, 23);
-            this.btnModifier.TabIndex = 8;
-            this.btnModifier.Text = "&Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnVisualiser.Location = new System.Drawing.Point(225, 336);
+            this.btnVisualiser.Name = "btnVisualiser";
+            this.btnVisualiser.Size = new System.Drawing.Size(105, 23);
+            this.btnVisualiser.TabIndex = 8;
+            this.btnVisualiser.Text = "&Visualiser";
+            this.btnVisualiser.UseVisualStyleBackColor = true;
             // 
             // frmGrdClt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 371);
-            this.Controls.Add(this.btnModifier);
+            this.Controls.Add(this.btnVisualiser);
             this.Controls.Add(this.btnCltDspQuitter);
             this.Controls.Add(this.btnCltDspSupprimer);
             this.Controls.Add(this.btnCltDsAjouter);
@@ -155,6 +155,6 @@
         private System.Windows.Forms.Button btnCltDsAjouter;
         private System.Windows.Forms.Button btnCltDspSupprimer;
         private System.Windows.Forms.Button btnCltDspQuitter;
-        private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.Button btnVisualiser;
     }
 }
