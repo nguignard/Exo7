@@ -94,6 +94,7 @@
             this.btnCltDsAjouter.TabIndex = 5;
             this.btnCltDsAjouter.Text = "&Ajouter";
             this.btnCltDsAjouter.UseVisualStyleBackColor = true;
+            this.btnCltDsAjouter.Click += new System.EventHandler(this.btnCltDsAjouter_Click);
             // 
             // btnCltDspSupprimer
             // 
