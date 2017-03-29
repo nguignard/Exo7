@@ -57,7 +57,7 @@
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnDocuments);
             this.Name = "frmGrdContact";
-            this.Text = "Liste des Contacts Societe";
+            this.Text = "ABI - LISTE CONTACT CLIENT";
             this.Controls.SetChildIndex(this.btnDocuments, 0);
             this.Controls.SetChildIndex(this.btnValider, 0);
             this.ResumeLayout(false);

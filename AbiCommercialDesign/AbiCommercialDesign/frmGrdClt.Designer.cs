@@ -137,8 +137,8 @@
             this.Controls.Add(this.txtCltDspNomRecherche);
             this.Controls.Add(this.lblCltDspNomRecherche);
             this.Name = "frmGrdClt";
-            this.Text = "                                                                                 " +
-    "                                                           ";
+            this.Text = "ABI - LISTE CLIENT                                                               " +
+    "                                                                     ";
             ((System.ComponentModel.ISupportInitialize)(this.grdCltDsp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

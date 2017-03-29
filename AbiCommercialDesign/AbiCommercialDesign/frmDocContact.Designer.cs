@@ -57,7 +57,7 @@
             this.Controls.Add(this.btnVisu);
             this.Controls.Add(this.btnValider);
             this.Name = "frmDocContact";
-            this.Text = "Liste des Document de l\'intervenant";
+            this.Text = "ABI - LISTE DOCUMENT INTERVENANT";
             this.Controls.SetChildIndex(this.btnValider, 0);
             this.Controls.SetChildIndex(this.btnVisu, 0);
             this.ResumeLayout(false);

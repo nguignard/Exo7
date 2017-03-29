@@ -353,7 +353,7 @@
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnSupprimer);
             this.Name = "frmClt";
-            this.Text = "Fiche Client ABI";
+            this.Text = "ABI - fiche Client";
             this.grpTypeClient.ResumeLayout(false);
             this.grpTypeClient.PerformLayout();
             this.grpNature.ResumeLayout(false);

@@ -41,6 +41,7 @@
             this.aperçuavantimpressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.annulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rétablirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,9 @@
             this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commercialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,6 +167,16 @@
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
+            // 
+            // menusToolStripMenuItem
+            // 
+            this.menusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.commercialToolStripMenuItem,
+            this.projetToolStripMenuItem,
+            this.rHToolStripMenuItem});
+            this.menusToolStripMenuItem.Name = "menusToolStripMenuItem";
+            this.menusToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.menusToolStripMenuItem.Text = "Menus";
             // 
             // editionToolStripMenuItem
             // 
@@ -299,11 +312,23 @@
             this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.àproposdeToolStripMenuItem.Text = "À &propos de...";
             // 
-            // menusToolStripMenuItem
+            // commercialToolStripMenuItem
             // 
-            this.menusToolStripMenuItem.Name = "menusToolStripMenuItem";
-            this.menusToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.menusToolStripMenuItem.Text = "Menus";
+            this.commercialToolStripMenuItem.Name = "commercialToolStripMenuItem";
+            this.commercialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.commercialToolStripMenuItem.Text = "Commercial";
+            // 
+            // projetToolStripMenuItem
+            // 
+            this.projetToolStripMenuItem.Name = "projetToolStripMenuItem";
+            this.projetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.projetToolStripMenuItem.Text = "Projet";
+            // 
+            // rHToolStripMenuItem
+            // 
+            this.rHToolStripMenuItem.Name = "rHToolStripMenuItem";
+            this.rHToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rHToolStripMenuItem.Text = "RH";
             // 
             // FrmMDI
             // 
@@ -314,7 +339,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMDI";
-            this.Text = "GESTION ABI";
+            this.Text = "ABI - GESTION";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -355,6 +380,9 @@
         private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem àproposdeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem commercialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rHToolStripMenuItem;
     }
 }
 
