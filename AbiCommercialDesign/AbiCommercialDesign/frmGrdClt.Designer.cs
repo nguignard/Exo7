@@ -1,0 +1,160 @@
+﻿namespace AbiCommercialDesign
+{
+    partial class frmGrdClt
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.lblCltDspNomRecherche = new System.Windows.Forms.Label();
+            this.txtCltDspNomRecherche = new System.Windows.Forms.TextBox();
+            this.btnCltDspTous = new System.Windows.Forms.Button();
+            this.btnCltDspRechercher = new System.Windows.Forms.Button();
+            this.grdCltDsp = new System.Windows.Forms.DataGridView();
+            this.btnCltDsAjouter = new System.Windows.Forms.Button();
+            this.btnCltDspSupprimer = new System.Windows.Forms.Button();
+            this.btnCltDspQuitter = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCltDsp)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lblCltDspNomRecherche
+            // 
+            this.lblCltDspNomRecherche.AutoSize = true;
+            this.lblCltDspNomRecherche.Location = new System.Drawing.Point(13, 13);
+            this.lblCltDspNomRecherche.Name = "lblCltDspNomRecherche";
+            this.lblCltDspNomRecherche.Size = new System.Drawing.Size(94, 13);
+            this.lblCltDspNomRecherche.TabIndex = 0;
+            this.lblCltDspNomRecherche.Text = "&Nom Recherché : ";
+            // 
+            // txtCltDspNomRecherche
+            // 
+            this.txtCltDspNomRecherche.Location = new System.Drawing.Point(113, 10);
+            this.txtCltDspNomRecherche.Name = "txtCltDspNomRecherche";
+            this.txtCltDspNomRecherche.Size = new System.Drawing.Size(317, 20);
+            this.txtCltDspNomRecherche.TabIndex = 1;
+            // 
+            // btnCltDspTous
+            // 
+            this.btnCltDspTous.Location = new System.Drawing.Point(531, 8);
+            this.btnCltDspTous.Name = "btnCltDspTous";
+            this.btnCltDspTous.Size = new System.Drawing.Size(75, 23);
+            this.btnCltDspTous.TabIndex = 2;
+            this.btnCltDspTous.Text = "&Tous";
+            this.btnCltDspTous.UseVisualStyleBackColor = true;
+            // 
+            // btnCltDspRechercher
+            // 
+            this.btnCltDspRechercher.Location = new System.Drawing.Point(450, 8);
+            this.btnCltDspRechercher.Name = "btnCltDspRechercher";
+            this.btnCltDspRechercher.Size = new System.Drawing.Size(75, 23);
+            this.btnCltDspRechercher.TabIndex = 3;
+            this.btnCltDspRechercher.Text = "&Rechercher";
+            this.btnCltDspRechercher.UseVisualStyleBackColor = true;
+            // 
+            // grdCltDsp
+            // 
+            this.grdCltDsp.AllowUserToOrderColumns = true;
+            this.grdCltDsp.AllowUserToResizeColumns = false;
+            this.grdCltDsp.AllowUserToResizeRows = false;
+            this.grdCltDsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCltDsp.Location = new System.Drawing.Point(13, 51);
+            this.grdCltDsp.MultiSelect = false;
+            this.grdCltDsp.Name = "grdCltDsp";
+            this.grdCltDsp.Size = new System.Drawing.Size(593, 268);
+            this.grdCltDsp.TabIndex = 4;
+            // 
+            // btnCltDsAjouter
+            // 
+            this.btnCltDsAjouter.Location = new System.Drawing.Point(273, 336);
+            this.btnCltDsAjouter.Name = "btnCltDsAjouter";
+            this.btnCltDsAjouter.Size = new System.Drawing.Size(75, 23);
+            this.btnCltDsAjouter.TabIndex = 5;
+            this.btnCltDsAjouter.Text = "&Ajouter";
+            this.btnCltDsAjouter.UseVisualStyleBackColor = true;
+            // 
+            // btnCltDspSupprimer
+            // 
+            this.btnCltDspSupprimer.Location = new System.Drawing.Point(450, 336);
+            this.btnCltDspSupprimer.Name = "btnCltDspSupprimer";
+            this.btnCltDspSupprimer.Size = new System.Drawing.Size(75, 23);
+            this.btnCltDspSupprimer.TabIndex = 6;
+            this.btnCltDspSupprimer.Text = "&Supprimer";
+            this.btnCltDspSupprimer.UseVisualStyleBackColor = true;
+            // 
+            // btnCltDspQuitter
+            // 
+            this.btnCltDspQuitter.Location = new System.Drawing.Point(531, 336);
+            this.btnCltDspQuitter.Name = "btnCltDspQuitter";
+            this.btnCltDspQuitter.Size = new System.Drawing.Size(75, 23);
+            this.btnCltDspQuitter.TabIndex = 7;
+            this.btnCltDspQuitter.Text = "&Quitter";
+            this.btnCltDspQuitter.UseVisualStyleBackColor = true;
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.Location = new System.Drawing.Point(355, 336);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(75, 23);
+            this.btnModifier.TabIndex = 8;
+            this.btnModifier.Text = "&Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            // 
+            // frmGrdClt
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(618, 371);
+            this.Controls.Add(this.btnModifier);
+            this.Controls.Add(this.btnCltDspQuitter);
+            this.Controls.Add(this.btnCltDspSupprimer);
+            this.Controls.Add(this.btnCltDsAjouter);
+            this.Controls.Add(this.grdCltDsp);
+            this.Controls.Add(this.btnCltDspRechercher);
+            this.Controls.Add(this.btnCltDspTous);
+            this.Controls.Add(this.txtCltDspNomRecherche);
+            this.Controls.Add(this.lblCltDspNomRecherche);
+            this.Name = "frmGrdClt";
+            this.Text = "                                                                                 " +
+    "                                                           ";
+            ((System.ComponentModel.ISupportInitialize)(this.grdCltDsp)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label lblCltDspNomRecherche;
+        private System.Windows.Forms.TextBox txtCltDspNomRecherche;
+        private System.Windows.Forms.Button btnCltDspTous;
+        private System.Windows.Forms.Button btnCltDspRechercher;
+        private System.Windows.Forms.DataGridView grdCltDsp;
+        private System.Windows.Forms.Button btnCltDsAjouter;
+        private System.Windows.Forms.Button btnCltDspSupprimer;
+        private System.Windows.Forms.Button btnCltDspQuitter;
+        private System.Windows.Forms.Button btnModifier;
+    }
+}
