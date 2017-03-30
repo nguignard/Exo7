@@ -1,4 +1,4 @@
-﻿namespace AbiCommercialDesign
+﻿namespace Abi
 {
     partial class frmGrdClt
     {
@@ -33,7 +33,7 @@
             this.btnCltDspTous = new System.Windows.Forms.Button();
             this.btnCltDspRechercher = new System.Windows.Forms.Button();
             this.grdCltDsp = new System.Windows.Forms.DataGridView();
-            this.btnCltDsAjouter = new System.Windows.Forms.Button();
+            this.btnAjouter = new System.Windows.Forms.Button();
             this.btnCltDspSupprimer = new System.Windows.Forms.Button();
             this.btnCltDspQuitter = new System.Windows.Forms.Button();
             this.btnVisualiser = new System.Windows.Forms.Button();
@@ -86,15 +86,14 @@
             this.grdCltDsp.Size = new System.Drawing.Size(593, 268);
             this.grdCltDsp.TabIndex = 4;
             // 
-            // btnCltDsAjouter
+            // btnAjouter
             // 
-            this.btnCltDsAjouter.Location = new System.Drawing.Point(144, 336);
-            this.btnCltDsAjouter.Name = "btnCltDsAjouter";
-            this.btnCltDsAjouter.Size = new System.Drawing.Size(75, 23);
-            this.btnCltDsAjouter.TabIndex = 5;
-            this.btnCltDsAjouter.Text = "&Ajouter";
-            this.btnCltDsAjouter.UseVisualStyleBackColor = true;
-            this.btnCltDsAjouter.Click += new System.EventHandler(this.btnCltDsAjouter_Click);
+            this.btnAjouter.Location = new System.Drawing.Point(144, 336);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
+            this.btnAjouter.TabIndex = 5;
+            this.btnAjouter.Text = "&Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
             // 
             // btnCltDspSupprimer
             // 
@@ -131,7 +130,7 @@
             this.Controls.Add(this.btnVisualiser);
             this.Controls.Add(this.btnCltDspQuitter);
             this.Controls.Add(this.btnCltDspSupprimer);
-            this.Controls.Add(this.btnCltDsAjouter);
+            this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.grdCltDsp);
             this.Controls.Add(this.btnCltDspRechercher);
             this.Controls.Add(this.btnCltDspTous);
@@ -153,7 +152,7 @@
         private System.Windows.Forms.Button btnCltDspTous;
         private System.Windows.Forms.Button btnCltDspRechercher;
         private System.Windows.Forms.DataGridView grdCltDsp;
-        private System.Windows.Forms.Button btnCltDsAjouter;
+        private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnCltDspSupprimer;
         private System.Windows.Forms.Button btnCltDspQuitter;
         private System.Windows.Forms.Button btnVisualiser;

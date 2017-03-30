@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AbiCommercialDesign
+namespace Abi
 {
     public partial class FrmMDI : Form
     {
 
-        private frmGrdClt listeClient;
+        private frmGrdClt frmlisteClient;
 
         public FrmMDI()
         {
@@ -23,20 +23,20 @@ namespace AbiCommercialDesign
 
         private void commercialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.listeClient == null)
+            if (this.frmlisteClient == null)
             {
-                listeClient = new frmGrdClt();
-                listeClient.MdiParent = this;
-                this.listeClient.FormClosing += new FormClosingEventHandler(this.fermeFrmGrdClt);
-                listeClient.Show();
+                frmlisteClient = new frmGrdClt();
+                frmlisteClient.MdiParent = this;
+                this.frmlisteClient.FormClosing += new FormClosingEventHandler(this.fermeFrmGrdClt);
+                frmlisteClient.Show();
             }
             else
-                this.listeClient.Activate();
+                this.frmlisteClient.Activate();
         }
 
         private void fermeFrmGrdClt(object sender, FormClosingEventArgs e)
         {
-            this.listeClient = null;
+            this.frmlisteClient = null;
         }
 
 

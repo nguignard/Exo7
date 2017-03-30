@@ -1,4 +1,4 @@
-﻿namespace AbiCommercialDesign
+﻿namespace Abi
 {
     partial class FrmMDI
     {

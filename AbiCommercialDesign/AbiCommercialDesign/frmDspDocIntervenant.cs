@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AbiCommercialDesign
+namespace Abi
 {
     public partial class frmDspDocIntervenant : Form
     {

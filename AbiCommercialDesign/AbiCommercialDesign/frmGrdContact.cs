@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AbiCommercialDesign
+namespace Abi
 {
-    public partial class frmGrdContact : AbiCommercialDesign.frmGrdClt
+    public partial class frmGrdContact : Abi.frmGrdClt
     {
         public frmGrdContact()
         {

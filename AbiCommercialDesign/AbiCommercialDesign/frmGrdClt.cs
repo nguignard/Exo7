@@ -8,18 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AbiCommercialDesign
+namespace Abi
 {
     public partial class frmGrdClt : Form
     {
+        private frmGrdClt listeClient;
+
         public frmGrdClt()
+
         {
             InitializeComponent();
+            this.listeClient = new frmGrdClt();
+            this.listeClient.MdiParent = this.MdiParent;
+            this.listeClient.Show();
+
+
         }
 
-        private void btnCltDsAjouter_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
