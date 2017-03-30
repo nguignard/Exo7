@@ -69,7 +69,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(498, 351);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
-            this.btnSupprimer.TabIndex = 0;
+            this.btnSupprimer.TabIndex = 19;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             // 
@@ -78,7 +78,7 @@
             this.btnFermer.Location = new System.Drawing.Point(579, 351);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(75, 23);
-            this.btnFermer.TabIndex = 1;
+            this.btnFermer.TabIndex = 20;
             this.btnFermer.Text = "&Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
@@ -88,7 +88,7 @@
             this.btnValider.Location = new System.Drawing.Point(396, 351);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
-            this.btnValider.TabIndex = 2;
+            this.btnValider.TabIndex = 18;
             this.btnValider.Text = "&Valider";
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
@@ -99,7 +99,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(315, 351);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
-            this.btnAnnuler.TabIndex = 3;
+            this.btnAnnuler.TabIndex = 17;
             this.btnAnnuler.Text = "A&nnuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
@@ -183,7 +183,7 @@
             this.rdbTypeClientPrive.Location = new System.Drawing.Point(68, 19);
             this.rdbTypeClientPrive.Name = "rdbTypeClientPrive";
             this.rdbTypeClientPrive.Size = new System.Drawing.Size(49, 17);
-            this.rdbTypeClientPrive.TabIndex = 1;
+            this.rdbTypeClientPrive.TabIndex = 12;
             this.rdbTypeClientPrive.Text = "Privé";
             this.rdbTypeClientPrive.UseVisualStyleBackColor = true;
             // 
@@ -194,7 +194,7 @@
             this.rdbTypeClientPublic.Location = new System.Drawing.Point(8, 19);
             this.rdbTypeClientPublic.Name = "rdbTypeClientPublic";
             this.rdbTypeClientPublic.Size = new System.Drawing.Size(54, 17);
-            this.rdbTypeClientPublic.TabIndex = 0;
+            this.rdbTypeClientPublic.TabIndex = 11;
             this.rdbTypeClientPublic.TabStop = true;
             this.rdbTypeClientPublic.Text = "Public";
             this.rdbTypeClientPublic.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@
             this.grpNature.Location = new System.Drawing.Point(398, 73);
             this.grpNature.Name = "grpNature";
             this.grpNature.Size = new System.Drawing.Size(234, 43);
-            this.grpNature.TabIndex = 12;
+            this.grpNature.TabIndex = 15;
             this.grpNature.TabStop = false;
             this.grpNature.Text = "Nature du Client";
             // 
@@ -236,7 +236,7 @@
             this.rdbSecondaire.Location = new System.Drawing.Point(79, 19);
             this.rdbSecondaire.Name = "rdbSecondaire";
             this.rdbSecondaire.Size = new System.Drawing.Size(79, 17);
-            this.rdbSecondaire.TabIndex = 1;
+            this.rdbSecondaire.TabIndex = 14;
             this.rdbSecondaire.Text = "Secondaire";
             this.rdbSecondaire.UseVisualStyleBackColor = true;
             // 
@@ -247,7 +247,7 @@
             this.rdbPrincipal.Location = new System.Drawing.Point(8, 19);
             this.rdbPrincipal.Name = "rdbPrincipal";
             this.rdbPrincipal.Size = new System.Drawing.Size(65, 17);
-            this.rdbPrincipal.TabIndex = 0;
+            this.rdbPrincipal.TabIndex = 13;
             this.rdbPrincipal.TabStop = true;
             this.rdbPrincipal.Text = "Principal";
             this.rdbPrincipal.UseVisualStyleBackColor = true;
@@ -316,7 +316,7 @@
             this.btnContacts.Location = new System.Drawing.Point(10, 351);
             this.btnContacts.Name = "btnContacts";
             this.btnContacts.Size = new System.Drawing.Size(123, 23);
-            this.btnContacts.TabIndex = 23;
+            this.btnContacts.TabIndex = 16;
             this.btnContacts.Text = "&Contacts Clients";
             this.btnContacts.UseVisualStyleBackColor = true;
             // 

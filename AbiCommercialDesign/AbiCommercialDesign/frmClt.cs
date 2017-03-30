@@ -46,12 +46,13 @@ namespace Abi
                 nouveauClient.Nature = grpStringValue(grpNature);//grpStringValue renvoie le string lie au rdb Actif du grpBox
                 nouveauClient.TypeSociete = grpStringValue(grpTypeSociete);
                 //Test
-                string S = nouveauClient.Activite + "  " + nouveauClient.CP + "  " + nouveauClient.Nature + "  " + nouveauClient.TypeSociete;
-                MessageBox.Show(S);
-                //END TEST
+               
 
                 Donnees.ListeFicheClient.Add(nouveauClient);
-                this.Close();
+                string ssS = Donnees.ListeFicheClient[0].Activite + "  " + Donnees.ListeFicheClient[0].CP + "  " + Donnees.ListeFicheClient[0].Nature + "  " + Donnees.ListeFicheClient[0].TypeSociete;
+                MessageBox.Show(ssS);
+
+                this.DialogResult=DialogResult.OK;
 
             }
             catch (Exception ex)
@@ -103,13 +104,16 @@ namespace Abi
         private void controlesVisuels()
         {
             //Place tout les controles ON
+            this.btnAnnuler.Enabled = true;
+            this.btnContacts.Enabled = true;//??tant que pas de controle
+            this.btnFermer.Enabled = true;
+            this.btnSupprimer.Enabled = true;
+            this.btnValider.Enabled = true;//??? Faire un controle pour voir si un txtbox est rempli
 
 
-
-            //if (Donnees.ListeFicheClient.Count == 0)
-            //{
-
-            //}
+            //Verifie dans quel cas les disable
+            this.btnContacts.Enabled = false;//??tant que pas de controle
+            //if(Donnees.ListeFicheClient)
         }
 
         /// <summary>
@@ -123,6 +127,7 @@ namespace Abi
             this.DialogResult = DialogResult.OK; 
 
         }
+
     }
 
 

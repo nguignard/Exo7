@@ -24,16 +24,10 @@ namespace Abi
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             frmFicheClient = new frmClt();
-            // frmFicheClient.MdiParent = this.MdiParent;
+        
             if (frmFicheClient.ShowDialog() == DialogResult.OK)
             {
-
-
-
-
-
-
-
+                //?????afficheListe Client
             }
 
         }
