@@ -112,6 +112,7 @@
             this.btnCltDspQuitter.TabIndex = 7;
             this.btnCltDspQuitter.Text = "&Quitter";
             this.btnCltDspQuitter.UseVisualStyleBackColor = true;
+            this.btnCltDspQuitter.Click += new System.EventHandler(this.btnCltDspQuitter_Click);
             // 
             // frmGrdClt
             // 

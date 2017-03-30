@@ -39,32 +39,34 @@
             this.lblTéléphone = new System.Windows.Forms.Label();
             this.lblCA = new System.Windows.Forms.Label();
             this.lblEffectifs = new System.Windows.Forms.Label();
-            this.grpTypeClient = new System.Windows.Forms.GroupBox();
+            this.grpTypeSociete = new System.Windows.Forms.GroupBox();
             this.rdbTypeClientPrive = new System.Windows.Forms.RadioButton();
             this.rdbTypeClientPublic = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxActivite = new System.Windows.Forms.ComboBox();
             this.grpNature = new System.Windows.Forms.GroupBox();
             this.rdbAncienne = new System.Windows.Forms.RadioButton();
             this.rdbSecondaire = new System.Windows.Forms.RadioButton();
             this.rdbPrincipal = new System.Windows.Forms.RadioButton();
-            this.txtNumeroClient = new System.Windows.Forms.TextBox();
+            this.txtIdClient = new System.Windows.Forms.TextBox();
             this.txtRaisonSociale = new System.Windows.Forms.TextBox();
-            this.txtAdresseClient = new System.Windows.Forms.TextBox();
+            this.txtAdresse = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.txtCA = new System.Windows.Forms.TextBox();
             this.txtEffectif = new System.Windows.Forms.TextBox();
             this.lblCommentaires = new System.Windows.Forms.Label();
-            this.txtCommentaires = new System.Windows.Forms.TextBox();
+            this.txtCommentComm = new System.Windows.Forms.TextBox();
             this.btnContacts = new System.Windows.Forms.Button();
-            this.btnAjouter = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.grpTypeClient.SuspendLayout();
+            this.txtVille = new System.Windows.Forms.TextBox();
+            this.lblVille = new System.Windows.Forms.Label();
+            this.txtCP = new System.Windows.Forms.TextBox();
+            this.lblCP = new System.Windows.Forms.Label();
+            this.grpTypeSociete.SuspendLayout();
             this.grpNature.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(498, 299);
+            this.btnSupprimer.Location = new System.Drawing.Point(498, 351);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 0;
@@ -73,25 +75,28 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(579, 299);
+            this.btnFermer.Location = new System.Drawing.Point(579, 351);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(75, 23);
             this.btnFermer.TabIndex = 1;
             this.btnFermer.Text = "&Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(406, 299);
+            this.btnValider.Location = new System.Drawing.Point(396, 351);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
             this.btnValider.TabIndex = 2;
             this.btnValider.Text = "&Valider";
             this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(322, 299);
+            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAnnuler.Location = new System.Drawing.Point(315, 351);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 3;
@@ -137,7 +142,7 @@
             // lblTéléphone
             // 
             this.lblTéléphone.AutoSize = true;
-            this.lblTéléphone.Location = new System.Drawing.Point(13, 132);
+            this.lblTéléphone.Location = new System.Drawing.Point(13, 184);
             this.lblTéléphone.Name = "lblTéléphone";
             this.lblTéléphone.Size = new System.Drawing.Size(58, 13);
             this.lblTéléphone.TabIndex = 8;
@@ -146,7 +151,7 @@
             // lblCA
             // 
             this.lblCA.AutoSize = true;
-            this.lblCA.Location = new System.Drawing.Point(13, 158);
+            this.lblCA.Location = new System.Drawing.Point(13, 210);
             this.lblCA.Name = "lblCA";
             this.lblCA.Size = new System.Drawing.Size(78, 13);
             this.lblCA.TabIndex = 9;
@@ -155,22 +160,22 @@
             // lblEffectifs
             // 
             this.lblEffectifs.AutoSize = true;
-            this.lblEffectifs.Location = new System.Drawing.Point(13, 184);
+            this.lblEffectifs.Location = new System.Drawing.Point(13, 236);
             this.lblEffectifs.Name = "lblEffectifs";
             this.lblEffectifs.Size = new System.Drawing.Size(40, 13);
             this.lblEffectifs.TabIndex = 10;
             this.lblEffectifs.Text = "Effectif";
             // 
-            // grpTypeClient
+            // grpTypeSociete
             // 
-            this.grpTypeClient.Controls.Add(this.rdbTypeClientPrive);
-            this.grpTypeClient.Controls.Add(this.rdbTypeClientPublic);
-            this.grpTypeClient.Location = new System.Drawing.Point(398, 13);
-            this.grpTypeClient.Name = "grpTypeClient";
-            this.grpTypeClient.Size = new System.Drawing.Size(134, 43);
-            this.grpTypeClient.TabIndex = 11;
-            this.grpTypeClient.TabStop = false;
-            this.grpTypeClient.Text = "Type de Client";
+            this.grpTypeSociete.Controls.Add(this.rdbTypeClientPrive);
+            this.grpTypeSociete.Controls.Add(this.rdbTypeClientPublic);
+            this.grpTypeSociete.Location = new System.Drawing.Point(398, 13);
+            this.grpTypeSociete.Name = "grpTypeSociete";
+            this.grpTypeSociete.Size = new System.Drawing.Size(134, 43);
+            this.grpTypeSociete.TabIndex = 11;
+            this.grpTypeSociete.TabStop = false;
+            this.grpTypeSociete.Text = "Type de Client";
             // 
             // rdbTypeClientPrive
             // 
@@ -179,13 +184,13 @@
             this.rdbTypeClientPrive.Name = "rdbTypeClientPrive";
             this.rdbTypeClientPrive.Size = new System.Drawing.Size(49, 17);
             this.rdbTypeClientPrive.TabIndex = 1;
-            this.rdbTypeClientPrive.TabStop = true;
             this.rdbTypeClientPrive.Text = "Privé";
             this.rdbTypeClientPrive.UseVisualStyleBackColor = true;
             // 
             // rdbTypeClientPublic
             // 
             this.rdbTypeClientPublic.AutoSize = true;
+            this.rdbTypeClientPublic.Checked = true;
             this.rdbTypeClientPublic.Location = new System.Drawing.Point(8, 19);
             this.rdbTypeClientPublic.Name = "rdbTypeClientPublic";
             this.rdbTypeClientPublic.Size = new System.Drawing.Size(54, 17);
@@ -194,13 +199,14 @@
             this.rdbTypeClientPublic.Text = "Public";
             this.rdbTypeClientPublic.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbxActivite
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(160, 73);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cbxActivite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxActivite.FormattingEnabled = true;
+            this.cbxActivite.Location = new System.Drawing.Point(160, 73);
+            this.cbxActivite.Name = "cbxActivite";
+            this.cbxActivite.Size = new System.Drawing.Size(121, 21);
+            this.cbxActivite.TabIndex = 3;
             // 
             // grpNature
             // 
@@ -210,7 +216,7 @@
             this.grpNature.Location = new System.Drawing.Point(398, 73);
             this.grpNature.Name = "grpNature";
             this.grpNature.Size = new System.Drawing.Size(234, 43);
-            this.grpNature.TabIndex = 13;
+            this.grpNature.TabIndex = 12;
             this.grpNature.TabStop = false;
             this.grpNature.Text = "Nature du Client";
             // 
@@ -221,7 +227,6 @@
             this.rdbAncienne.Name = "rdbAncienne";
             this.rdbAncienne.Size = new System.Drawing.Size(70, 17);
             this.rdbAncienne.TabIndex = 2;
-            this.rdbAncienne.TabStop = true;
             this.rdbAncienne.Text = "Ancienne";
             this.rdbAncienne.UseVisualStyleBackColor = true;
             // 
@@ -232,13 +237,13 @@
             this.rdbSecondaire.Name = "rdbSecondaire";
             this.rdbSecondaire.Size = new System.Drawing.Size(79, 17);
             this.rdbSecondaire.TabIndex = 1;
-            this.rdbSecondaire.TabStop = true;
             this.rdbSecondaire.Text = "Secondaire";
             this.rdbSecondaire.UseVisualStyleBackColor = true;
             // 
             // rdbPrincipal
             // 
             this.rdbPrincipal.AutoSize = true;
+            this.rdbPrincipal.Checked = true;
             this.rdbPrincipal.Location = new System.Drawing.Point(8, 19);
             this.rdbPrincipal.Name = "rdbPrincipal";
             this.rdbPrincipal.Size = new System.Drawing.Size(65, 17);
@@ -247,12 +252,12 @@
             this.rdbPrincipal.Text = "Principal";
             this.rdbPrincipal.UseVisualStyleBackColor = true;
             // 
-            // txtNumeroClient
+            // txtIdClient
             // 
-            this.txtNumeroClient.Location = new System.Drawing.Point(160, 13);
-            this.txtNumeroClient.Name = "txtNumeroClient";
-            this.txtNumeroClient.Size = new System.Drawing.Size(200, 20);
-            this.txtNumeroClient.TabIndex = 1;
+            this.txtIdClient.Location = new System.Drawing.Point(160, 13);
+            this.txtIdClient.Name = "txtIdClient";
+            this.txtIdClient.Size = new System.Drawing.Size(200, 20);
+            this.txtIdClient.TabIndex = 1;
             // 
             // txtRaisonSociale
             // 
@@ -261,97 +266,115 @@
             this.txtRaisonSociale.Size = new System.Drawing.Size(200, 20);
             this.txtRaisonSociale.TabIndex = 2;
             // 
-            // txtAdresseClient
+            // txtAdresse
             // 
-            this.txtAdresseClient.Location = new System.Drawing.Point(160, 103);
-            this.txtAdresseClient.Name = "txtAdresseClient";
-            this.txtAdresseClient.Size = new System.Drawing.Size(200, 20);
-            this.txtAdresseClient.TabIndex = 4;
+            this.txtAdresse.Location = new System.Drawing.Point(160, 103);
+            this.txtAdresse.Name = "txtAdresse";
+            this.txtAdresse.Size = new System.Drawing.Size(200, 20);
+            this.txtAdresse.TabIndex = 4;
             // 
             // txtTelephone
             // 
-            this.txtTelephone.Location = new System.Drawing.Point(160, 129);
+            this.txtTelephone.Location = new System.Drawing.Point(160, 181);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(200, 20);
-            this.txtTelephone.TabIndex = 5;
+            this.txtTelephone.TabIndex = 7;
             // 
             // txtCA
             // 
-            this.txtCA.Location = new System.Drawing.Point(160, 155);
+            this.txtCA.Location = new System.Drawing.Point(160, 207);
             this.txtCA.Name = "txtCA";
             this.txtCA.Size = new System.Drawing.Size(200, 20);
-            this.txtCA.TabIndex = 6;
+            this.txtCA.TabIndex = 8;
             // 
             // txtEffectif
             // 
-            this.txtEffectif.Location = new System.Drawing.Point(160, 181);
+            this.txtEffectif.Location = new System.Drawing.Point(160, 233);
             this.txtEffectif.Name = "txtEffectif";
             this.txtEffectif.Size = new System.Drawing.Size(200, 20);
-            this.txtEffectif.TabIndex = 7;
+            this.txtEffectif.TabIndex = 9;
             // 
             // lblCommentaires
             // 
             this.lblCommentaires.AutoSize = true;
-            this.lblCommentaires.Location = new System.Drawing.Point(13, 210);
+            this.lblCommentaires.Location = new System.Drawing.Point(13, 262);
             this.lblCommentaires.Name = "lblCommentaires";
             this.lblCommentaires.Size = new System.Drawing.Size(139, 13);
             this.lblCommentaires.TabIndex = 21;
             this.lblCommentaires.Text = "Commentaires Commerciaux";
             // 
-            // txtCommentaires
+            // txtCommentComm
             // 
-            this.txtCommentaires.Location = new System.Drawing.Point(160, 207);
-            this.txtCommentaires.Multiline = true;
-            this.txtCommentaires.Name = "txtCommentaires";
-            this.txtCommentaires.Size = new System.Drawing.Size(494, 86);
-            this.txtCommentaires.TabIndex = 8;
+            this.txtCommentComm.Location = new System.Drawing.Point(160, 259);
+            this.txtCommentComm.Multiline = true;
+            this.txtCommentComm.Name = "txtCommentComm";
+            this.txtCommentComm.Size = new System.Drawing.Size(494, 86);
+            this.txtCommentComm.TabIndex = 10;
             // 
             // btnContacts
             // 
-            this.btnContacts.Location = new System.Drawing.Point(10, 299);
+            this.btnContacts.Location = new System.Drawing.Point(10, 351);
             this.btnContacts.Name = "btnContacts";
             this.btnContacts.Size = new System.Drawing.Size(123, 23);
             this.btnContacts.TabIndex = 23;
             this.btnContacts.Text = "&Contacts Clients";
             this.btnContacts.UseVisualStyleBackColor = true;
             // 
-            // btnAjouter
+            // txtVille
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(160, 299);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
-            this.btnAjouter.TabIndex = 24;
-            this.btnAjouter.Text = "&Nouveau";
-            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.txtVille.Location = new System.Drawing.Point(160, 129);
+            this.txtVille.Name = "txtVille";
+            this.txtVille.Size = new System.Drawing.Size(200, 20);
+            this.txtVille.TabIndex = 5;
             // 
-            // btnModifier
+            // lblVille
             // 
-            this.btnModifier.Location = new System.Drawing.Point(241, 299);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(75, 23);
-            this.btnModifier.TabIndex = 25;
-            this.btnModifier.Text = "&Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
+            this.lblVille.AutoSize = true;
+            this.lblVille.Location = new System.Drawing.Point(13, 132);
+            this.lblVille.Name = "lblVille";
+            this.lblVille.Size = new System.Drawing.Size(26, 13);
+            this.lblVille.TabIndex = 25;
+            this.lblVille.Text = "Ville";
+            // 
+            // txtCP
+            // 
+            this.txtCP.Location = new System.Drawing.Point(160, 155);
+            this.txtCP.Name = "txtCP";
+            this.txtCP.Size = new System.Drawing.Size(121, 20);
+            this.txtCP.TabIndex = 6;
+            // 
+            // lblCP
+            // 
+            this.lblCP.AutoSize = true;
+            this.lblCP.Location = new System.Drawing.Point(13, 158);
+            this.lblCP.Name = "lblCP";
+            this.lblCP.Size = new System.Drawing.Size(64, 13);
+            this.lblCP.TabIndex = 27;
+            this.lblCP.Text = "Code Postal";
             // 
             // frmClt
             // 
+            this.AcceptButton = this.btnValider;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 336);
-            this.Controls.Add(this.btnModifier);
-            this.Controls.Add(this.btnAjouter);
+            this.CancelButton = this.btnAnnuler;
+            this.ClientSize = new System.Drawing.Size(666, 386);
+            this.Controls.Add(this.txtCP);
+            this.Controls.Add(this.lblCP);
+            this.Controls.Add(this.txtVille);
+            this.Controls.Add(this.lblVille);
             this.Controls.Add(this.btnContacts);
-            this.Controls.Add(this.txtCommentaires);
+            this.Controls.Add(this.txtCommentComm);
             this.Controls.Add(this.lblCommentaires);
             this.Controls.Add(this.txtEffectif);
             this.Controls.Add(this.txtCA);
             this.Controls.Add(this.txtTelephone);
-            this.Controls.Add(this.txtAdresseClient);
+            this.Controls.Add(this.txtAdresse);
             this.Controls.Add(this.txtRaisonSociale);
-            this.Controls.Add(this.txtNumeroClient);
+            this.Controls.Add(this.txtIdClient);
             this.Controls.Add(this.grpNature);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.grpTypeClient);
+            this.Controls.Add(this.cbxActivite);
+            this.Controls.Add(this.grpTypeSociete);
             this.Controls.Add(this.lblEffectifs);
             this.Controls.Add(this.lblCA);
             this.Controls.Add(this.lblTéléphone);
@@ -365,8 +388,8 @@
             this.Controls.Add(this.btnSupprimer);
             this.Name = "frmClt";
             this.Text = "ABI - fiche Client";
-            this.grpTypeClient.ResumeLayout(false);
-            this.grpTypeClient.PerformLayout();
+            this.grpTypeSociete.ResumeLayout(false);
+            this.grpTypeSociete.PerformLayout();
             this.grpNature.ResumeLayout(false);
             this.grpNature.PerformLayout();
             this.ResumeLayout(false);
@@ -387,24 +410,26 @@
         private System.Windows.Forms.Label lblTéléphone;
         private System.Windows.Forms.Label lblCA;
         private System.Windows.Forms.Label lblEffectifs;
-        private System.Windows.Forms.GroupBox grpTypeClient;
+        private System.Windows.Forms.GroupBox grpTypeSociete;
         private System.Windows.Forms.RadioButton rdbTypeClientPrive;
         private System.Windows.Forms.RadioButton rdbTypeClientPublic;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxActivite;
         private System.Windows.Forms.GroupBox grpNature;
         private System.Windows.Forms.RadioButton rdbAncienne;
         private System.Windows.Forms.RadioButton rdbSecondaire;
         private System.Windows.Forms.RadioButton rdbPrincipal;
-        private System.Windows.Forms.TextBox txtNumeroClient;
+        private System.Windows.Forms.TextBox txtIdClient;
         private System.Windows.Forms.TextBox txtRaisonSociale;
-        private System.Windows.Forms.TextBox txtAdresseClient;
+        private System.Windows.Forms.TextBox txtAdresse;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.TextBox txtCA;
         private System.Windows.Forms.TextBox txtEffectif;
         private System.Windows.Forms.Label lblCommentaires;
-        private System.Windows.Forms.TextBox txtCommentaires;
+        private System.Windows.Forms.TextBox txtCommentComm;
         private System.Windows.Forms.Button btnContacts;
-        private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.TextBox txtVille;
+        private System.Windows.Forms.Label lblVille;
+        private System.Windows.Forms.TextBox txtCP;
+        private System.Windows.Forms.Label lblCP;
     }
 }
