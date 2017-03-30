@@ -12,18 +12,37 @@ namespace Abi
 {
     public partial class frmGrdClt : Form
     {
-        private frmGrdClt listeClient;
+        private frmClt ficheClient;
 
         public frmGrdClt()
 
         {
             InitializeComponent();
-            this.listeClient = new frmGrdClt();
-            this.listeClient.MdiParent = this.MdiParent;
-            this.listeClient.Show();
-
-
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+
+            if (this.ficheClient == null)
+            {
+                this.ficheClient = new frmClt();
+                this.ficheClient.FormClosing += new FormClosingEventHandler(fermeFicheClient);
+                this.ficheClient.MdiParent = this.MdiParent; 
+                this.ficheClient.Show();
+            }
+            else
+            {
+                this.ficheClient.Activate();
+            }
+        }
+
+
+        private void fermeFicheClient(object sender, FormClosingEventArgs e)
+        {
+            ficheClient = null;
+        }
+
+
 
     }
 }

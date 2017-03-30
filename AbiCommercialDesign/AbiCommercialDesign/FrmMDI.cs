@@ -18,17 +18,19 @@ namespace Abi
         public FrmMDI()
         {
             InitializeComponent();
-
+            this.frmlisteClient = new frmGrdClt();
+            this.frmlisteClient.FormClosing += new FormClosingEventHandler(this.fermeFrmGrdClt);
+            this.frmlisteClient.MdiParent = this;
+            this.frmlisteClient.Show();
         }
 
         private void commercialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.frmlisteClient == null)
             {
-                frmlisteClient = new frmGrdClt();
-                frmlisteClient.MdiParent = this;
-                this.frmlisteClient.FormClosing += new FormClosingEventHandler(this.fermeFrmGrdClt);
-                frmlisteClient.Show();
+                this.frmlisteClient = new frmGrdClt();
+                this.frmlisteClient.MdiParent = this;
+                this.frmlisteClient.Show();
             }
             else
                 this.frmlisteClient.Activate();
@@ -39,7 +41,9 @@ namespace Abi
             this.frmlisteClient = null;
         }
 
-
-
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

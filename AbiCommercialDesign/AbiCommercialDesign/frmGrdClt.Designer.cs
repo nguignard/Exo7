@@ -36,7 +36,6 @@
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnCltDspSupprimer = new System.Windows.Forms.Button();
             this.btnCltDspQuitter = new System.Windows.Forms.Button();
-            this.btnVisualiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdCltDsp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,16 +87,17 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(144, 336);
+            this.btnAjouter.Location = new System.Drawing.Point(369, 336);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnAjouter.TabIndex = 5;
             this.btnAjouter.Text = "&Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnCltDspSupprimer
             // 
-            this.btnCltDspSupprimer.Location = new System.Drawing.Point(336, 336);
+            this.btnCltDspSupprimer.Location = new System.Drawing.Point(450, 336);
             this.btnCltDspSupprimer.Name = "btnCltDspSupprimer";
             this.btnCltDspSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnCltDspSupprimer.TabIndex = 6;
@@ -113,21 +113,11 @@
             this.btnCltDspQuitter.Text = "&Quitter";
             this.btnCltDspQuitter.UseVisualStyleBackColor = true;
             // 
-            // btnVisualiser
-            // 
-            this.btnVisualiser.Location = new System.Drawing.Point(225, 336);
-            this.btnVisualiser.Name = "btnVisualiser";
-            this.btnVisualiser.Size = new System.Drawing.Size(105, 23);
-            this.btnVisualiser.TabIndex = 8;
-            this.btnVisualiser.Text = "&Visualiser";
-            this.btnVisualiser.UseVisualStyleBackColor = true;
-            // 
             // frmGrdClt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 371);
-            this.Controls.Add(this.btnVisualiser);
             this.Controls.Add(this.btnCltDspQuitter);
             this.Controls.Add(this.btnCltDspSupprimer);
             this.Controls.Add(this.btnAjouter);
@@ -155,6 +145,5 @@
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnCltDspSupprimer;
         private System.Windows.Forms.Button btnCltDspQuitter;
-        private System.Windows.Forms.Button btnVisualiser;
     }
 }
