@@ -103,6 +103,7 @@
             this.btnCltDspSupprimer.TabIndex = 6;
             this.btnCltDspSupprimer.Text = "&Supprimer";
             this.btnCltDspSupprimer.UseVisualStyleBackColor = true;
+            this.btnCltDspSupprimer.Click += new System.EventHandler(this.btnCltDspSupprimer_Click);
             // 
             // btnCltDspQuitter
             // 
@@ -116,8 +117,10 @@
             // 
             // frmGrdClt
             // 
+            this.AcceptButton = this.btnAjouter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCltDspSupprimer;
             this.ClientSize = new System.Drawing.Size(618, 371);
             this.Controls.Add(this.btnCltDspQuitter);
             this.Controls.Add(this.btnCltDspSupprimer);

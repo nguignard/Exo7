@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace Abi
 {
+    /// <summary>
+    /// Classe publique de donnees statique permettant d'echanger les seuls données utiles
+    /// </summary>
     public class Donnees
     {
-
+        //Collection liste des Clients de la Société, static pour être accessible sans instanciation par toutes les autres classes
         public static List<FicheClient> ListeFicheClient = new List<FicheClient>();
-        
-        
-        
-        //{ new FicheClient(1,"","","","",213,"","","",123,12,"") };
 
-
-
+        /// <summary>
+        /// Constructeur de la classe
+        /// </summary>
+        Donnees()
+        {
+        }
     }
 }

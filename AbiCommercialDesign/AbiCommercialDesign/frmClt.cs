@@ -21,16 +21,13 @@ namespace Abi
             this.cbxActivite.Items.Clear();
             this.cbxActivite.Items.AddRange(new string[] { "Agro", "Industrie", "..." });
             //End - Initialisation de la comboBox Nature de la Société
-
-
         }
 
         private void btnValider_Click(object sender, EventArgs e)
         {
 
             FicheClient nouveauClient = new FicheClient();
-
-            //new FicheClient(1, "1", "Agro", "1", "Ville", "lkjskgjs", 06800, "06", 10, 2, "heho", "Principal", "Public")
+            
             try
             {
                 nouveauClient.IdClient = Int32.Parse(this.txtIdClient.Text.Trim());
@@ -45,13 +42,9 @@ namespace Abi
                 nouveauClient.CommentComm = this.txtCommentComm.Text.Trim();
                 nouveauClient.Nature = grpStringValue(grpNature);//grpStringValue renvoie le string lie au rdb Actif du grpBox
                 nouveauClient.TypeSociete = grpStringValue(grpTypeSociete);
-                //Test
-               
 
                 Donnees.ListeFicheClient.Add(nouveauClient);
-                string ssS = Donnees.ListeFicheClient[0].Activite + "  " + Donnees.ListeFicheClient[0].CP + "  " + Donnees.ListeFicheClient[0].Nature + "  " + Donnees.ListeFicheClient[0].TypeSociete;
-                MessageBox.Show(ssS);
-
+               
                 this.DialogResult=DialogResult.OK;
 
             }

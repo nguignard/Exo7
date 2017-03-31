@@ -50,18 +50,18 @@ namespace Abi
         /// <param name="commentComm"></param>
         public FicheClient(int idClient, string raisonSociale, string typeSociete, string nature, string adresse, int cp, string ville, string activite, string telephone, decimal ca, int effectif, string commentComm)
         {
-            this.idClient = idClient;
-            this.raisonSociale = raisonSociale;
-            this.typeSociete = typeSociete;
-            this.nature = nature;
-            this.adresse = adresse;
-            this.cp = cp;
-            this.ville = ville;
-            this.activite = activite;
-            this.telephone = telephone;
-            this.ca = ca;
-            this.effectif = effectif;
-            this.commentComm = commentComm;
+            this.IdClient = idClient;
+            this.RaisonSociale = raisonSociale;
+            this.TypeSociete = typeSociete;
+            this.Nature = nature;
+            this.Adresse = adresse;
+            this.CP = cp;
+            this.Ville = ville;
+            this.Activite = activite;
+            this.Telephone = telephone;
+            this.CA = ca;
+            this.Effectif = effectif;
+            this.CommentComm = commentComm;
         }
 
         /// <summary>
@@ -74,7 +74,13 @@ namespace Abi
         //END CONSTRUCTEURS
 
 
-        ///  DEBUT ACCESSEURS
+        //  DEBUT ACCESSEURS
+
+
+
+        /// <summary>
+        /// Accesseur IdClient, controle egalement qu'on entre bien un entier, ou renvoie une exception
+        /// </summary>
         public int IdClient
         {
             get
@@ -84,10 +90,17 @@ namespace Abi
 
             set
             {
-                idClient = value;
+
+                if (Outils.EstEntier(value.ToString()))
+                    idClient = value;
+                else
+                    throw new Exception(value.ToString() + " : n'est pas un Numero de Client Valide, il doit être un nombre de moins de 10 chiffre");
             }
         }
 
+        /// <summary>
+        /// RaisonSociale est un accesseur a raisonSocial, qui entre egalement la raison Sociale en Majuscule sans espace devant ou derriere 
+        /// </summary>
         public string RaisonSociale
         {
             get
@@ -101,11 +114,13 @@ namespace Abi
             }
         }
 
+        /// <summary>
+        /// TypeSociété est un accesseur sur des donnees pres remplies, donc pas de controle
+        /// </summary>
         public string TypeSociete
         {
             get
             {
-
                 return typeSociete;
             }
 
@@ -115,6 +130,9 @@ namespace Abi
             }
         }
 
+        /// <summary>
+        /// Nature est un accesseur sur des donnees pres remplies, donc pas de controle
+        /// </summary>
         public string Nature
         {
             get
@@ -127,7 +145,9 @@ namespace Abi
                 nature = value;
             }
         }
-
+        /// <summary>
+        /// Adresse
+        /// </summary>
         public string Adresse
         {
             get
@@ -137,10 +157,13 @@ namespace Abi
 
             set
             {
-                adresse = value;
+                adresse = value.ToLower().Trim();
             }
         }
 
+        /// <summary>
+        /// Activité accesseur sans controle car sur une comboliste pré rempli
+        /// </summary>
         public string Activite
         {
             get
@@ -154,6 +177,9 @@ namespace Abi
             }
         }
 
+        /// <summary>
+        /// Accesseur à téléphone, sans contrôle de format
+        /// </summary>
         public string Telephone
         {
             get
@@ -166,20 +192,25 @@ namespace Abi
                 telephone = value;
             }
         }
-
+        /// <summary>
+        /// Accesseur de ca , qui contrôle aussi que c'est bien un décimal, sinon renvoie une exception
+        /// </summary>
         public decimal CA
         {
             get
             {
                 return ca;
             }
-
             set
             {
-                ca = value;
+                if (!decimal.TryParse(value.ToString(), out ca))
+                    throw new Exception(value.ToString() + " : n'est pas un CA de Client Valide, il doit être un Décimal");
             }
         }
 
+        /// <summary>
+        /// accesseur à effectif, qui contrôle aussi que c'est un entier
+        /// </summary>
         public int Effectif
         {
             get
@@ -189,10 +220,15 @@ namespace Abi
 
             set
             {
-                effectif = value;
+                if (Outils.EstEntier(value.ToString()))
+                    effectif = value;
+                else
+                    throw new Exception(value.ToString() + " : n'est pas un Numero de Client Valide, il doit être un nombre de moins de 10 chiffre");
             }
         }
-
+        /// <summary>
+        /// Accesseur a commentaire commercial, sans contrôle
+        /// </summary>
         public string CommentComm
         {
             get
@@ -206,6 +242,9 @@ namespace Abi
             }
         }
 
+        /// <summary>
+        /// Accesseur à cp, contrôle egalement qu'il n'y a que 5 chiffres 
+        /// </summary>
         public int CP
         {
             get
@@ -215,10 +254,17 @@ namespace Abi
 
             set
             {
+                if(Outils.EstCodePostal(value.ToString()))
                 cp = value;
+                else
+                    throw new Exception(value.ToString() + " : n'est pas un Code Postal valide, il doit être un nombre de 5 chiffres");
+
+
             }
         }
-
+        /// <summary>
+        /// accesseur a ville, met la ville en majuscule
+        /// </summary>
         public string Ville
         {
             get
@@ -228,10 +274,14 @@ namespace Abi
 
             set
             {
-                ville = value;
+                ville = value.ToString().ToUpper();
             }
         }
 
-        ///  FIN ACCESSEURS
+        // FIN ACCESSEURS
+
+
+
+
     }
 }
