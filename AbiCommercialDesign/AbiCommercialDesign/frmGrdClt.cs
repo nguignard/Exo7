@@ -17,28 +17,34 @@ namespace Abi
         public frmGrdClt()
         {
             InitializeComponent();
-           
+
             //BEGIN  - TEST: Création de 5 Clients virtuels comme jeux de test a l'ouverture du Form
             for (int i = 0; i < 5; i++)
             {
-                Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), 60000+i, i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
+                string temp = "0680" + i.ToString();
+                Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), temp, i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
             }
 
-           // Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), 06000 + i, i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
-           // Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), 06000 + i, i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
+            // Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), (06000+i).ToString(), i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
+            // Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), (06000+i).ToString(), i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
             //END TEst
 
             controlesVisuels();
             afficheClients();
         }
 
+        /// <summary>
+        /// Affiche un client individuel vide pour ajout
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             frmFicheClient = new frmClt();
 
             if (frmFicheClient.ShowDialog() == DialogResult.OK)
             {
-                controlesVisuels();
+                controlesVisuels();// réaffiche la liste des Clients
                 afficheClients();
             }
         }
@@ -92,7 +98,7 @@ namespace Abi
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnCltDspQuitter_Click(object sender, EventArgs e)
-        {
+        {   
             this.Close();
         }
 
@@ -128,9 +134,21 @@ namespace Abi
         private void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
             int i = this.grdCltDsp.CurrentRow.Index;
+            Donnees.ListeFicheClient.RemoveAt(i);
+            this.controlesVisuels();
+            this.afficheClients();
+
 
 
 
         }
+
+
+        //private int getClientID(int i)
+        //{
+
+        //}
+
+
     }
 }

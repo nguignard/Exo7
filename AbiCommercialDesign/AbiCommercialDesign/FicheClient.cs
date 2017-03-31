@@ -13,18 +13,16 @@ namespace Abi
     {
         //BEGIN ATTRIBUT
         private Int32 idClient;
+        private Int32 effectif;
+        private decimal ca;
         private string raisonSociale;
         private string typeSociete;
         private string nature;
         private string adresse;
-        private int cp;
+        private string cp;
         private string ville;
         private string activite;
         private string telephone;
-        private decimal ca;
-        private Int32 effectif;
-        //pivate string nomContact;
-        //private string prenomContact;
         private string commentComm;
         // END ATTRIBUT
 
@@ -48,7 +46,7 @@ namespace Abi
         /// <param name="ca"></param>
         /// <param name="effectif"></param>
         /// <param name="commentComm"></param>
-        public FicheClient(int idClient, string raisonSociale, string typeSociete, string nature, string adresse, int cp, string ville, string activite, string telephone, decimal ca, int effectif, string commentComm)
+        public FicheClient(int idClient, string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, decimal ca, int effectif, string commentComm)
         {
             this.IdClient = idClient;
             this.RaisonSociale = raisonSociale;
@@ -245,7 +243,7 @@ namespace Abi
         /// <summary>
         /// Accesseur à cp, contrôle egalement qu'il n'y a que 5 chiffres 
         /// </summary>
-        public int CP
+        public string CP
         {
             get
             {

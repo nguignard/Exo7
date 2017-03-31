@@ -35,7 +35,7 @@ namespace Abi
                 nouveauClient.Activite = this.cbxActivite.SelectedItem.ToString().Trim();
                 nouveauClient.Adresse = this.txtAdresse.Text.Trim();
                 nouveauClient.Ville = this.txtVille.Text.Trim().ToUpper();
-                nouveauClient.CP = int.Parse(this.txtCP.Text.Trim());
+                nouveauClient.CP = this.txtCP.Text.Trim();
                 nouveauClient.Telephone = this.txtTelephone.Text.Trim();
                 nouveauClient.CA = decimal.Parse(this.txtCA.Text.Trim());
                 nouveauClient.Effectif = Int32.Parse(this.txtEffectif.Text.Trim());

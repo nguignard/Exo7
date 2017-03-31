@@ -46,7 +46,7 @@ namespace Abi
         /// <returns></returns>
         public static bool EstCodePostal(string s)
         {
-            if ((EstEntier(s)) && s.Length == 5)
+            if (s.Length == 5)
                 return true;
             else
                 return false;
