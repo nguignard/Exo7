@@ -96,13 +96,13 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(315, 351);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 17;
             this.btnAnnuler.Text = "A&nnuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // lblNumeroClient
             // 

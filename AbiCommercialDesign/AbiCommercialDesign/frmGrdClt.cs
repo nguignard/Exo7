@@ -12,27 +12,62 @@ namespace Abi
 {
     public partial class frmGrdClt : Form
     {
-        frmClt frmFicheClient;
+        frmClt frmFicheClient; //attribut de Class
 
+        /// <summary>
+        /// Constructeur de la fenetre liste Client et ajout de 6 Clients
+        /// </summary>
         public frmGrdClt()
         {
-            InitializeComponent();
-
-            //BEGIN  - TEST: Création de 5 Clients virtuels comme jeux de test a l'ouverture du Form
+            //BEGIN  - JEU DE TEST: Création de 5 Clients virtuels comme jeux de test a l'ouverture du Form
             for (int i = 0; i < 5; i++)
             {
                 string cptemp = "0680" + i.ToString();
-                Donnees.ListeFicheClient.Add(new FicheClient("SARL"+i.ToString(),"Public", "Ancienne", "Adrese"+i.ToString(), cptemp, "ville"+i.ToString(),"Agro", i.ToString(), 20 * i, 30 * i, i.ToString()));
-                 
+                Donnees.ListeFicheClient.Add(new FicheClient("SARL" + i.ToString(), "Public", "Ancienne", "Adrese" + i.ToString(), cptemp, "ville" + i.ToString(), "Agro", i.ToString(), 20 * i, 30 * i, i.ToString()));
             }
-            Donnees.ListeFicheClient.Add(new FicheClient( "eirl", "prive","Ancienne","adresse clos","06800" ,"Canne","Agro","060606", 20 , 30, "jqskh"));
+            Donnees.ListeFicheClient.Add(new FicheClient("eirl", "prive", "Ancienne", "adresse clos", "06800", "Canne", "Agro", "060606", 20, 30, "jqskh"));
+            //END - TEst
 
-          //END TEst
-
+            InitializeComponent();
             controlesVisuels();
             afficheClients();
         }
 
+
+        //BEGIN GESTION DU TRI DES CLIENTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // END - GESTION DU TRI
+
+
+
+
+
+
+
+
+
+
+
+
+        //BEGIN - GESTION DES BOUTONS/////////////////////////////////////::
         /// <summary>
         /// Affiche un client individuel vide pour ajout
         /// </summary>
@@ -49,12 +84,52 @@ namespace Abi
             }
         }
 
-
-        private void fermeFicheClient(object sender, FormClosingEventArgs e)
+        /// <summary>
+        /// bouton fermer: Ferme le Form de recherche de Client retourne à frmMDI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCltDspQuitter_Click(object sender, EventArgs e)
         {
+
+            Donnees.ListeFicheClient.Clear();
+            this.Close();
+        }
+
+        /// <summary>
+        /// Boutton supprimer , supprime le Client selectionne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCltDspSupprimer_Click(object sender, EventArgs e)
+        {
+            int i = this.grdCltDsp.CurrentRow.Index;
+            Donnees.ListeFicheClient.RemoveAt(i);
+            this.controlesVisuels();
+            this.afficheClients();
 
         }
 
+        /// <summary>
+        /// Doubvle Clic sur le Grid : ouvre le Client Sellectionnne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grdCltDsp_DoubleClick(object sender, EventArgs e)
+        {
+            int i = this.grdCltDsp.CurrentRow.Index;
+            FicheClient leClient = Donnees.ListeFicheClient[i];
+            frmClt frmModifClient = new frmClt(leClient);
+            frmModifClient.ShowDialog();
+            this.afficheClients();
+        }
+
+        //END - GESTION DES BOUTONS/////////////////////////////////////::
+
+
+
+
+        // BEGIN - FONCTIONS D'AFFICHAGE////////////////////////////////////////////////////////////:
 
 
         /// <summary>
@@ -91,20 +166,9 @@ namespace Abi
             }
         }
 
-
         /// <summary>
-        /// bouton fermer: Ferme le Form de recherche de Client retourne à frmMDI
+        /// Affiche les Clients dans le dataGrid
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCltDspQuitter_Click(object sender, EventArgs e)
-        {
-
-            Donnees.ListeFicheClient.Clear();
-            this.Close();
-        }
-
-
         private void afficheClients()
         {
             DataTable dt = new DataTable();
@@ -135,34 +199,18 @@ namespace Abi
 
         }
 
-        private void btnCltDspSupprimer_Click(object sender, EventArgs e)
+        private void btnCltDspRechercher_Click(object sender, EventArgs e)
         {
-            int i = this.grdCltDsp.CurrentRow.Index;
-            Donnees.ListeFicheClient.RemoveAt(i);
-            this.controlesVisuels();
-            this.afficheClients();
-
+            if (this.txtCltDspNomRecherche.Text != null)
+            {
+                (this.grdCltDsp.DataSource as DataTable).DefaultView.RowFilter = string.Format("Raison Sociale = '{0}'", this.txtCltDspNomRecherche.Text);
+            }
         }
 
-        private void grdCltDsp_DoubleClick(object sender, EventArgs e)
+        private void btnCltDspTous_Click(object sender, EventArgs e)
         {
-            int i = this.grdCltDsp.CurrentRow.Index;
-            FicheClient leClient = Donnees.ListeFicheClient[i];
-            frmClt frmModifClient = new frmClt(leClient);
-            frmModifClient.ShowDialog();
-            this.afficheClients();
+            this.txtCltDspNomRecherche.Text = null;
+            (this.grdCltDsp.DataSource as DataTable).DefaultView.RowFilter = null;
         }
-
-
-        //private int getClientID(int i)
-        //{
-
-        //}
-
-
-        
-
-
-
     }
 }

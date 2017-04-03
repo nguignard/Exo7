@@ -63,6 +63,7 @@
             this.btnCltDspTous.TabIndex = 2;
             this.btnCltDspTous.Text = "&Tous";
             this.btnCltDspTous.UseVisualStyleBackColor = true;
+            this.btnCltDspTous.Click += new System.EventHandler(this.btnCltDspTous_Click);
             // 
             // btnCltDspRechercher
             // 
@@ -72,6 +73,7 @@
             this.btnCltDspRechercher.TabIndex = 3;
             this.btnCltDspRechercher.Text = "&Rechercher";
             this.btnCltDspRechercher.UseVisualStyleBackColor = true;
+            this.btnCltDspRechercher.Click += new System.EventHandler(this.btnCltDspRechercher_Click);
             // 
             // grdCltDsp
             // 

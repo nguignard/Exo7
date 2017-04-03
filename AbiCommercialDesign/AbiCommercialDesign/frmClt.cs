@@ -10,21 +10,32 @@ using System.Windows.Forms;
 
 namespace Abi
 {
+
+    /// <summary>
+    /// frmClt: est une fenetre qui gere la creation et la modification d'un Client Particulier
+    /// </summary>
     public partial class frmClt : Form
     {
-        private FicheClient leClient;
-        private bool IsNewClient;
+        private FicheClient leClient; // attribut de classe
+        private bool IsNewClient;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
+                                 //ou de remplacer le Client actuel à modifier
 
+        //BEGIN - CONSTRUCTEURS DE CLASSE
+
+        /// <summary>
+        /// Constructeur pour un nouveau Client
+        /// </summary>
         public frmClt()
         {
-
             IsNewClient = true;
             InitializeComponent();
-            controlesVisuels();
-
-
+            controlesVisuels(); //met en place les contrôles visuels
         }
 
+        /// <summary>
+        /// Constructeur pour un Client Existant
+        /// </summary>
+        /// <param name="unClient">unClient est de classe ficheClient est est envoye comme paramettre par double clic de la fenetre frmGrdClt </param>
         public frmClt(FicheClient unClient)
         {
             IsNewClient = false;
@@ -32,24 +43,97 @@ namespace Abi
             InitializeComponent();
             controlesVisuels();
 
-            afficheLeClient(this.leClient);
+            afficheLeClient();//fonction permettant d'afficher le Client
+        }
+        //END - CONSTRUCTEUR DE CLASSE
+
+
+        //BEGIN - EVENEMENT LIES AUX BOUTONS
+
+        /// <summary>
+        /// bouton fermer: ferme la boite de dialogue et retourne a la recherche de Client (modal)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Supprime le contacte de la liste des Clients si ce n'est pas un nouveau Client
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            if (!IsNewClient)
+                Donnees.ListeFicheClient.Remove(this.leClient);
+            this.DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Bouton annuler: remet a vide les cases ou  annule les modifications faites sur le Client actuel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+
+            if (!IsNewClient)
+            {
+                afficheLeClient();
+                controlesVisuels();
+            }
+            else
+            {
+
+
+                this.txtIdClient.Text = "";
+                this.txtRaisonSociale.Text = "";
+
+                this.txtAdresse.Text = "";
+                this.txtCP.Text = "";
+                this.txtVille.Text = "";
+
+
+                //Gestion des radioboutons
+                this.rdbPrincipal.Checked = true;
+                this.rdbTypeClientPublic.Checked = true;
+
+                this.cbxActivite.SelectedItem = "Agro";
+                this.txtTelephone.Text = "";
+                this.txtCA.Text = "";
+                this.txtEffectif.Text = "";
+                this.txtCommentComm.Text = "";
+                controlesVisuels(); //met en place les contrôles visuels
+            }
         }
 
 
-
+        /// <summary>
+        /// au Clic Bouton Valider:
+        /// - si c'est un nouveau Client, ajoute à la liste des Clients
+        /// - sinon, modifie le Client existant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnValider_Click(object sender, EventArgs e)
         {
+            // instanciation de leClient en cas de nouveau Client
             if (IsNewClient)
             {
                 leClient = new FicheClient();
             }
 
+
+            // tente de rentrer ou modifier un nouveau Client, sinon renvoie une exception (venant des accesseurs)
             try
             {
-                this.leClient.RaisonSociale = this.txtRaisonSociale.Text.Trim();
+                this.leClient.RaisonSociale = this.txtRaisonSociale.Text.Trim(); //trim enleve les espaces avant et apres la chaine
                 this.leClient.Activite = this.cbxActivite.SelectedItem.ToString().Trim();
                 this.leClient.Adresse = this.txtAdresse.Text.Trim();
-                this.leClient.Ville = this.txtVille.Text.Trim().ToUpper();
+                this.leClient.Ville = this.txtVille.Text.Trim().ToUpper();//ToUpper met en majuscule
                 this.leClient.CP = this.txtCP.Text.Trim();
                 this.leClient.Telephone = this.txtTelephone.Text.Trim();
                 this.leClient.CA = decimal.Parse(this.txtCA.Text.Trim());
@@ -58,37 +142,33 @@ namespace Abi
                 this.leClient.Nature = grpStringValue(grpNature);//grpStringValue renvoie le string lie au rdb Actif du grpBox
                 this.leClient.TypeSociete = grpStringValue(grpTypeSociete);
 
+
+                //Création ou modification du Client
                 if (IsNewClient)
                 {
-                    Donnees.ListeFicheClient.Add(leClient);
+                    Donnees.ListeFicheClient.Add(leClient); //Ajoute le nouveau Client à la liste statique dans données
                 }
                 else
                 {
-                    Donnees.ListeFicheClient.Remove(this.leClient);
+                    Donnees.ListeFicheClient.Remove(this.leClient);//remplace le Client par le Client modifié
                     Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
                 }
-
-
-                this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK; //ferme la fenetre modale
 
             }
             catch (Exception ex)
             {
                 if (IsNewClient)
-                    leClient = null;
-
-
-                MessageBox.Show(ex.Message);
+                    leClient = null;// annule la création si l'essai n'est pas concluant
+                MessageBox.Show(ex.Message); // renvoie le message d'exception
             }
         }
 
+        //END - GESTION DES BOUTONS
 
 
-
-
-
-
-
+        //FONCTION D'affichage DIVERS////////////////////////////////////////////////////////////////////////////////////
+        
 
         /// <summary>
         /// grpStringValue renvoie le string lie au radiboutonS Actif dans la groupbox choisie
@@ -116,11 +196,13 @@ namespace Abi
             return s;
         }
 
-
+        /// <summary>
+        /// controleVisuel met tout les controles actifs, puis gere en fonction des cas quel boutons il faut afficher
+        /// </summary>
         private void controlesVisuels()
         {
-
             this.txtRaisonSociale.Select();
+
             //Place tout les controles ON
             this.btnAnnuler.Enabled = true;
             this.btnContacts.Enabled = true;//??tant que pas de controle
@@ -137,26 +219,12 @@ namespace Abi
             this.cbxActivite.Items.Clear();
             this.cbxActivite.Items.AddRange(new string[] { "Agro", "Industrie", "..." });
             //End - Initialisation de la comboBox Nature de la Société
-
-
-            this.txtRaisonSociale.Focus();
         }
 
         /// <summary>
-        /// bouton fermer ferme la boite de dialogue et retourne a la recherche de Client
+        /// Affiche le Client en cours de modification
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnFermer_Click(object sender, EventArgs e)
-        {
-            //Verifier si 
-            this.DialogResult = DialogResult.OK;
-
-        }
-
-
-
-        private void afficheLeClient(FicheClient unClient)
+        private void afficheLeClient()
         {
             this.txtIdClient.Text = leClient.IdClient.ToString();
             this.txtRaisonSociale.Text = leClient.RaisonSociale.ToString();
@@ -189,12 +257,6 @@ namespace Abi
             this.txtCommentComm.Text = leClient.CommentComm.ToString();
         }
 
-        private void btnSupprimer_Click(object sender, EventArgs e)
-        {
-            if (!IsNewClient)
-                Donnees.ListeFicheClient.Remove(this.leClient);
-            this.Close();
-        }
     }
 
 
