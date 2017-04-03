@@ -84,6 +84,7 @@
             this.grdCltDsp.Name = "grdCltDsp";
             this.grdCltDsp.Size = new System.Drawing.Size(593, 268);
             this.grdCltDsp.TabIndex = 4;
+            this.grdCltDsp.DoubleClick += new System.EventHandler(this.grdCltDsp_DoubleClick);
             // 
             // btnAjouter
             // 
@@ -97,6 +98,7 @@
             // 
             // btnCltDspSupprimer
             // 
+            this.btnCltDspSupprimer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCltDspSupprimer.Location = new System.Drawing.Point(450, 336);
             this.btnCltDspSupprimer.Name = "btnCltDspSupprimer";
             this.btnCltDspSupprimer.Size = new System.Drawing.Size(75, 23);

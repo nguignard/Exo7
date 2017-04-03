@@ -12,6 +12,9 @@ namespace Abi
 {
     public partial class frmClt : Form
     {
+        private FicheClient leClient;
+
+
         public frmClt()
         {
             InitializeComponent();
@@ -23,11 +26,29 @@ namespace Abi
             //End - Initialisation de la comboBox Nature de la Société
         }
 
+        public frmClt(FicheClient unClient)
+        {
+
+            this.leClient = unClient;
+            InitializeComponent();
+            controlesVisuels();
+
+            // Begin - Initialisation de la comboBox Nature de la Société
+            this.cbxActivite.Items.Clear();
+            this.cbxActivite.Items.AddRange(new string[] { "Agro", "Industrie", "..." });
+            //End - Initialisation de la comboBox Nature de la Société
+
+            afficheLeClient(unClient);
+
+        }
+
+
+
         private void btnValider_Click(object sender, EventArgs e)
         {
 
             FicheClient nouveauClient = new FicheClient();
-            
+
             try
             {
                 nouveauClient.IdClient = Int32.Parse(this.txtIdClient.Text.Trim());
@@ -44,8 +65,8 @@ namespace Abi
                 nouveauClient.TypeSociete = grpStringValue(grpTypeSociete);
 
                 Donnees.ListeFicheClient.Add(nouveauClient);
-               
-                this.DialogResult=DialogResult.OK;
+
+                this.DialogResult = DialogResult.OK;
 
             }
             catch (Exception ex)
@@ -68,7 +89,7 @@ namespace Abi
 
 
         /// <summary>
-        /// grpStringValue renvoie le string lie au rdb Actif dans la groupbox choisie
+        /// grpStringValue renvoie le string lie au radiboutonS Actif dans la groupbox choisie
         /// </summary>
         /// <param name="g"></param>
         /// <returns></returns>
@@ -106,7 +127,7 @@ namespace Abi
 
             //Verifie dans quel cas les disable
             this.btnContacts.Enabled = false;//??tant que pas de controle
-            //if(Donnees.ListeFicheClient)
+                                             //if(Donnees.ListeFicheClient)
         }
 
         /// <summary>
@@ -117,9 +138,38 @@ namespace Abi
         private void btnFermer_Click(object sender, EventArgs e)
         {
             //Verifier si 
-            this.DialogResult = DialogResult.OK; 
+            this.DialogResult = DialogResult.OK;
 
         }
+
+
+
+        private void afficheLeClient(FicheClient unClient)
+        {
+            this.txtIdClient.Text = leClient.IdClient.ToString();
+            this.txtRaisonSociale.Text = leClient.RaisonSociale.ToString();
+
+            this.txtAdresse.Text = leClient.Adresse.ToString();
+            this.txtCP.Text = leClient.CP.ToString();
+            this.txtVille.Text = leClient.Ville.ToString();
+
+
+
+            this.rdbPrincipal.Checked = (leClient.TypeSociete == "Principal") ? true: false;
+            this.rdbSecondaire.Checked = (leClient.TypeSociete == "Secondaire") ? true : false;
+            this.rdbAncienne.Checked = (leClient.TypeSociete == "Ancienne") ? true : false;
+            this.rdbTypeClientPublic.Checked = (leClient.Nature == "Public")? true: false;
+            this.rdbTypeClientPrive.Checked = (leClient.Nature== "Public")? true: false;
+            
+
+            this.cbxActivite.SelectedText = leClient.Activite.ToString();
+
+            this.txtTelephone.Text = leClient.Telephone.ToString();
+            this.txtCA.Text = leClient.CA.ToString();
+            this.txtEffectif.Text = leClient.Effectif.ToString();
+            this.txtCommentComm.Text = leClient.CommentComm.ToString();
+        }
+
 
     }
 

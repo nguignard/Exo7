@@ -21,13 +21,13 @@ namespace Abi
             //BEGIN  - TEST: Création de 5 Clients virtuels comme jeux de test a l'ouverture du Form
             for (int i = 0; i < 5; i++)
             {
-                string temp = "0680" + i.ToString();
-                Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), temp, i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
+                string cptemp = "0680" + i.ToString();
+                Donnees.ListeFicheClient.Add(new FicheClient("SARL"+i.ToString(),"Public", "Ancienne", "Adrese"+i.ToString(), cptemp, "ville"+i.ToString(),"Agro", i.ToString(), 20 * i, 30 * i, i.ToString()));
+                 
             }
+            Donnees.ListeFicheClient.Add(new FicheClient( "eirl", "prive","Ancienne","adresse clos","06800" ,"Canne","Agro","060606", 20 , 30, "jqskh"));
 
-            // Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), (06000+i).ToString(), i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
-            // Donnees.ListeFicheClient.Add(new FicheClient(i, i.ToString(), i.ToString(), i.ToString(), i.ToString(), (06000+i).ToString(), i.ToString(), i.ToString(), i.ToString(), 20 * i, 30 * i, i.ToString()));
-            //END TEst
+          //END TEst
 
             controlesVisuels();
             afficheClients();
@@ -112,6 +112,7 @@ namespace Abi
             dt.Columns.Add(new DataColumn("Raison Sociale", typeof(string)));
             dt.Columns.Add(new DataColumn("Téléphone", typeof(string)));
             dt.Columns.Add(new DataColumn("CA", typeof(Decimal)));
+            dt.Columns.Add(new DataColumn("Nature", typeof(String)));
 
             for (int i = 0; i < Donnees.ListeFicheClient.Count; i++)
             {
@@ -120,6 +121,7 @@ namespace Abi
                 dr[1] = Donnees.ListeFicheClient[i].RaisonSociale;
                 dr[2] = Donnees.ListeFicheClient[i].Telephone;
                 dr[3] = Donnees.ListeFicheClient[i].CA;
+                dr[4] = Donnees.ListeFicheClient[i].Nature;
                 dt.Rows.Add(dr);
             }
 
@@ -138,9 +140,15 @@ namespace Abi
             this.controlesVisuels();
             this.afficheClients();
 
+        }
 
-
-
+        private void grdCltDsp_DoubleClick(object sender, EventArgs e)
+        {
+            int i = this.grdCltDsp.CurrentRow.Index;
+            FicheClient leClient = Donnees.ListeFicheClient[i];
+            frmClt frmModifClient = new frmClt(leClient);
+            frmModifClient.ShowDialog();
+            this.afficheClients();
         }
 
 
@@ -148,6 +156,10 @@ namespace Abi
         //{
 
         //}
+
+
+        
+
 
 
     }

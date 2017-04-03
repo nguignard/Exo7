@@ -46,9 +46,9 @@ namespace Abi
         /// <param name="ca"></param>
         /// <param name="effectif"></param>
         /// <param name="commentComm"></param>
-        public FicheClient(int idClient, string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, decimal ca, int effectif, string commentComm)
+        public FicheClient( string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, decimal ca, int effectif, string commentComm)
         {
-            this.IdClient = idClient;
+            this.IdClient = Donnees.ListeFicheClient.Count;
             this.RaisonSociale = raisonSociale;
             this.TypeSociete = typeSociete;
             this.Nature = nature;
@@ -85,15 +85,8 @@ namespace Abi
             {
                 return idClient;
             }
+            set { idClient= value; }
 
-            set
-            {
-
-                if (Outils.EstEntier(value.ToString()))
-                    idClient = value;
-                else
-                    throw new Exception(value.ToString() + " : n'est pas un Numero de Client Valide, il doit être un nombre de moins de 10 chiffre");
-            }
         }
 
         /// <summary>
