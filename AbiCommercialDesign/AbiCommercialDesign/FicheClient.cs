@@ -48,7 +48,7 @@ namespace Abi
         /// <param name="commentComm"></param>
         public FicheClient( string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, decimal ca, int effectif, string commentComm)
         {
-            this.IdClient = Donnees.ListeFicheClient.Count;
+            this.IdClient = Donnees.ListeFicheClient.Count+1;
             this.RaisonSociale = raisonSociale;
             this.TypeSociete = typeSociete;
             this.Nature = nature;
@@ -67,6 +67,7 @@ namespace Abi
         /// </summary>
         public FicheClient()
         {
+            this.IdClient = Donnees.ListeFicheClient.Count+1;
         }
 
         //END CONSTRUCTEURS
@@ -214,7 +215,7 @@ namespace Abi
                 if (Outils.EstEntier(value.ToString()))
                     effectif = value;
                 else
-                    throw new Exception(value.ToString() + " : n'est pas un Numero de Client Valide, il doit être un nombre de moins de 10 chiffre");
+                    throw new Exception(value.ToString() + " : n'est pas un EFFECTIF  Valide, il doit être un nombre de moins de 10 chiffre");
             }
         }
         /// <summary>
@@ -248,7 +249,7 @@ namespace Abi
                 if(Outils.EstCodePostal(value.ToString()))
                 cp = value;
                 else
-                    throw new Exception(value.ToString() + " : n'est pas un Code Postal valide, il doit être un nombre de 5 chiffres");
+                    throw new Exception(value.ToString() + " : n'est pas un CODE POSTAL valide, il doit être un nombre de 5 chiffres");
 
 
             }

@@ -13,71 +13,73 @@ namespace Abi
     public partial class frmClt : Form
     {
         private FicheClient leClient;
-
+        private bool IsNewClient;
 
         public frmClt()
         {
+
+            IsNewClient = true;
             InitializeComponent();
             controlesVisuels();
 
-            // Begin - Initialisation de la comboBox Nature de la Société
-            this.cbxActivite.Items.Clear();
-            this.cbxActivite.Items.AddRange(new string[] { "Agro", "Industrie", "..." });
-            //End - Initialisation de la comboBox Nature de la Société
+
         }
 
         public frmClt(FicheClient unClient)
         {
-
+            IsNewClient = false;
             this.leClient = unClient;
             InitializeComponent();
             controlesVisuels();
 
-            // Begin - Initialisation de la comboBox Nature de la Société
-            this.cbxActivite.Items.Clear();
-            this.cbxActivite.Items.AddRange(new string[] { "Agro", "Industrie", "..." });
-            //End - Initialisation de la comboBox Nature de la Société
-
-            afficheLeClient(unClient);
-
+            afficheLeClient(this.leClient);
         }
 
 
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-
-            FicheClient nouveauClient = new FicheClient();
+            if (IsNewClient)
+            {
+                leClient = new FicheClient();
+            }
 
             try
             {
-                nouveauClient.IdClient = Int32.Parse(this.txtIdClient.Text.Trim());
-                nouveauClient.RaisonSociale = this.txtRaisonSociale.Text.Trim();
-                nouveauClient.Activite = this.cbxActivite.SelectedItem.ToString().Trim();
-                nouveauClient.Adresse = this.txtAdresse.Text.Trim();
-                nouveauClient.Ville = this.txtVille.Text.Trim().ToUpper();
-                nouveauClient.CP = this.txtCP.Text.Trim();
-                nouveauClient.Telephone = this.txtTelephone.Text.Trim();
-                nouveauClient.CA = decimal.Parse(this.txtCA.Text.Trim());
-                nouveauClient.Effectif = Int32.Parse(this.txtEffectif.Text.Trim());
-                nouveauClient.CommentComm = this.txtCommentComm.Text.Trim();
-                nouveauClient.Nature = grpStringValue(grpNature);//grpStringValue renvoie le string lie au rdb Actif du grpBox
-                nouveauClient.TypeSociete = grpStringValue(grpTypeSociete);
+                this.leClient.RaisonSociale = this.txtRaisonSociale.Text.Trim();
+                this.leClient.Activite = this.cbxActivite.SelectedItem.ToString().Trim();
+                this.leClient.Adresse = this.txtAdresse.Text.Trim();
+                this.leClient.Ville = this.txtVille.Text.Trim().ToUpper();
+                this.leClient.CP = this.txtCP.Text.Trim();
+                this.leClient.Telephone = this.txtTelephone.Text.Trim();
+                this.leClient.CA = decimal.Parse(this.txtCA.Text.Trim());
+                this.leClient.Effectif = Int32.Parse(this.txtEffectif.Text.Trim());
+                this.leClient.CommentComm = this.txtCommentComm.Text.Trim();
+                this.leClient.Nature = grpStringValue(grpNature);//grpStringValue renvoie le string lie au rdb Actif du grpBox
+                this.leClient.TypeSociete = grpStringValue(grpTypeSociete);
 
-                Donnees.ListeFicheClient.Add(nouveauClient);
+                if (IsNewClient)
+                {
+                    Donnees.ListeFicheClient.Add(leClient);
+                }
+                else
+                {
+                    Donnees.ListeFicheClient.Remove(this.leClient);
+                    Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
+                }
+
 
                 this.DialogResult = DialogResult.OK;
 
             }
             catch (Exception ex)
             {
-                nouveauClient = null;
+                if (IsNewClient)
+                    leClient = null;
+
+
                 MessageBox.Show(ex.Message);
             }
-
-
-
-
         }
 
 
@@ -117,6 +119,8 @@ namespace Abi
 
         private void controlesVisuels()
         {
+
+            this.txtRaisonSociale.Select();
             //Place tout les controles ON
             this.btnAnnuler.Enabled = true;
             this.btnContacts.Enabled = true;//??tant que pas de controle
@@ -128,6 +132,14 @@ namespace Abi
             //Verifie dans quel cas les disable
             this.btnContacts.Enabled = false;//??tant que pas de controle
                                              //if(Donnees.ListeFicheClient)
+
+            // Begin - Initialisation de la comboBox Nature de la Société
+            this.cbxActivite.Items.Clear();
+            this.cbxActivite.Items.AddRange(new string[] { "Agro", "Industrie", "..." });
+            //End - Initialisation de la comboBox Nature de la Société
+
+
+            this.txtRaisonSociale.Focus();
         }
 
         /// <summary>
@@ -154,23 +166,35 @@ namespace Abi
             this.txtVille.Text = leClient.Ville.ToString();
 
 
+            //Gestion des radioboutons
+            this.rdbAncienne.Checked = true;
+            if (leClient.TypeSociete == "Principal")
+            {
+                this.rdbPrincipal.Checked = true;
+            }
+            else
+            {
+                if (leClient.TypeSociete == "Secondaire")
+                {
+                    this.rdbSecondaire.Checked = true;
+                }
+            }
+            this.rdbTypeClientPublic.Checked = true;
+            if (leClient.Nature == "Privé") this.rdbTypeClientPrive.Checked = true;
 
-            this.rdbPrincipal.Checked = (leClient.TypeSociete == "Principal") ? true: false;
-            this.rdbSecondaire.Checked = (leClient.TypeSociete == "Secondaire") ? true : false;
-            this.rdbAncienne.Checked = (leClient.TypeSociete == "Ancienne") ? true : false;
-            this.rdbTypeClientPublic.Checked = (leClient.Nature == "Public")? true: false;
-            this.rdbTypeClientPrive.Checked = (leClient.Nature== "Public")? true: false;
-            
-
-            this.cbxActivite.SelectedText = leClient.Activite.ToString();
-
+            this.cbxActivite.SelectedItem = leClient.Activite.ToString();
             this.txtTelephone.Text = leClient.Telephone.ToString();
             this.txtCA.Text = leClient.CA.ToString();
             this.txtEffectif.Text = leClient.Effectif.ToString();
             this.txtCommentComm.Text = leClient.CommentComm.ToString();
         }
 
-
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            if (!IsNewClient)
+                Donnees.ListeFicheClient.Remove(this.leClient);
+            this.Close();
+        }
     }
 
 

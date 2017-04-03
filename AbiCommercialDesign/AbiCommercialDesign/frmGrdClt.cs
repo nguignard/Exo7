@@ -98,7 +98,9 @@ namespace Abi
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnCltDspQuitter_Click(object sender, EventArgs e)
-        {   
+        {
+
+            Donnees.ListeFicheClient.Clear();
             this.Close();
         }
 
