@@ -77,6 +77,8 @@
             // 
             // grdCltDsp
             // 
+            this.grdCltDsp.AllowUserToAddRows = false;
+            this.grdCltDsp.AllowUserToDeleteRows = false;
             this.grdCltDsp.AllowUserToOrderColumns = true;
             this.grdCltDsp.AllowUserToResizeColumns = false;
             this.grdCltDsp.AllowUserToResizeRows = false;
@@ -84,9 +86,13 @@
             this.grdCltDsp.Location = new System.Drawing.Point(13, 51);
             this.grdCltDsp.MultiSelect = false;
             this.grdCltDsp.Name = "grdCltDsp";
+            this.grdCltDsp.ReadOnly = true;
+            this.grdCltDsp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCltDsp.Size = new System.Drawing.Size(593, 268);
             this.grdCltDsp.TabIndex = 4;
+            this.grdCltDsp.SelectionChanged += new System.EventHandler(this.grdCltDsp_SelectionChanged);
             this.grdCltDsp.DoubleClick += new System.EventHandler(this.grdCltDsp_DoubleClick);
+            this.grdCltDsp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdCltDsp_KeyPress);
             // 
             // btnAjouter
             // 

@@ -127,6 +127,7 @@ namespace Abi
         private void btnValider_Click(object sender, EventArgs e)
         {
             this.reccordClient();
+            this.DialogResult = DialogResult.OK; //ferme la fenetre modale
         }
 
 
@@ -277,7 +278,7 @@ namespace Abi
                 }
 
                 this.idClient = leClient.IdClient;
-                this.DialogResult = DialogResult.OK; //ferme la fenetre modale
+           
 
             }
             catch (Exception ex)

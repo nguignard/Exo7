@@ -13,6 +13,7 @@ namespace Abi
     public partial class frmGrdClt : Form
     {
         frmClt frmFicheClient; //attribut de Class
+        private Int32 idClient;
 
         /// <summary>
         /// Constructeur de la fenetre liste Client et ajout de 6 Clients
@@ -49,7 +50,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAjouter_Click(object sender, EventArgs e)
+        protected virtual void btnAjouter_Click(object sender, EventArgs e)
         {
             frmFicheClient = new frmClt();
 
@@ -65,7 +66,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCltDspQuitter_Click(object sender, EventArgs e)
+        protected virtual void btnCltDspQuitter_Click(object sender, EventArgs e)
         {
 
             Donnees.ListeFicheClient.Clear();
@@ -77,7 +78,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCltDspSupprimer_Click(object sender, EventArgs e)
+        protected virtual void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
 
             DialogResult rep = new DialogResult();
@@ -100,7 +101,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void grdCltDsp_DoubleClick(object sender, EventArgs e)
+        protected virtual void grdCltDsp_DoubleClick(object sender, EventArgs e)
         {
             int i = this.grdCltDsp.CurrentRow.Index;
             FicheClient leClient = Donnees.ListeFicheClient[i];
@@ -122,7 +123,7 @@ namespace Abi
         /// <summary>
         /// Permets de rendre accessible les bons boutons version non optimisee mais plus secur
         /// </summary>
-        private void controlesVisuels()
+        protected virtual void controlesVisuels()
         {
             //Place tout les controles Accessibles
             this.btnAjouter.Enabled = true;
@@ -156,7 +157,7 @@ namespace Abi
         /// <summary>
         /// Affiche les Clients dans le dataGrid
         /// </summary>
-        private void afficheClients()
+        protected virtual void afficheClients()
         {
             DataTable dt = new DataTable();
             DataRow dr;
@@ -178,7 +179,7 @@ namespace Abi
                 dt.Rows.Add(dr);
             }
 
-            this.grdCltDsp.DataSource = dt;
+            this.grdCltDsp.DataSource = dt.DefaultView;
             this.grdCltDsp.Refresh();
 
             dt = null;
@@ -186,18 +187,36 @@ namespace Abi
 
         }
 
-        private void btnCltDspRechercher_Click(object sender, EventArgs e)
+        protected virtual void btnCltDspRechercher_Click(object sender, EventArgs e)
         {
             if (this.txtCltDspNomRecherche.Text != null)
             {
-                (this.grdCltDsp.DataSource as DataTable).DefaultView.RowFilter = string.Format("Raison Sociale = '{0}'", this.txtCltDspNomRecherche.Text);
+                ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
             }
         }
 
-        private void btnCltDspTous_Click(object sender, EventArgs e)
+        protected virtual void btnCltDspTous_Click(object sender, EventArgs e)
         {
             this.txtCltDspNomRecherche.Text = null;
-            (this.grdCltDsp.DataSource as DataTable).DefaultView.RowFilter = null;
+            afficheClients();
+        }
+
+
+        private void grdCltDsp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (this.txtCltDspNomRecherche.Text != null)
+            {
+                ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
+            }
+        }
+
+        protected virtual void grdCltDsp_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grdCltDsp.CurrentRow != null)
+            {
+                idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
+            }
         }
     }
 }

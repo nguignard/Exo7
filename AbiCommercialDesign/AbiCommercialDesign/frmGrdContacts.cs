@@ -11,8 +11,8 @@ namespace Abi
     public partial class frmGrdContacts : Abi.frmGrdClt
     {
         private FicheClient leClientActif = Donnees.ListeFicheClient[Donnees.idClientActif];
-        private Contact leContact;
-        private frmContact frmFicheContact;
+
+
 
 
         public frmGrdContacts()
@@ -29,13 +29,13 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAjouter_Click(object sender, EventArgs e)
+        protected override void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmFicheContact = new frmContact();
+            frmContact frmNewContact = new frmContact();
 
-            if (frmFicheContact.ShowDialog() == DialogResult.OK)
+            if (frmNewContact.ShowDialog() == DialogResult.OK)
             {
-                controlesVisuels();// réaffiche la liste des Clients
+                controlesVisuels();// réaffiche la liste des Contacts
                 afficheContacts();
             }
         }
@@ -46,7 +46,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCltDspQuitter_Click(object sender, EventArgs e)
+        protected override void btnCltDspQuitter_Click(object sender, EventArgs e)
         {
 
             Donnees.ListeFicheClient.Clear();
@@ -58,7 +58,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCltDspSupprimer_Click(object sender, EventArgs e)
+        protected override void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
             int i = base.grdCltDsp.CurrentRow.Index;
             leClientActif.ListContacts.RemoveAt(i);
@@ -71,15 +71,18 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void grdCltDsp_DoubleClick(object sender, EventArgs e)
+        protected override void grdCltDsp_DoubleClick(object sender, EventArgs e)
         {
-            int i = base.grdCltDsp.CurrentRow.Index;
+            Donnees.idClientActif = base.grdCltDsp.CurrentRow.Index;
 
-            frmContact frmModifContact = new frmContact(leClientActif.ListContacts[i]);
+            frmContact frmModifContact = new frmContact();
 
 
-            frmModifContact.ShowDialog();
-            this.afficheContacts();
+            if (frmModifContact.ShowDialog() == DialogResult.OK)
+            {
+
+                this.afficheContacts();
+            }
         }
 
         //END - GESTION DES BOUTONS/////////////////////////////////////::
@@ -91,12 +94,12 @@ namespace Abi
 
 
 
-            
+
 
         /// <summary>
         /// Permets de rendre accessible les bons boutons version non optimisee mais plus secur
         /// </summary>
-        private void controlesVisuels()
+        protected override void controlesVisuels()
         {
             //Place tout les controles en Accessibles
             base.btnAjouter.Enabled = true;
@@ -105,7 +108,7 @@ namespace Abi
             base.btnCltDspSupprimer.Enabled = true;
             base.btnCltDspTous.Enabled = true;
             base.txtCltDspNomRecherche.ReadOnly = false;
-           
+
 
             //si il n'y a pas encore de Client, Rechercher, supprimer et tous ne sont pas visible
             if (leClientActif.ListContacts == null)
@@ -116,7 +119,7 @@ namespace Abi
                 base.btnCltDspSupprimer.Enabled = false;
                 base.btnCltDspTous.Enabled = false;
                 base.txtCltDspNomRecherche.ReadOnly = true;
-                base.grdCltDsp.Visible = false; // le Grid est remplacé par un message "pas de Client"
+                base.grdCltDsp.Visible = false; // le Grid est remplacé par un message "pas de Contact"
                 this.lblContactVide.Visible = true;
             }
             else
@@ -134,40 +137,39 @@ namespace Abi
 
 
 
-        private void afficheContacts()
+        protected override void afficheContacts()
         {
 
             if (leClientActif.ListContacts != null) // l'affichage du Grid ne se fait que si il existe des contacts
-            { 
-            DataTable dt = new DataTable();
-            DataRow dr;
-
-            dt.Columns.Add(new DataColumn("Societe", typeof(Int32)));
-            dt.Columns.Add(new DataColumn("Nom", typeof(string)));
-            dt.Columns.Add(new DataColumn("Prenom", typeof(string)));
-            dt.Columns.Add(new DataColumn("Fonction", typeof(Decimal)));
-            dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
-
-            for (int i = 0; i < leClientActif.ListContacts.Count; i++)
             {
-                dr = dt.NewRow();
-                dr[0] = leClientActif.ListContacts[i].Entreprise;
-                dr[1] = leClientActif.ListContacts[i].Nom;
-                dr[2] = leClientActif.ListContacts[i].Prenom;
-                dr[3] = leClientActif.ListContacts[i].Fonction;
-                dr[4] = leClientActif.ListContacts[i].Telephone;
-                dt.Rows.Add(dr);
+                DataTable dt = new DataTable();
+                DataRow dr;
+
+                dt.Columns.Add(new DataColumn("Societe", typeof(Int32)));
+                dt.Columns.Add(new DataColumn("Nom", typeof(string)));
+                dt.Columns.Add(new DataColumn("Prenom", typeof(string)));
+                dt.Columns.Add(new DataColumn("Fonction", typeof(Decimal)));
+                dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
+
+                for (int i = 0; i < leClientActif.ListContacts.Count; i++)
+                {
+                    dr = dt.NewRow();
+                    dr[0] = leClientActif.ListContacts[i].Entreprise;
+                    dr[1] = leClientActif.ListContacts[i].Nom;
+                    dr[2] = leClientActif.ListContacts[i].Prenom;
+                    dr[3] = leClientActif.ListContacts[i].Fonction;
+                    dr[4] = leClientActif.ListContacts[i].Telephone;
+                    dt.Rows.Add(dr);
+                }
+
+                base.grdCltDsp.DataSource = dt;
+                base.grdCltDsp.Refresh();
+
+                dt = null;
+                dr = null;
             }
 
-            base.grdCltDsp.DataSource = dt;
-            base.grdCltDsp.Refresh();
-
-            dt = null;
-            dr = null;
         }
 
-        }
-
-       
     }
 }

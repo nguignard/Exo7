@@ -32,7 +32,7 @@ namespace Abi
             InitializeComponent();
             controlesVisuels();
 
-            afficheContact();//fonction permettant d'afficher le Client
+            afficheContact();//fonction permettant d'afficher le Contac
         }
         //END - CONSTRUCTEUR DE CLASSE
 
@@ -58,6 +58,7 @@ namespace Abi
         {
             if (!IsNewContact)
                 leClientActif.ListContacts.Remove(this.leContact);
+
             this.DialogResult = DialogResult.OK;
         }
 
@@ -161,24 +162,19 @@ namespace Abi
         /// </summary>
         private void controlesVisuels()
         {
-            this.txtContact.Select();
+            this.txtEntreprise.Select();
 
             //Place tout les controles ON
+            this.btnDocuments.Enabled = false;
             this.btnAnnuler.Enabled = true;
-            this.btnDocuments.Enabled = true;//??tant que pas de controle
-            this.btnFermer.Enabled = true;
-            this.btnSupprimer.Enabled = true;
             this.btnValider.Enabled = true;//??? Faire un controle pour voir si un txtbox est rempli
-
+            this.btnSupprimer.Enabled = true;
+            this.btnFermer.Enabled = true;
 
             //Verifie dans quel cas les disable
             this.btnDocuments.Enabled = false;//??tant que pas de controle
                                               //if(Donnees.ListeFicheClient)
-
-
             this.txtActivite.Enabled = true;
-
-
         }
 
         /// <summary>
@@ -193,7 +189,7 @@ namespace Abi
             this.txtTelephone.Text = leContact.Telephone.ToString();
             this.txtProjet.Text = leContact.ToString();
 
-             this.txtActivite.Text = leContact.Activite.ToString();
+            this.txtActivite.Text = leContact.Activite.ToString();
             this.txtContact.Text = leContact.IdContact.ToString();
 
 
