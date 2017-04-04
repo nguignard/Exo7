@@ -12,7 +12,7 @@ namespace Abi
 {
     public partial class frmContact : Form
     {
-        private FicheClient leClientActif = Donnees.ListeFicheClient[Donnees.idClientActif];
+        private FicheClient leClientActif ;
         private Contact leContact; // attribut de classe
         private bool IsNewContact;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
                                   //ou de remplacer le Client actuel à modifier
@@ -98,7 +98,8 @@ namespace Abi
                 this.leContact.Telephone = this.txtTelephone.Text.Trim();
                 this.leContact.Projet = this.txtProjet.Text;
                 this.leContact.Activite = this.txtActivite.Text;
-                this.leClientActif.IdClient
+                this.leContact.IdClient = (int)(Donnees.ListeFicheClient[Donnees.idClientActif].IdClient);
+              
 
                 //Création ou modification du Client
                 if (IsNewContact)

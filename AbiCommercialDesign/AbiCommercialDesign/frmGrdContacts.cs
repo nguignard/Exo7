@@ -84,7 +84,7 @@ namespace Abi
             }
 
             Donnees.idClientActif = this.idContact;
-            frmContact frmContact = new frmContact();
+            frmContact frmContact = new frmContact(Donnees.ListeFicheClient[this.idClient].ListContacts[this.idContact]);
             if (frmContact.ShowDialog() == DialogResult.OK)
             {
                 this.afficheContacts();
