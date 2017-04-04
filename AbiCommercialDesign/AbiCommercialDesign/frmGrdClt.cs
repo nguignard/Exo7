@@ -79,10 +79,19 @@ namespace Abi
         /// <param name="e"></param>
         private void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
-            int i = this.grdCltDsp.CurrentRow.Index;
-            Donnees.ListeFicheClient.RemoveAt(i);
-            this.controlesVisuels();
-            this.afficheClients();
+
+            DialogResult rep = new DialogResult();
+            rep = MessageBox.Show("Voulez vous vraiment supprimer?", "suppression", MessageBoxButtons.OKCancel);
+            if (rep == DialogResult.OK)
+            {
+
+                int i = this.grdCltDsp.CurrentRow.Index;
+                Donnees.ListeFicheClient.RemoveAt(i);
+                this.controlesVisuels();
+                this.afficheClients();
+            }
+            
+            
 
         }
 

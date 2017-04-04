@@ -44,7 +44,6 @@ namespace Abi
             this.leClient = unClient;
             InitializeComponent();
             controlesVisuels();
-
             afficheLeClient();//fonction permettant d'afficher le Client
         }
         //END - CONSTRUCTEUR DE CLASSE
@@ -134,9 +133,11 @@ namespace Abi
         private void btnContacts_Click(object sender, EventArgs e)
         {
             this.recordClient();
-           // Donnees.ListeFicheClient[iClient].ListContacts
+            // Donnees.ListeFicheClient[iClient].ListContacts
 
-
+            frmG frmModifContact = new frmContact(leClient);
+            frmModifClient.ShowDialog();
+            this.afficheClients();
 
 
         }
@@ -191,8 +192,8 @@ namespace Abi
 
 
             //Verifie dans quel cas les disable
-            this.btnContacts.Enabled = false;//??tant que pas de controle
-                                             //if(Donnees.ListeFicheClient)
+            this.btnContacts.Enabled = true;//??tant que pas de controle
+                                            //if(Donnees.ListeFicheClient)
 
             // Begin - Initialisation de la comboBox Nature de la Société
             this.cbxActivite.Items.Clear();
@@ -236,20 +237,13 @@ namespace Abi
             this.txtCommentComm.Text = leClient.CommentComm.ToString();
         }
 
-
-
-
-
         private void recordClient()
         {
-
             // instanciation de leClient en cas de nouveau Client
             if (IsNewClient)
             {
                 leClient = new FicheClient();
             }
-
-
             // tente de rentrer ou modifier un nouveau Client, sinon renvoie une exception (venant des accesseurs)
             try
             {
