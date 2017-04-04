@@ -10,9 +10,10 @@ namespace Abi
 {
     public partial class frmGrdContacts : Abi.frmGrdClt
     {
-
-        private frmContact frmFicheContact;
         private FicheClient leClientActif = Donnees.ListeFicheClient[Donnees.idClientActif];
+        private Contact leContact;
+        private frmContact frmFicheContact;
+
 
         public frmGrdContacts()
         {
@@ -90,39 +91,44 @@ namespace Abi
 
 
 
-
+            
 
         /// <summary>
         /// Permets de rendre accessible les bons boutons version non optimisee mais plus secur
         /// </summary>
         private void controlesVisuels()
         {
-            //Place tout les controles Accessibles
-            this.btnAjouter.Enabled = true;
-            this.btnCltDspQuitter.Enabled = true;
-            this.btnCltDspRechercher.Enabled = true;
-            this.btnCltDspSupprimer.Enabled = true;
-            this.btnCltDspTous.Enabled = true;
-            this.txtCltDspNomRecherche.ReadOnly = false;
+            //Place tout les controles en Accessibles
+            base.btnAjouter.Enabled = true;
+            base.btnCltDspQuitter.Enabled = true;
+            base.btnCltDspRechercher.Enabled = true;
+            base.btnCltDspSupprimer.Enabled = true;
+            base.btnCltDspTous.Enabled = true;
+            base.txtCltDspNomRecherche.ReadOnly = false;
+           
 
             //si il n'y a pas encore de Client, Rechercher, supprimer et tous ne sont pas visible
-            if (Donnees.ListeFicheClient.Count == 0)
+            if (leClientActif.ListContacts == null)
             {
-                this.btnAjouter.Enabled = true;
-                this.btnCltDspQuitter.Enabled = true;
-                this.btnCltDspRechercher.Enabled = false;
-                this.btnCltDspSupprimer.Enabled = false;
-                this.btnCltDspTous.Enabled = false;
-                this.txtCltDspNomRecherche.ReadOnly = true;
+                base.btnAjouter.Enabled = true;
+                base.btnCltDspQuitter.Enabled = true;
+                base.btnCltDspRechercher.Enabled = false;
+                base.btnCltDspSupprimer.Enabled = false;
+                base.btnCltDspTous.Enabled = false;
+                base.txtCltDspNomRecherche.ReadOnly = true;
+                base.grdCltDsp.Visible = false; // le Grid est remplacé par un message "pas de Client"
+                this.lblContactVide.Visible = true;
             }
             else
             {
-                this.btnAjouter.Enabled = true;
-                this.btnCltDspQuitter.Enabled = true;
-                this.btnCltDspRechercher.Enabled = true;
-                this.btnCltDspSupprimer.Enabled = true;
-                this.btnCltDspTous.Enabled = true;
-                this.txtCltDspNomRecherche.ReadOnly = false;
+                base.btnAjouter.Enabled = true;
+                base.btnCltDspQuitter.Enabled = true;
+                base.btnCltDspRechercher.Enabled = true;
+                base.btnCltDspSupprimer.Enabled = true;
+                base.btnCltDspTous.Enabled = true;
+                base.txtCltDspNomRecherche.ReadOnly = false;
+                base.grdCltDsp.Visible = true;
+                this.lblContactVide.Visible = false;
             }
         }
 
@@ -130,6 +136,9 @@ namespace Abi
 
         private void afficheContacts()
         {
+
+            if (leClientActif.ListContacts != null) // l'affichage du Grid ne se fait que si il existe des contacts
+            { 
             DataTable dt = new DataTable();
             DataRow dr;
 
@@ -139,14 +148,14 @@ namespace Abi
             dt.Columns.Add(new DataColumn("Fonction", typeof(Decimal)));
             dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
 
-            for (int i = 0; i < Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count; i++)
+            for (int i = 0; i < leClientActif.ListContacts.Count; i++)
             {
                 dr = dt.NewRow();
-                dr[0] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Entreprise;
-                dr[1] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Nom;
-                dr[2] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Prenom;
-                dr[3] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Fonction;
-                dr[4] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Telephone;
+                dr[0] = leClientActif.ListContacts[i].Entreprise;
+                dr[1] = leClientActif.ListContacts[i].Nom;
+                dr[2] = leClientActif.ListContacts[i].Prenom;
+                dr[3] = leClientActif.ListContacts[i].Fonction;
+                dr[4] = leClientActif.ListContacts[i].Telephone;
                 dt.Rows.Add(dr);
             }
 
@@ -155,12 +164,10 @@ namespace Abi
 
             dt = null;
             dr = null;
+        }
 
         }
 
-
-
-
-
+       
     }
 }

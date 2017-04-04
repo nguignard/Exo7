@@ -59,19 +59,19 @@ namespace Abi
 
         public FicheClient(int idClient, int effectif, decimal ca, string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, string commentComm)
         {
-            this.idClient = Donnees.ListeFicheClient.Count + 1;
-            this.effectif = effectif;
-            this.ca = ca;
-            this.raisonSociale = raisonSociale;
-            this.typeSociete = typeSociete;
-            this.nature = nature;
-            this.adresse = adresse;
-            this.cp = cp;
-            this.ville = ville;
-            this.activite = activite;
-            this.telephone = telephone;
-            this.commentComm = commentComm;
-            //this.listContacts = listContacts;
+            this.IdClient = Donnees.ListeFicheClient.Count + 1;
+            this.Effectif = effectif;
+            this.CA = ca;
+            this.RaisonSociale = raisonSociale;
+            this.TypeSociete = typeSociete;
+            this.Nature = nature;
+            this.Adresse = adresse;
+            this.CP = cp;
+            this.Ville = ville;
+            this.Activite = activite;
+            this.Telephone = telephone;
+            this.CommentComm = commentComm;
+            this.ListContacts = listContacts;
         }
 
         //END CONSTRUCTEURS

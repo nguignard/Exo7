@@ -20,7 +20,7 @@ namespace Abi
         private bool IsNewClient;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
                                  //ou de remplacer le Client actuel à modifier
 
-        private int iClient;
+        private int idClient;
 
         //BEGIN - CONSTRUCTEURS DE CLASSE
 
@@ -126,18 +126,24 @@ namespace Abi
         /// <param name="e"></param>
         private void btnValider_Click(object sender, EventArgs e)
         {
-            this.recordClient();
+            this.reccordClient();
         }
 
 
         private void btnContacts_Click(object sender, EventArgs e)
         {
-            this.recordClient();
-            // Donnees.ListeFicheClient[iClient].ListContacts
 
-            frmG frmModifContact = new frmContact(leClient);
-            frmModifClient.ShowDialog();
-            this.afficheClients();
+            this.reccordClient();
+
+            Donnees.idClientActif = this.idClient;
+
+            frmGrdContacts frmModifContact = new frmGrdContacts();
+            if (frmModifContact.ShowDialog() == DialogResult.OK)
+            {
+                this.afficheLeClient();
+            }
+
+           
 
 
         }
@@ -237,7 +243,7 @@ namespace Abi
             this.txtCommentComm.Text = leClient.CommentComm.ToString();
         }
 
-        private void recordClient()
+        private void reccordClient()
         {
             // instanciation de leClient en cas de nouveau Client
             if (IsNewClient)
@@ -270,7 +276,7 @@ namespace Abi
                     Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
                 }
 
-                this.iClient = leClient.IdClient;
+                this.idClient = leClient.IdClient;
                 this.DialogResult = DialogResult.OK; //ferme la fenetre modale
 
             }

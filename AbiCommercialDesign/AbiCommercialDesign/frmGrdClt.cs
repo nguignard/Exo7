@@ -105,8 +105,10 @@ namespace Abi
             int i = this.grdCltDsp.CurrentRow.Index;
             FicheClient leClient = Donnees.ListeFicheClient[i];
             frmClt frmModifClient = new frmClt(leClient);
-            frmModifClient.ShowDialog();
-            this.afficheClients();
+            if (frmModifClient.ShowDialog() == DialogResult.OK)
+            {
+                this.afficheClients();
+            }
         }
 
         //END - GESTION DES BOUTONS/////////////////////////////////////::

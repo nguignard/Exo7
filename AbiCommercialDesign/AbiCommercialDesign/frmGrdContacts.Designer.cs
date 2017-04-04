@@ -28,25 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDocuments = new System.Windows.Forms.Button();
+            this.lblContactVide = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnDocuments
+            // lblContactVide
             // 
-            this.btnDocuments.Location = new System.Drawing.Point(13, 336);
-            this.btnDocuments.Name = "btnDocuments";
-            this.btnDocuments.Size = new System.Drawing.Size(75, 23);
-            this.btnDocuments.TabIndex = 8;
-            this.btnDocuments.Text = "Documents";
-            this.btnDocuments.UseVisualStyleBackColor = true;
+            this.lblContactVide.AutoSize = true;
+            this.lblContactVide.BackColor = System.Drawing.SystemColors.Info;
+            this.lblContactVide.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblContactVide.Location = new System.Drawing.Point(166, 341);
+            this.lblContactVide.Name = "lblContactVide";
+            this.lblContactVide.Size = new System.Drawing.Size(197, 13);
+            this.lblContactVide.TabIndex = 8;
+            this.lblContactVide.Text = "Le Client n\'a pas encore de Contact >>>";
             // 
             // frmGrdContacts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(618, 371);
-            this.Controls.Add(this.btnDocuments);
+            this.Controls.Add(this.lblContactVide);
             this.Name = "frmGrdContacts";
-            this.Controls.SetChildIndex(this.btnDocuments, 0);
+            this.Text = "ABI - LISTE CONTACT                                                              " +
+    "                                                                      ";
+            this.Controls.SetChildIndex(this.lblCltDspNomRecherche, 0);
+            this.Controls.SetChildIndex(this.txtCltDspNomRecherche, 0);
+            this.Controls.SetChildIndex(this.btnCltDspTous, 0);
+            this.Controls.SetChildIndex(this.btnCltDspRechercher, 0);
+            this.Controls.SetChildIndex(this.btnAjouter, 0);
+            this.Controls.SetChildIndex(this.btnCltDspSupprimer, 0);
+            this.Controls.SetChildIndex(this.btnCltDspQuitter, 0);
+            this.Controls.SetChildIndex(this.lblContactVide, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -54,6 +65,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDocuments;
+        protected System.Windows.Forms.Label lblContactVide;
     }
 }
