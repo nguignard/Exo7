@@ -96,6 +96,7 @@
             // 
             // btnAnnuler
             // 
+            this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(315, 351);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
@@ -321,6 +322,7 @@
             this.btnContacts.TabIndex = 16;
             this.btnContacts.Text = "&Contacts Clients";
             this.btnContacts.UseVisualStyleBackColor = true;
+            this.btnContacts.Click += new System.EventHandler(this.btnContacts_Click);
             // 
             // txtVille
             // 

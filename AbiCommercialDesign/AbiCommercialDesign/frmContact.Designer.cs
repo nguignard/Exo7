@@ -1,6 +1,6 @@
 ﻿namespace Abi
 {
-    partial class frmContacts
+    partial class frmContact
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.btnAjouter = new System.Windows.Forms.Button();
-            this.btnContacts = new System.Windows.Forms.Button();
+            this.btnDocuments = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
@@ -48,38 +46,20 @@
             this.txtPrenom = new System.Windows.Forms.TextBox();
             this.txtFonction = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
-            this.grdProjets = new System.Windows.Forms.DataGridView();
             this.txtNumeroActivite = new System.Windows.Forms.TextBox();
             this.txtNumeroContact = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.grdProjets)).BeginInit();
+            this.cbxProjet = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // btnModifier
+            // btnDocuments
             // 
-            this.btnModifier.Location = new System.Drawing.Point(238, 294);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(75, 23);
-            this.btnModifier.TabIndex = 32;
-            this.btnModifier.Text = "&Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
-            // 
-            // btnAjouter
-            // 
-            this.btnAjouter.Location = new System.Drawing.Point(157, 294);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
-            this.btnAjouter.TabIndex = 31;
-            this.btnAjouter.Text = "&Nouveau";
-            this.btnAjouter.UseVisualStyleBackColor = true;
-            // 
-            // btnContacts
-            // 
-            this.btnContacts.Location = new System.Drawing.Point(7, 294);
-            this.btnContacts.Name = "btnContacts";
-            this.btnContacts.Size = new System.Drawing.Size(123, 23);
-            this.btnContacts.TabIndex = 30;
-            this.btnContacts.Text = "&Documents";
-            this.btnContacts.UseVisualStyleBackColor = true;
+            this.btnDocuments.Enabled = false;
+            this.btnDocuments.Location = new System.Drawing.Point(7, 294);
+            this.btnDocuments.Name = "btnDocuments";
+            this.btnDocuments.Size = new System.Drawing.Size(123, 23);
+            this.btnDocuments.TabIndex = 30;
+            this.btnDocuments.Text = "&Documents";
+            this.btnDocuments.UseVisualStyleBackColor = true;
             // 
             // btnAnnuler
             // 
@@ -224,15 +204,6 @@
             this.txtTelephone.Size = new System.Drawing.Size(299, 20);
             this.txtTelephone.TabIndex = 45;
             // 
-            // grdProjets
-            // 
-            this.grdProjets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdProjets.Location = new System.Drawing.Point(148, 122);
-            this.grdProjets.Name = "grdProjets";
-            this.grdProjets.ReadOnly = true;
-            this.grdProjets.Size = new System.Drawing.Size(299, 150);
-            this.grdProjets.TabIndex = 46;
-            // 
             // txtNumeroActivite
             // 
             this.txtNumeroActivite.Location = new System.Drawing.Point(541, 28);
@@ -247,14 +218,22 @@
             this.txtNumeroContact.Size = new System.Drawing.Size(115, 20);
             this.txtNumeroContact.TabIndex = 48;
             // 
-            // frmContacts
+            // cbxProjet
+            // 
+            this.cbxProjet.FormattingEnabled = true;
+            this.cbxProjet.Location = new System.Drawing.Point(148, 123);
+            this.cbxProjet.Name = "cbxProjet";
+            this.cbxProjet.Size = new System.Drawing.Size(299, 21);
+            this.cbxProjet.TabIndex = 49;
+            // 
+            // frmContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 328);
+            this.Controls.Add(this.cbxProjet);
             this.Controls.Add(this.txtNumeroContact);
             this.Controls.Add(this.txtNumeroActivite);
-            this.Controls.Add(this.grdProjets);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.txtFonction);
             this.Controls.Add(this.txtPrenom);
@@ -268,26 +247,20 @@
             this.Controls.Add(this.lbldContact);
             this.Controls.Add(this.lblIdActive);
             this.Controls.Add(this.lblFonctionContact);
-            this.Controls.Add(this.btnModifier);
-            this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.btnContacts);
+            this.Controls.Add(this.btnDocuments);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnSupprimer);
-            this.Name = "frmContacts";
+            this.Name = "frmContact";
             this.Text = "ABI - Fiche Contact";
-            ((System.ComponentModel.ISupportInitialize)(this.grdProjets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnModifier;
-        private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnContacts;
+        private System.Windows.Forms.Button btnDocuments;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button btnFermer;
@@ -305,8 +278,8 @@
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.TextBox txtFonction;
         private System.Windows.Forms.TextBox txtTelephone;
-        private System.Windows.Forms.DataGridView grdProjets;
         private System.Windows.Forms.TextBox txtNumeroActivite;
         private System.Windows.Forms.TextBox txtNumeroContact;
+        private System.Windows.Forms.ComboBox cbxProjet;
     }
 }

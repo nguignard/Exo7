@@ -24,6 +24,7 @@ namespace Abi
         private string activite;
         private string telephone;
         private string commentComm;
+        private List<Contact> listContacts;
         // END ATTRIBUT
 
 

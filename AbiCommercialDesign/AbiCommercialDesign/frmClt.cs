@@ -257,6 +257,16 @@ namespace Abi
             this.txtCommentComm.Text = leClient.CommentComm.ToString();
         }
 
+
+
+
+
+
+
+        private void btnContacts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
