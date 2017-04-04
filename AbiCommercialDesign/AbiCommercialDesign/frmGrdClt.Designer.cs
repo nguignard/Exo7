@@ -54,6 +54,7 @@
             this.txtCltDspNomRecherche.Name = "txtCltDspNomRecherche";
             this.txtCltDspNomRecherche.Size = new System.Drawing.Size(317, 20);
             this.txtCltDspNomRecherche.TabIndex = 1;
+            this.txtCltDspNomRecherche.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCltDspNomRecherche_KeyUp);
             // 
             // btnCltDspTous
             // 
@@ -92,7 +93,6 @@
             this.grdCltDsp.TabIndex = 4;
             this.grdCltDsp.SelectionChanged += new System.EventHandler(this.grdCltDsp_SelectionChanged);
             this.grdCltDsp.DoubleClick += new System.EventHandler(this.grdCltDsp_DoubleClick);
-            this.grdCltDsp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdCltDsp_KeyPress);
             // 
             // btnAjouter
             // 

@@ -26,22 +26,12 @@ namespace Abi
                 string cptemp = "0680" + i.ToString();
                 Donnees.ListeFicheClient.Add(new FicheClient(i, 20 * i, 30 * i, "SARL" + i.ToString(), "Public", "Ancienne", "Adrese" + i.ToString(), cptemp, "ville" + i.ToString(), "Agro", "0606060" + i.ToString(), i.ToString()));
             }
-
-
             //END - TEst
 
             InitializeComponent();
             controlesVisuels();
             afficheClients();
         }
-
-
-        //BEGIN GESTION DU TRI DES CLIENTS
-
-
-        // END - GESTION DU TRI
-
-
 
 
         //BEGIN - GESTION DES BOUTONS/////////////////////////////////////::
@@ -68,7 +58,6 @@ namespace Abi
         /// <param name="e"></param>
         protected virtual void btnCltDspQuitter_Click(object sender, EventArgs e)
         {
-
             Donnees.ListeFicheClient.Clear();
             this.Close();
         }
@@ -80,20 +69,18 @@ namespace Abi
         /// <param name="e"></param>
         protected virtual void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
-
             DialogResult rep = new DialogResult();
             rep = MessageBox.Show("Voulez vous vraiment supprimer?", "suppression", MessageBoxButtons.OKCancel);
             if (rep == DialogResult.OK)
             {
-
-                int i = this.grdCltDsp.CurrentRow.Index;
-                Donnees.ListeFicheClient.RemoveAt(i);
+                if (grdCltDsp.CurrentRow != null)
+                {
+                    idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
+                }
+                Donnees.ListeFicheClient.RemoveAt(idClient);
                 this.controlesVisuels();
                 this.afficheClients();
             }
-            
-            
-
         }
 
         /// <summary>
@@ -103,13 +90,47 @@ namespace Abi
         /// <param name="e"></param>
         protected virtual void grdCltDsp_DoubleClick(object sender, EventArgs e)
         {
-            int i = this.grdCltDsp.CurrentRow.Index;
-            FicheClient leClient = Donnees.ListeFicheClient[i];
+            if (grdCltDsp.CurrentRow != null)
+            {
+                idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
+            }
+            FicheClient leClient = Donnees.ListeFicheClient[idClient-1];
             frmClt frmModifClient = new frmClt(leClient);
             if (frmModifClient.ShowDialog() == DialogResult.OK)
             {
                 this.afficheClients();
             }
+        }
+
+
+        protected virtual void btnCltDspRechercher_Click(object sender, EventArgs e)
+        {
+            if (this.txtCltDspNomRecherche.Text != null)
+            {
+                ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
+            }
+        }
+
+        protected virtual void btnCltDspTous_Click(object sender, EventArgs e)
+        {
+            this.txtCltDspNomRecherche.Text = null;
+            afficheClients();
+        }
+
+
+        protected virtual void grdCltDsp_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grdCltDsp.CurrentRow != null)
+            {
+                idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
+            }
+        }
+
+
+
+        private void txtCltDspNomRecherche_KeyUp(object sender, KeyEventArgs e)
+        {
+            ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
         }
 
         //END - GESTION DES BOUTONS/////////////////////////////////////::
@@ -187,36 +208,5 @@ namespace Abi
 
         }
 
-        protected virtual void btnCltDspRechercher_Click(object sender, EventArgs e)
-        {
-            if (this.txtCltDspNomRecherche.Text != null)
-            {
-                ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
-            }
-        }
-
-        protected virtual void btnCltDspTous_Click(object sender, EventArgs e)
-        {
-            this.txtCltDspNomRecherche.Text = null;
-            afficheClients();
-        }
-
-
-        private void grdCltDsp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-            if (this.txtCltDspNomRecherche.Text != null)
-            {
-                ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
-            }
-        }
-
-        protected virtual void grdCltDsp_SelectionChanged(object sender, EventArgs e)
-        {
-            if (grdCltDsp.CurrentRow != null)
-            {
-                idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
-            }
-        }
     }
 }

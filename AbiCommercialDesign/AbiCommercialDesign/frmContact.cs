@@ -70,34 +70,7 @@ namespace Abi
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
 
-            //if (!IsNewContact)
-            //{
-            //    afficheContact();
-            //    controlesVisuels();
-            //}
-            //else
-            //{
-
-
-            //    this.txtIdClient.Text = "";
-            //    this.txtRaisonSociale.Text = "";
-
-            //    this.txtAdresse.Text = "";
-            //    this.txtCP.Text = "";
-            //    this.txtVille.Text = "";
-
-
-            //    //Gestion des radioboutons
-            //    this.rdbPrincipal.Checked = true;
-            //    this.rdbTypeClientPublic.Checked = true;
-
-            //    this.cbxActivite.SelectedItem = "Agro";
-            //    this.txtTelephone.Text = "";
-            //    this.txtCA.Text = "";
-            //    this.txtEffectif.Text = "";
-            //    this.txtCommentComm.Text = "";
-            //    controlesVisuels(); //met en place les contrôles visuels
-            //}
+            this.afficheContact();
         }
 
 
@@ -115,25 +88,22 @@ namespace Abi
             {
                 leContact = new Contact();
             }
-
-
             // tente de rentrer ou modifier un nouveau Client, sinon renvoie une exception (venant des accesseurs)
             try
             {
-                this.leContact.Entreprise = this.txtEntreprise.Text.Trim(); //trim enleve les espaces avant et apres la chaine
+                this.leContact.Entreprise = this.txtEntreprise.Text.Trim().ToUpper(); //trim enleve les espaces avant et apres la chaine
                 this.leContact.Nom = this.txtNom.Text.Trim();
                 this.leContact.Prenom = this.txtPrenom.Text.Trim();
                 this.leContact.Fonction = this.txtFonction.Text.Trim();//ToUpper met en majuscule
                 this.leContact.Telephone = this.txtTelephone.Text.Trim();
                 this.leContact.Projet = this.txtProjet.Text;
                 this.leContact.Activite = this.txtActivite.Text;
-
-
+                this.leClientActif.IdClient
 
                 //Création ou modification du Client
                 if (IsNewContact)
                 {
-                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Add(this.leContact); //Ajoute le nouveau Client à la liste statique dans données
+                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Add(this.leContact); //Ajoute le nouveau Contact à la liste statique dans données
                 }
                 else
                 {
@@ -194,5 +164,6 @@ namespace Abi
 
 
         }
+
     }
 }

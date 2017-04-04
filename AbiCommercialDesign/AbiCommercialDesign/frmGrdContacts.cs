@@ -10,13 +10,14 @@ namespace Abi
 {
     public partial class frmGrdContacts : Abi.frmGrdClt
     {
-        private FicheClient leClientActif = Donnees.ListeFicheClient[Donnees.idClientActif];
-
-
-
+        int idClient, idContact;
+        private FicheClient leClientActif;
 
         public frmGrdContacts()
         {
+            this.idClient = Donnees.idClientActif;
+            leClientActif = Donnees.ListeFicheClient[this.idClient];
+
             InitializeComponent();
             controlesVisuels();
             afficheContacts();
@@ -31,9 +32,9 @@ namespace Abi
         /// <param name="e"></param>
         protected override void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmContact frmNewContact = new frmContact();
+            frmContact frmContact = new frmContact();
 
-            if (frmNewContact.ShowDialog() == DialogResult.OK)
+            if (frmContact.ShowDialog() == DialogResult.OK)
             {
                 controlesVisuels();// réaffiche la liste des Contacts
                 afficheContacts();
@@ -60,8 +61,12 @@ namespace Abi
         /// <param name="e"></param>
         protected override void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
-            int i = base.grdCltDsp.CurrentRow.Index;
-            leClientActif.ListContacts.RemoveAt(i);
+            if (this.grdCltDsp.CurrentRow != null)
+            {
+                this.idContact = (Int32)this.grdCltDsp.CurrentRow.Cells[0].Value;
+            }
+
+            Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.RemoveAt(this.idContact);
             this.controlesVisuels();
             this.afficheContacts();
         }
@@ -73,14 +78,15 @@ namespace Abi
         /// <param name="e"></param>
         protected override void grdCltDsp_DoubleClick(object sender, EventArgs e)
         {
-            Donnees.idClientActif = base.grdCltDsp.CurrentRow.Index;
-
-            frmContact frmModifContact = new frmContact();
-
-
-            if (frmModifContact.ShowDialog() == DialogResult.OK)
+            if (this.grdCltDsp.CurrentRow != null)
             {
+                this.idContact = (Int32)this.grdCltDsp.CurrentRow.Cells[0].Value;
+            }
 
+            Donnees.idClientActif = this.idContact;
+            frmContact frmContact = new frmContact();
+            if (frmContact.ShowDialog() == DialogResult.OK)
+            {
                 this.afficheContacts();
             }
         }
@@ -111,7 +117,7 @@ namespace Abi
 
 
             //si il n'y a pas encore de Client, Rechercher, supprimer et tous ne sont pas visible
-            if (leClientActif.ListContacts == null)
+            if (Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts == null)
             {
                 base.btnAjouter.Enabled = true;
                 base.btnCltDspQuitter.Enabled = true;
@@ -120,7 +126,7 @@ namespace Abi
                 base.btnCltDspTous.Enabled = false;
                 base.txtCltDspNomRecherche.ReadOnly = true;
                 base.grdCltDsp.Visible = false; // le Grid est remplacé par un message "pas de Contact"
-                this.lblContactVide.Visible = true;
+                                                //  this.lblContactVide.Visible = true;
             }
             else
             {
@@ -131,16 +137,16 @@ namespace Abi
                 base.btnCltDspTous.Enabled = true;
                 base.txtCltDspNomRecherche.ReadOnly = false;
                 base.grdCltDsp.Visible = true;
-                this.lblContactVide.Visible = false;
+                //  this.lblContactVide.Visible = false;
             }
         }
 
 
 
-        protected override void afficheContacts()
+        private void afficheContacts()
         {
 
-            if (leClientActif.ListContacts != null) // l'affichage du Grid ne se fait que si il existe des contacts
+            if (Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts != null) // l'affichage du Grid ne se fait que si il existe des contacts
             {
                 DataTable dt = new DataTable();
                 DataRow dr;
@@ -151,14 +157,14 @@ namespace Abi
                 dt.Columns.Add(new DataColumn("Fonction", typeof(Decimal)));
                 dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
 
-                for (int i = 0; i < leClientActif.ListContacts.Count; i++)
+                for (int i = 0; i < Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count; i++)
                 {
                     dr = dt.NewRow();
-                    dr[0] = leClientActif.ListContacts[i].Entreprise;
-                    dr[1] = leClientActif.ListContacts[i].Nom;
-                    dr[2] = leClientActif.ListContacts[i].Prenom;
-                    dr[3] = leClientActif.ListContacts[i].Fonction;
-                    dr[4] = leClientActif.ListContacts[i].Telephone;
+                    dr[0] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Entreprise;
+                    dr[1] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Nom;
+                    dr[2] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Prenom;
+                    dr[3] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Fonction;
+                    dr[4] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Telephone;
                     dt.Rows.Add(dr);
                 }
 

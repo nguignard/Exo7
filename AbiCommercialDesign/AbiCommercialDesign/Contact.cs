@@ -23,7 +23,7 @@ namespace Abi
 
         public Contact(int idContact,int idClient, string entreprise, string nom, string prenom, string fonction, string telephone, string projet, string activite, string scontact)
         {
-            this.idContact = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count + 1; 
+            this.idContact = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count; 
             this.idClient = idClient;
             this.entreprise = entreprise;
             this.nom = nom;
