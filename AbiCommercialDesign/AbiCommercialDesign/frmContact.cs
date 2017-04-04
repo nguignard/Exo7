@@ -12,9 +12,10 @@ namespace Abi
 {
     public partial class frmContact : Form
     {
+        private FicheClient leClientActif = Donnees.ListeFicheClient[Donnees.idClientActif];
         private Contact leContact; // attribut de classe
         private bool IsNewContact;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
-                                 //ou de remplacer le Client actuel à modifier
+                                  //ou de remplacer le Client actuel à modifier
 
         public frmContact()
         {
@@ -23,7 +24,7 @@ namespace Abi
             controlesVisuels();
         }
 
-      
+
         public frmContact(Contact c)
         {
             IsNewContact = false;
@@ -56,7 +57,7 @@ namespace Abi
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             if (!IsNewContact)
-                Donnees.ListeContacts.Remove(this.leContact);
+                leClientActif.ListContacts.Remove(this.leContact);
             this.DialogResult = DialogResult.OK;
         }
 
@@ -68,34 +69,34 @@ namespace Abi
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
 
-            if (!IsNewContact)
-            {
-                afficheContact();
-                controlesVisuels();
-            }
-            else
-            {
+            //if (!IsNewContact)
+            //{
+            //    afficheContact();
+            //    controlesVisuels();
+            //}
+            //else
+            //{
 
 
-                this.txtIdClient.Text = "";
-                this.txtRaisonSociale.Text = "";
+            //    this.txtIdClient.Text = "";
+            //    this.txtRaisonSociale.Text = "";
 
-                this.txtAdresse.Text = "";
-                this.txtCP.Text = "";
-                this.txtVille.Text = "";
+            //    this.txtAdresse.Text = "";
+            //    this.txtCP.Text = "";
+            //    this.txtVille.Text = "";
 
 
-                //Gestion des radioboutons
-                this.rdbPrincipal.Checked = true;
-                this.rdbTypeClientPublic.Checked = true;
+            //    //Gestion des radioboutons
+            //    this.rdbPrincipal.Checked = true;
+            //    this.rdbTypeClientPublic.Checked = true;
 
-                this.cbxActivite.SelectedItem = "Agro";
-                this.txtTelephone.Text = "";
-                this.txtCA.Text = "";
-                this.txtEffectif.Text = "";
-                this.txtCommentComm.Text = "";
-                controlesVisuels(); //met en place les contrôles visuels
-            }
+            //    this.cbxActivite.SelectedItem = "Agro";
+            //    this.txtTelephone.Text = "";
+            //    this.txtCA.Text = "";
+            //    this.txtEffectif.Text = "";
+            //    this.txtCommentComm.Text = "";
+            //    controlesVisuels(); //met en place les contrôles visuels
+            //}
         }
 
 
@@ -122,22 +123,21 @@ namespace Abi
                 this.leContact.Nom = this.txtNom.Text.Trim();
                 this.leContact.Prenom = this.txtPrenom.Text.Trim();
                 this.leContact.Fonction = this.txtFonction.Text.Trim();//ToUpper met en majuscule
-              
                 this.leContact.Telephone = this.txtTelephone.Text.Trim();
-                //this.leContact.Projet = this.cbxProjet.SelectedItem;
-
+                this.leContact.Projet = this.txtProjet.Text;
+                this.leContact.Activite = this.txtActivite.Text;
 
 
 
                 //Création ou modification du Client
                 if (IsNewContact)
                 {
-                    Donnees.ListeFicheClient.Add(this.leContact); //Ajoute le nouveau Client à la liste statique dans données
+                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Add(this.leContact); //Ajoute le nouveau Client à la liste statique dans données
                 }
                 else
                 {
-                    Donnees.ListeFicheClient.Remove(this.leContact);//remplace le Client par le Client modifié
-                    Donnees.ListeFicheClient.Insert(this.leContact.IdClient, this.leContact);
+                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Remove(this.leContact);//remplace le Client par le Client modifié
+                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Insert(this.leContact.IdContact, this.leContact);
                 }
                 this.DialogResult = DialogResult.OK; //ferme la fenetre modale
 
@@ -161,7 +161,7 @@ namespace Abi
         /// </summary>
         private void controlesVisuels()
         {
-            this.txtNumeroContact.Select();
+            this.txtContact.Select();
 
             //Place tout les controles ON
             this.btnAnnuler.Enabled = true;
@@ -173,12 +173,12 @@ namespace Abi
 
             //Verifie dans quel cas les disable
             this.btnDocuments.Enabled = false;//??tant que pas de controle
-                                             //if(Donnees.ListeFicheClient)
+                                              //if(Donnees.ListeFicheClient)
 
-        
-            this.txtNumeroActivite.Enabled=true;
-       
-     
+
+            this.txtActivite.Enabled = true;
+
+
         }
 
         /// <summary>
@@ -189,21 +189,14 @@ namespace Abi
             this.txtEntreprise.Text = leContact.Entreprise.ToString();
             this.txtNom.Text = leContact.Nom.ToString();
             this.txtPrenom.Text = leContact.Prenom.ToString();
-
             this.txtFonction.Text = leContact.Fonction.ToString();
             this.txtTelephone.Text = leContact.Telephone.ToString();
-            this.cbxProjet.SelectedItem = leContact.ToString();
-            
-            // this.txtNumeroActivite.Text = leContact.nu.ToString();
-                                                                     //this.txtNumeroContact.Text = leContact..ToString();
+            this.txtProjet.Text = leContact.ToString();
 
-
-
-
-
-
-
+             this.txtActivite.Text = leContact.Activite.ToString();
+            this.txtContact.Text = leContact.IdContact.ToString();
 
 
         }
+    }
 }

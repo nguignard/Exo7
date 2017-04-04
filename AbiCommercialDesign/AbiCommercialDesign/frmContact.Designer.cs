@@ -46,9 +46,9 @@
             this.txtPrenom = new System.Windows.Forms.TextBox();
             this.txtFonction = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
-            this.txtNumeroActivite = new System.Windows.Forms.TextBox();
-            this.txtNumeroContact = new System.Windows.Forms.TextBox();
-            this.cbxProjet = new System.Windows.Forms.ComboBox();
+            this.txtActivite = new System.Windows.Forms.TextBox();
+            this.txtContact = new System.Windows.Forms.TextBox();
+            this.txtProjet = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnDocuments
@@ -204,36 +204,35 @@
             this.txtTelephone.Size = new System.Drawing.Size(299, 20);
             this.txtTelephone.TabIndex = 45;
             // 
-            // txtNumeroActivite
+            // txtActivite
             // 
-            this.txtNumeroActivite.Location = new System.Drawing.Point(541, 28);
-            this.txtNumeroActivite.Name = "txtNumeroActivite";
-            this.txtNumeroActivite.Size = new System.Drawing.Size(115, 20);
-            this.txtNumeroActivite.TabIndex = 47;
+            this.txtActivite.Location = new System.Drawing.Point(541, 28);
+            this.txtActivite.Name = "txtActivite";
+            this.txtActivite.Size = new System.Drawing.Size(115, 20);
+            this.txtActivite.TabIndex = 47;
             // 
-            // txtNumeroContact
+            // txtContact
             // 
-            this.txtNumeroContact.Location = new System.Drawing.Point(541, 66);
-            this.txtNumeroContact.Name = "txtNumeroContact";
-            this.txtNumeroContact.Size = new System.Drawing.Size(115, 20);
-            this.txtNumeroContact.TabIndex = 48;
+            this.txtContact.Location = new System.Drawing.Point(541, 66);
+            this.txtContact.Name = "txtContact";
+            this.txtContact.Size = new System.Drawing.Size(115, 20);
+            this.txtContact.TabIndex = 48;
             // 
-            // cbxProjet
+            // txtProjet
             // 
-            this.cbxProjet.FormattingEnabled = true;
-            this.cbxProjet.Location = new System.Drawing.Point(148, 123);
-            this.cbxProjet.Name = "cbxProjet";
-            this.cbxProjet.Size = new System.Drawing.Size(299, 21);
-            this.cbxProjet.TabIndex = 49;
+            this.txtProjet.Location = new System.Drawing.Point(148, 122);
+            this.txtProjet.Name = "txtProjet";
+            this.txtProjet.Size = new System.Drawing.Size(299, 20);
+            this.txtProjet.TabIndex = 49;
             // 
             // frmContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 328);
-            this.Controls.Add(this.cbxProjet);
-            this.Controls.Add(this.txtNumeroContact);
-            this.Controls.Add(this.txtNumeroActivite);
+            this.Controls.Add(this.txtProjet);
+            this.Controls.Add(this.txtContact);
+            this.Controls.Add(this.txtActivite);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.txtFonction);
             this.Controls.Add(this.txtPrenom);
@@ -278,8 +277,8 @@
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.TextBox txtFonction;
         private System.Windows.Forms.TextBox txtTelephone;
-        private System.Windows.Forms.TextBox txtNumeroActivite;
-        private System.Windows.Forms.TextBox txtNumeroContact;
-        private System.Windows.Forms.ComboBox cbxProjet;
+        private System.Windows.Forms.TextBox txtActivite;
+        private System.Windows.Forms.TextBox txtContact;
+        private System.Windows.Forms.TextBox txtProjet;
     }
 }

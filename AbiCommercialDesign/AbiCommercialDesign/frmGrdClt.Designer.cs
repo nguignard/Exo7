@@ -145,13 +145,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCltDspNomRecherche;
-        private System.Windows.Forms.TextBox txtCltDspNomRecherche;
-        private System.Windows.Forms.Button btnCltDspTous;
-        private System.Windows.Forms.Button btnCltDspRechercher;
-        private System.Windows.Forms.DataGridView grdCltDsp;
-        private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnCltDspSupprimer;
-        private System.Windows.Forms.Button btnCltDspQuitter;
+        protected System.Windows.Forms.Label lblCltDspNomRecherche;
+        protected System.Windows.Forms.TextBox txtCltDspNomRecherche;
+        protected System.Windows.Forms.Button btnCltDspTous;
+        protected System.Windows.Forms.Button btnCltDspRechercher;
+        protected System.Windows.Forms.DataGridView grdCltDsp;
+        protected System.Windows.Forms.Button btnAjouter;
+        protected System.Windows.Forms.Button btnCltDspSupprimer;
+        protected System.Windows.Forms.Button btnCltDspQuitter;
     }
 }

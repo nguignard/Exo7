@@ -20,6 +20,8 @@ namespace Abi
         private bool IsNewClient;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
                                  //ou de remplacer le Client actuel à modifier
 
+        private int iClient;
+
         //BEGIN - CONSTRUCTEURS DE CLASSE
 
         /// <summary>
@@ -67,8 +69,13 @@ namespace Abi
         /// <param name="e"></param>
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            if (!IsNewClient)
-                Donnees.ListeFicheClient.Remove(this.leClient);
+            DialogResult rep = new DialogResult();
+            rep = MessageBox.Show("Voulez vous vraiment supprimer?", "suppression", MessageBoxButtons.OKCancel);
+            if (rep == DialogResult.OK)
+            {
+                if (!IsNewClient)
+                    Donnees.ListeFicheClient.Remove(this.leClient);
+            }
             this.DialogResult = DialogResult.OK;
         }
 
@@ -120,55 +127,27 @@ namespace Abi
         /// <param name="e"></param>
         private void btnValider_Click(object sender, EventArgs e)
         {
-            // instanciation de leClient en cas de nouveau Client
-            if (IsNewClient)
-            {
-                leClient = new FicheClient();
-            }
-
-
-            // tente de rentrer ou modifier un nouveau Client, sinon renvoie une exception (venant des accesseurs)
-            try
-            {
-                this.leClient.RaisonSociale = this.txtRaisonSociale.Text.Trim(); //trim enleve les espaces avant et apres la chaine
-                this.leClient.Activite = this.cbxActivite.SelectedItem.ToString().Trim();
-                this.leClient.Adresse = this.txtAdresse.Text.Trim();
-                this.leClient.Ville = this.txtVille.Text.Trim().ToUpper();//ToUpper met en majuscule
-                this.leClient.CP = this.txtCP.Text.Trim();
-                this.leClient.Telephone = this.txtTelephone.Text.Trim();
-                this.leClient.CA = decimal.Parse(this.txtCA.Text.Trim());
-                this.leClient.Effectif = Int32.Parse(this.txtEffectif.Text.Trim());
-                this.leClient.CommentComm = this.txtCommentComm.Text.Trim();
-                this.leClient.Nature = grpStringValue(grpNature);//grpStringValue renvoie le string lie au rdb Actif du grpBox
-                this.leClient.TypeSociete = grpStringValue(grpTypeSociete);
-
-
-                //Création ou modification du Client
-                if (IsNewClient)
-                {
-                    Donnees.ListeFicheClient.Add(leClient); //Ajoute le nouveau Client à la liste statique dans données
-                }
-                else
-                {
-                    Donnees.ListeFicheClient.Remove(this.leClient);//remplace le Client par le Client modifié
-                    Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
-                }
-                this.DialogResult = DialogResult.OK; //ferme la fenetre modale
-
-            }
-            catch (Exception ex)
-            {
-                if (IsNewClient)
-                    leClient = null;// annule la création si l'essai n'est pas concluant
-                MessageBox.Show(ex.Message); // renvoie le message d'exception
-            }
+            this.recordClient();
         }
+
+
+        private void btnContacts_Click(object sender, EventArgs e)
+        {
+            this.recordClient();
+           // Donnees.ListeFicheClient[iClient].ListContacts
+
+
+
+
+        }
+
+
 
         //END - GESTION DES BOUTONS
 
 
         //FONCTION D'affichage DIVERS////////////////////////////////////////////////////////////////////////////////////
-        
+
 
         /// <summary>
         /// grpStringValue renvoie le string lie au radiboutonS Actif dans la groupbox choisie
@@ -261,18 +240,56 @@ namespace Abi
 
 
 
-
-
-        private void btnContacts_Click(object sender, EventArgs e)
+        private void recordClient()
         {
 
+            // instanciation de leClient en cas de nouveau Client
+            if (IsNewClient)
+            {
+                leClient = new FicheClient();
+            }
+
+
+            // tente de rentrer ou modifier un nouveau Client, sinon renvoie une exception (venant des accesseurs)
+            try
+            {
+                this.leClient.RaisonSociale = this.txtRaisonSociale.Text.Trim(); //trim enleve les espaces avant et apres la chaine
+                this.leClient.Activite = this.cbxActivite.SelectedItem.ToString().Trim();
+                this.leClient.Adresse = this.txtAdresse.Text.Trim();
+                this.leClient.Ville = this.txtVille.Text.Trim().ToUpper();//ToUpper met en majuscule
+                this.leClient.CP = this.txtCP.Text.Trim();
+                this.leClient.Telephone = this.txtTelephone.Text.Trim();
+                this.leClient.CA = decimal.Parse(this.txtCA.Text.Trim());
+                this.leClient.Effectif = Int32.Parse(this.txtEffectif.Text.Trim());
+                this.leClient.CommentComm = this.txtCommentComm.Text.Trim();
+                this.leClient.Nature = grpStringValue(grpNature);//grpStringValue renvoie le string lie au rdb Actif du grpBox
+                this.leClient.TypeSociete = grpStringValue(grpTypeSociete);
+
+                //Création ou modification du Client
+                if (IsNewClient)
+                {
+                    Donnees.ListeFicheClient.Add(leClient); //Ajoute le nouveau Client à la liste statique dans données
+                }
+                else
+                {
+                    Donnees.ListeFicheClient.Remove(this.leClient);//remplace le Client par le Client modifié
+                    Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
+                }
+
+                this.iClient = leClient.IdClient;
+                this.DialogResult = DialogResult.OK; //ferme la fenetre modale
+
+            }
+            catch (Exception ex)
+            {
+                if (IsNewClient)
+                    leClient = null;// annule la création si l'essai n'est pas concluant
+                MessageBox.Show(ex.Message); // renvoie le message d'exception
+            }
         }
+
+
+
+
     }
-
-
-
-
-
-
-
 }

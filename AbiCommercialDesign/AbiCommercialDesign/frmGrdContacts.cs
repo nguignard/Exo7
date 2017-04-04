@@ -3,62 +3,42 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Abi
 {
-    public partial class frmGrdClt : Form
+    public partial class frmGrdContacts : Abi.frmGrdClt
     {
-        frmClt frmFicheClient; //attribut de Class
 
-        /// <summary>
-        /// Constructeur de la fenetre liste Client et ajout de 6 Clients
-        /// </summary>
-        public frmGrdClt()
+        private frmContact frmFicheContact;
+        private FicheClient leClientActif = Donnees.ListeFicheClient[Donnees.idClientActif];
+
+        public frmGrdContacts()
         {
-            //BEGIN  - JEU DE TEST: Création de 5 Clients virtuels comme jeux de test a l'ouverture du Form
-            for (int i = 0; i < 5; i++)
-            {
-                string cptemp = "0680" + i.ToString();
-                Donnees.ListeFicheClient.Add(new FicheClient(i, 20 * i, 30 * i, "SARL" + i.ToString(), "Public", "Ancienne", "Adrese" + i.ToString(), cptemp, "ville" + i.ToString(), "Agro", "0606060" + i.ToString(), i.ToString()));
-            }
-
-
-            //END - TEst
-
             InitializeComponent();
             controlesVisuels();
-            afficheClients();
+            afficheContacts();
         }
-
-
-        //BEGIN GESTION DU TRI DES CLIENTS
-
-
-        // END - GESTION DU TRI
-
-
 
 
         //BEGIN - GESTION DES BOUTONS/////////////////////////////////////::
         /// <summary>
-        /// Affiche un client individuel vide pour ajout
+        /// Affiche un Contact individuel vide pour ajout
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            frmFicheClient = new frmClt();
+            frmFicheContact = new frmContact();
 
-            if (frmFicheClient.ShowDialog() == DialogResult.OK)
+            if (frmFicheContact.ShowDialog() == DialogResult.OK)
             {
                 controlesVisuels();// réaffiche la liste des Clients
-                afficheClients();
+                afficheContacts();
             }
         }
+
 
         /// <summary>
         /// bouton fermer: Ferme le Form de recherche de Client retourne à frmMDI
@@ -79,11 +59,10 @@ namespace Abi
         /// <param name="e"></param>
         private void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
-            int i = this.grdCltDsp.CurrentRow.Index;
-            Donnees.ListeFicheClient.RemoveAt(i);
+            int i = base.grdCltDsp.CurrentRow.Index;
+            leClientActif.ListContacts.RemoveAt(i);
             this.controlesVisuels();
-            this.afficheClients();
-
+            this.afficheContacts();
         }
 
         /// <summary>
@@ -93,11 +72,13 @@ namespace Abi
         /// <param name="e"></param>
         private void grdCltDsp_DoubleClick(object sender, EventArgs e)
         {
-            int i = this.grdCltDsp.CurrentRow.Index;
-            FicheClient leClient = Donnees.ListeFicheClient[i];
-            frmClt frmModifClient = new frmClt(leClient);
-            frmModifClient.ShowDialog();
-            this.afficheClients();
+            int i = base.grdCltDsp.CurrentRow.Index;
+
+            frmContact frmModifContact = new frmContact(leClientActif.ListContacts[i]);
+
+
+            frmModifContact.ShowDialog();
+            this.afficheContacts();
         }
 
         //END - GESTION DES BOUTONS/////////////////////////////////////::
@@ -105,7 +86,10 @@ namespace Abi
 
 
 
-        // BEGIN - FONCTIONS D'AFFICHAGE////////////////////////////////////////////////////////////:
+
+
+
+
 
 
         /// <summary>
@@ -142,51 +126,41 @@ namespace Abi
             }
         }
 
-        /// <summary>
-        /// Affiche les Clients dans le dataGrid
-        /// </summary>
-        private void afficheClients()
+
+
+        private void afficheContacts()
         {
             DataTable dt = new DataTable();
             DataRow dr;
 
-            dt.Columns.Add(new DataColumn("Numéro Client", typeof(Int32)));
-            dt.Columns.Add(new DataColumn("Raison Sociale", typeof(string)));
-            dt.Columns.Add(new DataColumn("Téléphone", typeof(string)));
-            dt.Columns.Add(new DataColumn("CA", typeof(Decimal)));
-            dt.Columns.Add(new DataColumn("Nature", typeof(String)));
+            dt.Columns.Add(new DataColumn("Societe", typeof(Int32)));
+            dt.Columns.Add(new DataColumn("Nom", typeof(string)));
+            dt.Columns.Add(new DataColumn("Prenom", typeof(string)));
+            dt.Columns.Add(new DataColumn("Fonction", typeof(Decimal)));
+            dt.Columns.Add(new DataColumn("Telephone", typeof(String)));
 
-            for (int i = 0; i < Donnees.ListeFicheClient.Count; i++)
+            for (int i = 0; i < Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count; i++)
             {
                 dr = dt.NewRow();
-                dr[0] = Donnees.ListeFicheClient[i].IdClient;
-                dr[1] = Donnees.ListeFicheClient[i].RaisonSociale;
-                dr[2] = Donnees.ListeFicheClient[i].Telephone;
-                dr[3] = Donnees.ListeFicheClient[i].CA;
-                dr[4] = Donnees.ListeFicheClient[i].Nature;
+                dr[0] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Entreprise;
+                dr[1] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Nom;
+                dr[2] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Prenom;
+                dr[3] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Fonction;
+                dr[4] = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts[i].Telephone;
                 dt.Rows.Add(dr);
             }
 
-            this.grdCltDsp.DataSource = dt;
-            this.grdCltDsp.Refresh();
+            base.grdCltDsp.DataSource = dt;
+            base.grdCltDsp.Refresh();
 
             dt = null;
             dr = null;
 
         }
 
-        private void btnCltDspRechercher_Click(object sender, EventArgs e)
-        {
-            if (this.txtCltDspNomRecherche.Text != null)
-            {
-                (this.grdCltDsp.DataSource as DataTable).DefaultView.RowFilter = string.Format("Raison Sociale = '{0}'", this.txtCltDspNomRecherche.Text);
-            }
-        }
 
-        private void btnCltDspTous_Click(object sender, EventArgs e)
-        {
-            this.txtCltDspNomRecherche.Text = null;
-            (this.grdCltDsp.DataSource as DataTable).DefaultView.RowFilter = null;
-        }
+
+
+
     }
 }

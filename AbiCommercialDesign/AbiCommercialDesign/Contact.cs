@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +6,40 @@ using System.Threading.Tasks;
 
 namespace Abi
 {
-    class Contact
+    public class Contact
     {
-
         private string entreprise;
         private string nom;
         private string prenom;
         private string fonction;
         private string telephone;
         private string projet;
+        private string activite;
+        private string scontact;
+
+        private List<Contact> listeContacts;
+        private int idClient;
+        private int idContact;
+
+        public Contact(int idContact,int idClient, string entreprise, string nom, string prenom, string fonction, string telephone, string projet, string activite, string scontact)
+        {
+            this.idContact = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count + 1; 
+            this.idClient = idClient;
+            this.entreprise = entreprise;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.fonction = fonction;
+            this.telephone = telephone;
+            this.projet = projet;
+            this.activite = activite;
+            this.scontact = scontact;
+        }
+
+        public Contact()
+        {
+            this.IdContact = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count + 1;
+        }
+
 
         public string Entreprise
         {
@@ -94,14 +119,71 @@ namespace Abi
             }
         }
 
-        public Contact(string entreprise, string nom, string prenom, string fonction, string telephone, string projet)
+
+        public string Activite
         {
-            this.Entreprise = entreprise;
-            this.Nom = nom;
-            this.Prenom = prenom;
-            this.Fonction = fonction;
-            this.Telephone = telephone;
-            this.Projet = projet;
+            get
+            {
+                return activite;
+            }
+
+            set
+            {
+                activite = value;
+            }
+        }
+
+        public string Scontact
+        {
+            get
+            {
+                return scontact;
+            }
+
+            set
+            {
+                scontact = value;
+            }
+        }
+
+
+        //public static List<Contact> ListeContacts
+        //{
+        //    get
+        //    {
+        //        return listeContacts;
+        //    }
+
+        //    set
+        //    {
+        //        listeContacts = value;
+        //    }
+        //}
+
+        public int IdClient
+        {
+            get
+            {
+                return idClient;
+            }
+
+            set
+            {
+                idClient = value;
+            }
+        }
+
+        public int IdContact
+        {
+            get
+            {
+                return idContact;
+            }
+
+            set
+            {
+                idContact = value;
+            }
         }
     }
 }
