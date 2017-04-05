@@ -143,7 +143,7 @@ namespace Abi
         }
 
         /// <summary>
-        /// 
+        /// Conserve l'idClient à chaque changement de selection, est utilisé pour s'assurer la bonne selection d'unClient
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
