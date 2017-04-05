@@ -277,7 +277,7 @@ namespace Abi
                     Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
                 }
 
-                this.idClient = leClient.IdClient;
+               // this.idClient = leClient.IdClient;
            
 
             }

@@ -31,7 +31,6 @@
             this.lblCltDspNomRecherche = new System.Windows.Forms.Label();
             this.txtCltDspNomRecherche = new System.Windows.Forms.TextBox();
             this.btnCltDspTous = new System.Windows.Forms.Button();
-            this.btnCltDspRechercher = new System.Windows.Forms.Button();
             this.grdCltDsp = new System.Windows.Forms.DataGridView();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnCltDspSupprimer = new System.Windows.Forms.Button();
@@ -58,23 +57,13 @@
             // 
             // btnCltDspTous
             // 
-            this.btnCltDspTous.Location = new System.Drawing.Point(531, 8);
+            this.btnCltDspTous.Location = new System.Drawing.Point(460, 8);
             this.btnCltDspTous.Name = "btnCltDspTous";
-            this.btnCltDspTous.Size = new System.Drawing.Size(75, 23);
+            this.btnCltDspTous.Size = new System.Drawing.Size(146, 23);
             this.btnCltDspTous.TabIndex = 2;
-            this.btnCltDspTous.Text = "&Tous";
+            this.btnCltDspTous.Text = "&Tout reafficher";
             this.btnCltDspTous.UseVisualStyleBackColor = true;
             this.btnCltDspTous.Click += new System.EventHandler(this.btnCltDspTous_Click);
-            // 
-            // btnCltDspRechercher
-            // 
-            this.btnCltDspRechercher.Location = new System.Drawing.Point(450, 8);
-            this.btnCltDspRechercher.Name = "btnCltDspRechercher";
-            this.btnCltDspRechercher.Size = new System.Drawing.Size(75, 23);
-            this.btnCltDspRechercher.TabIndex = 3;
-            this.btnCltDspRechercher.Text = "&Rechercher";
-            this.btnCltDspRechercher.UseVisualStyleBackColor = true;
-            this.btnCltDspRechercher.Click += new System.EventHandler(this.btnCltDspRechercher_Click);
             // 
             // grdCltDsp
             // 
@@ -91,7 +80,6 @@
             this.grdCltDsp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCltDsp.Size = new System.Drawing.Size(593, 268);
             this.grdCltDsp.TabIndex = 4;
-            this.grdCltDsp.SelectionChanged += new System.EventHandler(this.grdCltDsp_SelectionChanged);
             this.grdCltDsp.DoubleClick += new System.EventHandler(this.grdCltDsp_DoubleClick);
             // 
             // btnAjouter
@@ -136,7 +124,6 @@
             this.Controls.Add(this.btnCltDspSupprimer);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.grdCltDsp);
-            this.Controls.Add(this.btnCltDspRechercher);
             this.Controls.Add(this.btnCltDspTous);
             this.Controls.Add(this.txtCltDspNomRecherche);
             this.Controls.Add(this.lblCltDspNomRecherche);
@@ -154,7 +141,6 @@
         protected System.Windows.Forms.Label lblCltDspNomRecherche;
         protected System.Windows.Forms.TextBox txtCltDspNomRecherche;
         protected System.Windows.Forms.Button btnCltDspTous;
-        protected System.Windows.Forms.Button btnCltDspRechercher;
         protected System.Windows.Forms.DataGridView grdCltDsp;
         protected System.Windows.Forms.Button btnAjouter;
         protected System.Windows.Forms.Button btnCltDspSupprimer;

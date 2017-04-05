@@ -110,7 +110,6 @@ namespace Abi
             //Place tout les controles en Accessibles
             base.btnAjouter.Enabled = true;
             base.btnCltDspQuitter.Enabled = true;
-            base.btnCltDspRechercher.Enabled = true;
             base.btnCltDspSupprimer.Enabled = true;
             base.btnCltDspTous.Enabled = true;
             base.txtCltDspNomRecherche.ReadOnly = false;
@@ -121,7 +120,6 @@ namespace Abi
             {
                 base.btnAjouter.Enabled = true;
                 base.btnCltDspQuitter.Enabled = true;
-                base.btnCltDspRechercher.Enabled = false;
                 base.btnCltDspSupprimer.Enabled = false;
                 base.btnCltDspTous.Enabled = false;
                 base.txtCltDspNomRecherche.ReadOnly = true;
@@ -132,7 +130,6 @@ namespace Abi
             {
                 base.btnAjouter.Enabled = true;
                 base.btnCltDspQuitter.Enabled = true;
-                base.btnCltDspRechercher.Enabled = true;
                 base.btnCltDspSupprimer.Enabled = true;
                 base.btnCltDspTous.Enabled = true;
                 base.txtCltDspNomRecherche.ReadOnly = false;

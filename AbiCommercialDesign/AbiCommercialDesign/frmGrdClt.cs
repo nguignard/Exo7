@@ -14,6 +14,7 @@ namespace Abi
     {
         frmClt frmFicheClient; //attribut de Class
         private Int32 idClient;
+        private FicheClient ClientActif;
 
         /// <summary>
         /// Constructeur de la fenetre liste Client et ajout de 6 Clients
@@ -21,13 +22,25 @@ namespace Abi
         public frmGrdClt()
         {
             //BEGIN  - JEU DE TEST: Création de 5 Clients virtuels comme jeux de test a l'ouverture du Form
+            List<Contact> lc;
             for (int i = 0; i < 5; i++)
             {
-                string cptemp = "0680" + i.ToString();
-                Donnees.ListeFicheClient.Add(new FicheClient(i, 20 * i, 30 * i, "SARL" + i.ToString(), "Public", "Ancienne", "Adrese" + i.ToString(), cptemp, "ville" + i.ToString(), "Agro", "0606060" + i.ToString(), i.ToString()));
+                lc = new List<Contact>();
+                Donnees.ListeFicheClient.Add(new FicheClient(i, 20 * i, 30 * i, "SARL" + i.ToString(), "Public", "Ancienne", "Adrese" + i.ToString(), "0680" + i.ToString(), "ville" + i.ToString(), "Agro", "0606060" + i.ToString(), i.ToString(), lc));
             }
-            //END - TEst
+            for (int i = 0; i < 4; i++)
+            {
+                Contact c;
+                for (int j = 0; j < 5; j++)
+                {
+                    c = new Contact(Donnees.ListeFicheClient[i].IdClient, j, "entreprise" + i.ToString() + "ET" + j.ToString(), "nom" + i.ToString(), "prenom" + i.ToString(), "fonction" + i.ToString(), "060606" + i.ToString(), "projet" + i.ToString(), "activite" + i.ToString());
+                    Donnees.ListeFicheClient[i].ListContacts.Add(c);
+                }
+            }
+            //END - JEU DE TEST
 
+
+            //INITIALISATION DES COMPOSANTS ET AFFICHAGES DES CLIENTS
             InitializeComponent();
             controlesVisuels();
             afficheClients();
@@ -77,7 +90,14 @@ namespace Abi
                 {
                     idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
                 }
-                Donnees.ListeFicheClient.RemoveAt(idClient);
+                foreach (FicheClient c in Donnees.ListeFicheClient)
+                {
+                    if (c.IdClient == idClient)
+                    {
+                        ClientActif = c;
+                    }
+                }
+                Donnees.ListeFicheClient.Remove(ClientActif);
                 this.controlesVisuels();
                 this.afficheClients();
             }
@@ -94,30 +114,36 @@ namespace Abi
             {
                 idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
             }
-            FicheClient leClient = Donnees.ListeFicheClient[idClient-1];
-            frmClt frmModifClient = new frmClt(leClient);
-            if (frmModifClient.ShowDialog() == DialogResult.OK)
+            foreach (FicheClient c in Donnees.ListeFicheClient)
             {
+                if (c.IdClient == idClient)
+                {
+                    ClientActif = c;
+                }
+            }
+            frmClt frmClient = new frmClt(ClientActif);
+            if (frmClient.ShowDialog() == DialogResult.OK)
+            {
+                this.controlesVisuels();
                 this.afficheClients();
             }
         }
-
-
-        protected virtual void btnCltDspRechercher_Click(object sender, EventArgs e)
-        {
-            if (this.txtCltDspNomRecherche.Text != null)
-            {
-                ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
-            }
-        }
-
+        /// <summary>
+        /// Réaffiche la liste complete des Clients
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected virtual void btnCltDspTous_Click(object sender, EventArgs e)
         {
             this.txtCltDspNomRecherche.Text = null;
             afficheClients();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected virtual void grdCltDsp_SelectionChanged(object sender, EventArgs e)
         {
             if (grdCltDsp.CurrentRow != null)
@@ -125,21 +151,21 @@ namespace Abi
                 idClient = (Int32)grdCltDsp.CurrentRow.Cells[0].Value;
             }
         }
-
-
-
+        /// <summary>
+        /// Quand on ecrit dans le txtbox Recherche, commence un tri actif
+        /// /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCltDspNomRecherche_KeyUp(object sender, KeyEventArgs e)
         {
             ((DataView)(this.grdCltDsp.DataSource)).RowFilter = "[Raison Sociale] like '%" + this.txtCltDspNomRecherche.Text + "%'";
         }
-
         //END - GESTION DES BOUTONS/////////////////////////////////////::
 
 
 
 
         // BEGIN - FONCTIONS D'AFFICHAGE////////////////////////////////////////////////////////////:
-
 
         /// <summary>
         /// Permets de rendre accessible les bons boutons version non optimisee mais plus secur
@@ -149,7 +175,6 @@ namespace Abi
             //Place tout les controles Accessibles
             this.btnAjouter.Enabled = true;
             this.btnCltDspQuitter.Enabled = true;
-            this.btnCltDspRechercher.Enabled = true;
             this.btnCltDspSupprimer.Enabled = true;
             this.btnCltDspTous.Enabled = true;
             this.txtCltDspNomRecherche.ReadOnly = false;
@@ -159,7 +184,6 @@ namespace Abi
             {
                 this.btnAjouter.Enabled = true;
                 this.btnCltDspQuitter.Enabled = true;
-                this.btnCltDspRechercher.Enabled = false;
                 this.btnCltDspSupprimer.Enabled = false;
                 this.btnCltDspTous.Enabled = false;
                 this.txtCltDspNomRecherche.ReadOnly = true;
@@ -168,7 +192,6 @@ namespace Abi
             {
                 this.btnAjouter.Enabled = true;
                 this.btnCltDspQuitter.Enabled = true;
-                this.btnCltDspRechercher.Enabled = true;
                 this.btnCltDspSupprimer.Enabled = true;
                 this.btnCltDspTous.Enabled = true;
                 this.txtCltDspNomRecherche.ReadOnly = false;
@@ -176,7 +199,7 @@ namespace Abi
         }
 
         /// <summary>
-        /// Affiche les Clients dans le dataGrid
+        /// Prépare l'affichage et Affiche les Clients dans le dataGrid 
         /// </summary>
         protected virtual void afficheClients()
         {

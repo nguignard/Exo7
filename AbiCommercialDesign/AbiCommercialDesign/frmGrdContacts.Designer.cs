@@ -57,7 +57,6 @@
             this.Controls.SetChildIndex(this.lblCltDspNomRecherche, 0);
             this.Controls.SetChildIndex(this.txtCltDspNomRecherche, 0);
             this.Controls.SetChildIndex(this.btnCltDspTous, 0);
-            this.Controls.SetChildIndex(this.btnCltDspRechercher, 0);
             this.Controls.SetChildIndex(this.btnAjouter, 0);
             this.Controls.SetChildIndex(this.btnCltDspSupprimer, 0);
             this.Controls.SetChildIndex(this.btnCltDspQuitter, 0);
