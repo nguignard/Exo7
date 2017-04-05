@@ -79,6 +79,12 @@
     <Compile Include="frmGrdClt.Designer.cs">
       <DependentUpon>frmGrdClt.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGrdContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGrdContact.Designer.cs">
+      <DependentUpon>frmGrdContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGrdContacts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGrdClt.resx">
       <DependentUpon>frmGrdClt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGrdContact.resx">
+      <DependentUpon>frmGrdContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGrdContacts.resx">
       <DependentUpon>frmGrdContacts.cs</DependentUpon>

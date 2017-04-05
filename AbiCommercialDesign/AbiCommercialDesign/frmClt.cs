@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace Abi
 {
-
     /// <summary>
     /// frmClt: est une fenetre qui gere la creation et la modification d'un Client Particulier
     /// </summary>
@@ -19,8 +18,6 @@ namespace Abi
         private FicheClient leClient; // attribut de classe
         private bool IsNewClient;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
                                  //ou de remplacer le Client actuel à modifier
-
-        private int idClient;
 
         //BEGIN - CONSTRUCTEURS DE CLASSE
 
@@ -44,7 +41,7 @@ namespace Abi
             this.leClient = unClient;
             InitializeComponent();
             controlesVisuels();
-            afficheLeClient();//fonction permettant d'afficher le Client
+            afficheLeClient(this.leClient);//fonction permettant d'afficher le Client
         }
         //END - CONSTRUCTEUR DE CLASSE
 
@@ -85,35 +82,18 @@ namespace Abi
         /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-
             if (!IsNewClient)
             {
-                afficheLeClient();
+                afficheLeClient(this.leClient);
                 controlesVisuels();
             }
             else
             {
-
-
-                this.txtIdClient.Text = "";
-                this.txtRaisonSociale.Text = "";
-
-                this.txtAdresse.Text = "";
-                this.txtCP.Text = "";
-                this.txtVille.Text = "";
-
-
-                //Gestion des radioboutons
-                this.rdbPrincipal.Checked = true;
-                this.rdbTypeClientPublic.Checked = true;
-
-                this.cbxActivite.SelectedItem = "Agro";
-                this.txtTelephone.Text = "";
-                this.txtCA.Text = "";
-                this.txtEffectif.Text = "";
-                this.txtCommentComm.Text = "";
-                controlesVisuels(); //met en place les contrôles visuels
+                FicheClient clientVide = new FicheClient();
+                this.afficheLeClient(clientVide);
+                this.controlesVisuels(); //met en place les contrôles visuels
             }
+            this.DialogResult = DialogResult.Cancel;
         }
 
 
@@ -133,20 +113,15 @@ namespace Abi
 
         private void btnContacts_Click(object sender, EventArgs e)
         {
-
             this.reccordClient();
 
-            Donnees.idClientActif = this.idClient;
+            Donnees.idClientActif = this.leClient.IdClient;
 
-            frmGrdContacts frmModifContact = new frmGrdContacts();
+            frmGrdContact frmModifContact = new frmGrdContact();
             if (frmModifContact.ShowDialog() == DialogResult.OK)
             {
-                this.afficheLeClient();
+                this.afficheLeClient(this.leClient);
             }
-
-           
-
-
         }
 
 
@@ -211,37 +186,37 @@ namespace Abi
         /// <summary>
         /// Affiche le Client en cours de modification
         /// </summary>
-        private void afficheLeClient()
+        private void afficheLeClient(FicheClient c)
         {
-            this.txtIdClient.Text = leClient.IdClient.ToString();
-            this.txtRaisonSociale.Text = leClient.RaisonSociale.ToString();
+            this.txtIdClient.Text = c.IdClient.ToString();
+            this.txtRaisonSociale.Text = c.RaisonSociale.ToString();
 
-            this.txtAdresse.Text = leClient.Adresse.ToString();
-            this.txtCP.Text = leClient.CP.ToString();
-            this.txtVille.Text = leClient.Ville.ToString();
+            this.txtAdresse.Text = c.Adresse.ToString();
+            this.txtCP.Text = c.CP.ToString();
+            this.txtVille.Text = c.Ville.ToString();
 
 
             //Gestion des radioboutons
             this.rdbAncienne.Checked = true;
-            if (leClient.TypeSociete == "Principal")
+            if (c.TypeSociete == "Principal")
             {
                 this.rdbPrincipal.Checked = true;
             }
             else
             {
-                if (leClient.TypeSociete == "Secondaire")
+                if (c.TypeSociete == "Secondaire")
                 {
                     this.rdbSecondaire.Checked = true;
                 }
             }
             this.rdbTypeClientPublic.Checked = true;
-            if (leClient.Nature == "Privé") this.rdbTypeClientPrive.Checked = true;
+            if (c.Nature == "Privé") this.rdbTypeClientPrive.Checked = true;
 
-            this.cbxActivite.SelectedItem = leClient.Activite.ToString();
-            this.txtTelephone.Text = leClient.Telephone.ToString();
-            this.txtCA.Text = leClient.CA.ToString();
-            this.txtEffectif.Text = leClient.Effectif.ToString();
-            this.txtCommentComm.Text = leClient.CommentComm.ToString();
+            this.cbxActivite.SelectedItem = c.Activite.ToString();
+            this.txtTelephone.Text = c.Telephone.ToString();
+            this.txtCA.Text = c.CA.ToString();
+            this.txtEffectif.Text = c.Effectif.ToString();
+            this.txtCommentComm.Text = c.CommentComm.ToString();
         }
 
         private void reccordClient()
@@ -277,8 +252,8 @@ namespace Abi
                     Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
                 }
 
-               // this.idClient = leClient.IdClient;
-           
+                // this.idClient = leClient.IdClient;
+
 
             }
             catch (Exception ex)

@@ -121,12 +121,15 @@ namespace Abi
                     ClientActif = c;
                 }
             }
+
+
             frmClt frmClient = new frmClt(ClientActif);
             if (frmClient.ShowDialog() == DialogResult.OK)
             {
                 this.controlesVisuels();
                 this.afficheClients();
             }
+
         }
         /// <summary>
         /// Réaffiche la liste complete des Clients
