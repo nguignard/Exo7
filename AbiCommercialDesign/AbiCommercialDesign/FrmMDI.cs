@@ -29,7 +29,6 @@ namespace Abi
             if (this.frmlisteClient == null)
             {
                 this.frmlisteClient = new frmGrdClt();
-                this.frmlisteClient.FormClosing += new FormClosingEventHandler(this.fermeFrmGrdClt);
                 this.frmlisteClient.MdiParent = this;
                 this.frmlisteClient.Show();
             }
