@@ -31,12 +31,11 @@
             this.btnCltDspQuitter = new System.Windows.Forms.Button();
             this.btnCltDspSupprimer = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
-            this.grdCltDsp = new System.Windows.Forms.DataGridView();
-            this.btnCltDspRechercher = new System.Windows.Forms.Button();
+            this.grdContact = new System.Windows.Forms.DataGridView();
             this.btnCltDspTous = new System.Windows.Forms.Button();
             this.txtCltDspNomRecherche = new System.Windows.Forms.TextBox();
             this.lblCltDspNomRecherche = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCltDsp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdContact)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCltDspQuitter
@@ -47,6 +46,7 @@
             this.btnCltDspQuitter.TabIndex = 15;
             this.btnCltDspQuitter.Text = "&Quitter";
             this.btnCltDspQuitter.UseVisualStyleBackColor = true;
+            this.btnCltDspQuitter.Click += new System.EventHandler(this.btnCltDspQuitter_Click);
             // 
             // btnCltDspSupprimer
             // 
@@ -57,6 +57,7 @@
             this.btnCltDspSupprimer.TabIndex = 14;
             this.btnCltDspSupprimer.Text = "&Supprimer";
             this.btnCltDspSupprimer.UseVisualStyleBackColor = true;
+            this.btnCltDspSupprimer.Click += new System.EventHandler(this.btnCltDspSupprimer_Click);
             // 
             // btnAjouter
             // 
@@ -66,40 +67,33 @@
             this.btnAjouter.TabIndex = 13;
             this.btnAjouter.Text = "&Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
-            // grdCltDsp
+            // grdContact
             // 
-            this.grdCltDsp.AllowUserToAddRows = false;
-            this.grdCltDsp.AllowUserToDeleteRows = false;
-            this.grdCltDsp.AllowUserToOrderColumns = true;
-            this.grdCltDsp.AllowUserToResizeColumns = false;
-            this.grdCltDsp.AllowUserToResizeRows = false;
-            this.grdCltDsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCltDsp.Location = new System.Drawing.Point(14, 83);
-            this.grdCltDsp.MultiSelect = false;
-            this.grdCltDsp.Name = "grdCltDsp";
-            this.grdCltDsp.ReadOnly = true;
-            this.grdCltDsp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdCltDsp.Size = new System.Drawing.Size(593, 268);
-            this.grdCltDsp.TabIndex = 12;
-            // 
-            // btnCltDspRechercher
-            // 
-            this.btnCltDspRechercher.Location = new System.Drawing.Point(451, 40);
-            this.btnCltDspRechercher.Name = "btnCltDspRechercher";
-            this.btnCltDspRechercher.Size = new System.Drawing.Size(75, 23);
-            this.btnCltDspRechercher.TabIndex = 11;
-            this.btnCltDspRechercher.Text = "&Rechercher";
-            this.btnCltDspRechercher.UseVisualStyleBackColor = true;
+            this.grdContact.AllowUserToAddRows = false;
+            this.grdContact.AllowUserToDeleteRows = false;
+            this.grdContact.AllowUserToOrderColumns = true;
+            this.grdContact.AllowUserToResizeColumns = false;
+            this.grdContact.AllowUserToResizeRows = false;
+            this.grdContact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdContact.Location = new System.Drawing.Point(14, 83);
+            this.grdContact.MultiSelect = false;
+            this.grdContact.Name = "grdContact";
+            this.grdContact.ReadOnly = true;
+            this.grdContact.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdContact.Size = new System.Drawing.Size(593, 268);
+            this.grdContact.TabIndex = 12;
             // 
             // btnCltDspTous
             // 
-            this.btnCltDspTous.Location = new System.Drawing.Point(532, 40);
+            this.btnCltDspTous.Location = new System.Drawing.Point(451, 40);
             this.btnCltDspTous.Name = "btnCltDspTous";
-            this.btnCltDspTous.Size = new System.Drawing.Size(75, 23);
+            this.btnCltDspTous.Size = new System.Drawing.Size(156, 23);
             this.btnCltDspTous.TabIndex = 10;
-            this.btnCltDspTous.Text = "&Tous";
+            this.btnCltDspTous.Text = "&Tous Réafficher";
             this.btnCltDspTous.UseVisualStyleBackColor = true;
+            this.btnCltDspTous.Click += new System.EventHandler(this.btnCltDspTous_Click);
             // 
             // txtCltDspNomRecherche
             // 
@@ -107,6 +101,7 @@
             this.txtCltDspNomRecherche.Name = "txtCltDspNomRecherche";
             this.txtCltDspNomRecherche.Size = new System.Drawing.Size(317, 20);
             this.txtCltDspNomRecherche.TabIndex = 9;
+         
             // 
             // lblCltDspNomRecherche
             // 
@@ -125,14 +120,13 @@
             this.Controls.Add(this.btnCltDspQuitter);
             this.Controls.Add(this.btnCltDspSupprimer);
             this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.grdCltDsp);
-            this.Controls.Add(this.btnCltDspRechercher);
+            this.Controls.Add(this.grdContact);
             this.Controls.Add(this.btnCltDspTous);
             this.Controls.Add(this.txtCltDspNomRecherche);
             this.Controls.Add(this.lblCltDspNomRecherche);
             this.Name = "frmGrdContact";
             this.Text = "frmGrdContact";
-            ((System.ComponentModel.ISupportInitialize)(this.grdCltDsp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdContact)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,8 +137,7 @@
         protected System.Windows.Forms.Button btnCltDspQuitter;
         protected System.Windows.Forms.Button btnCltDspSupprimer;
         protected System.Windows.Forms.Button btnAjouter;
-        protected System.Windows.Forms.DataGridView grdCltDsp;
-        protected System.Windows.Forms.Button btnCltDspRechercher;
+        protected System.Windows.Forms.DataGridView grdContact;
         protected System.Windows.Forms.Button btnCltDspTous;
         protected System.Windows.Forms.TextBox txtCltDspNomRecherche;
         protected System.Windows.Forms.Label lblCltDspNomRecherche;

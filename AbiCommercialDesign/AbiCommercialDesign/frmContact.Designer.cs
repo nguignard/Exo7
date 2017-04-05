@@ -69,6 +69,7 @@
             this.btnAnnuler.TabIndex = 29;
             this.btnAnnuler.Text = "A&nnuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnValider
             // 
@@ -78,6 +79,7 @@
             this.btnValider.TabIndex = 28;
             this.btnValider.Text = "&Valider";
             this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // btnFermer
             // 
@@ -87,6 +89,7 @@
             this.btnFermer.TabIndex = 27;
             this.btnFermer.Text = "&Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // btnSupprimer
             // 
@@ -96,6 +99,7 @@
             this.btnSupprimer.TabIndex = 26;
             this.btnSupprimer.Text = "&Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // lblFonctionContact
             // 
@@ -206,6 +210,7 @@
             // 
             // txtActivite
             // 
+            this.txtActivite.Enabled = false;
             this.txtActivite.Location = new System.Drawing.Point(541, 28);
             this.txtActivite.Name = "txtActivite";
             this.txtActivite.Size = new System.Drawing.Size(115, 20);
@@ -213,6 +218,7 @@
             // 
             // txtContact
             // 
+            this.txtContact.Enabled = false;
             this.txtContact.Location = new System.Drawing.Point(541, 66);
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(115, 20);

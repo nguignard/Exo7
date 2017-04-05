@@ -17,18 +17,20 @@ namespace Abi
         private bool IsNewContact;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
                                   //ou de remplacer le Client actuel à modifier
 
-        public frmContact()
+        public frmContact(FicheClient fc)
         {
+            leClientActif = fc;
             IsNewContact = true;
             InitializeComponent();
             controlesVisuels();
         }
 
 
-        public frmContact(Contact c)
+        public frmContact(FicheClient fc, Contact c)
         {
+            leClientActif = fc;
             IsNewContact = false;
-            this.leContact = c;
+            leContact = c;
             InitializeComponent();
             controlesVisuels();
 
@@ -165,6 +167,5 @@ namespace Abi
 
 
         }
-
     }
 }

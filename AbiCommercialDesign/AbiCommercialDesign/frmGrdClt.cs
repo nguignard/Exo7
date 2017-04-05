@@ -33,7 +33,7 @@ namespace Abi
                 Contact c;
                 for (int j = 0; j < 5; j++)
                 {
-                    c = new Contact(Donnees.ListeFicheClient[i].IdClient, j, "entreprise" + i.ToString() + "ET" + j.ToString(), "nom" + i.ToString(), "prenom" + i.ToString(), "fonction" + i.ToString(), "060606" + i.ToString(), "projet" + i.ToString(), "activite" + i.ToString());
+                    c = new Contact(Donnees.ListeFicheClient[i].IdClient, Donnees.ListeFicheClient[i].ListContacts.Count, "entreprise" + i.ToString() + "ET" + j.ToString(), "nom" + i.ToString(), "prenom" + i.ToString(), "fonction" + i.ToString(), "060606" + i.ToString(), "projet" + i.ToString(), "activite" + i.ToString());
                     Donnees.ListeFicheClient[i].ListContacts.Add(c);
                 }
             }

@@ -15,14 +15,15 @@ namespace Abi
         private string telephone;
         private string projet;
         private string activite;
-      
+
         private int idClient;
         private int idContact;
 
-        public Contact(int idContact,int idClient, string entreprise, string nom, string prenom, string fonction, string telephone, string projet, string activite)
+        public Contact(int idContact, int idClient, string entreprise, string nom, string prenom, string fonction, string telephone, string projet, string activite)
         {
-            this.idContact = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count; 
             this.idClient = idClient;
+            this.idContact = idContact;
+
             this.entreprise = entreprise;
             this.nom = nom;
             this.prenom = prenom;
@@ -30,12 +31,11 @@ namespace Abi
             this.telephone = telephone;
             this.projet = projet;
             this.activite = activite;
-            
+
         }
 
         public Contact()
         {
-            this.IdContact = Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Count + 1;
         }
 
 
@@ -131,20 +131,6 @@ namespace Abi
             }
         }
 
-
-
-        //public static List<Contact> ListeContacts
-        //{
-        //    get
-        //    {
-        //        return listeContacts;
-        //    }
-
-        //    set
-        //    {
-        //        listeContacts = value;
-        //    }
-        //}
 
         public int IdClient
         {
