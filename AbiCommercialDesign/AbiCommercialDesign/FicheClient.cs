@@ -24,7 +24,7 @@ namespace Abi
         private string activite;
         private string telephone;
         private string commentComm;
-        private List<Contact> listContacts;
+        private List<Contact> listContacts =new List<Contact>();
         // END ATTRIBUT
 
 
@@ -57,7 +57,7 @@ namespace Abi
             this.IdClient = Donnees.ListeFicheClient.Count+1;
         }
 
-        public FicheClient(int idClient, int effectif, decimal ca, string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, string commentComm)
+        public FicheClient(int idClient, int effectif, decimal ca, string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, string commentComm, List<Contact> listContacts)
         {
             this.IdClient = Donnees.ListeFicheClient.Count + 1;
             this.Effectif = effectif;

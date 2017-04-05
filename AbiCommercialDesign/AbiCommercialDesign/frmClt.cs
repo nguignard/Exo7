@@ -117,7 +117,7 @@ namespace Abi
 
             Donnees.idClientActif = this.leClient.IdClient;
 
-            frmGrdContact frmModifContact = new frmGrdContact();
+            frmGrdContact frmModifContact = new frmGrdContact(this.leClient);
             if (frmModifContact.ShowDialog() == DialogResult.OK)
             {
                 this.afficheLeClient(this.leClient);
