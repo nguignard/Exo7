@@ -33,7 +33,7 @@ namespace Abi
                 Contact c;
                 for (int j = 0; j < 5; j++)
                 {
-                    c = new Contact(Donnees.ListeFicheClient[i].IdClient, Donnees.ListeFicheClient[i].ListContacts.Count, "entreprise" + i.ToString() + "ET" + j.ToString(), "nom" + i.ToString(), "prenom" + i.ToString(), "fonction" + i.ToString(), "060606" + i.ToString(), "projet" + i.ToString(), "activite" + i.ToString());
+                    c = new Contact(Donnees.ListeFicheClient[i].IdClient, Donnees.ListeFicheClient[i].ListContacts.Count, "entreprise" + i.ToString() + "ET" + j.ToString(), "nom" + i.ToString() + "ET" + j.ToString(), "prenom" + i.ToString() + "ET" + j.ToString(), "fonction" + i.ToString() + "ET" + j.ToString(), "060606" + i.ToString(), "projet" + i.ToString(), "activite" + i.ToString());
                     Donnees.ListeFicheClient[i].ListContacts.Add(c);
                 }
             }
@@ -53,7 +53,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void btnAjouter_Click(object sender, EventArgs e)
+        private void btnAjouter_Click(object sender, EventArgs e)
         {
             frmFicheClient = new frmClt();
 
@@ -69,7 +69,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void btnCltDspQuitter_Click(object sender, EventArgs e)
+        private void btnCltDspQuitter_Click(object sender, EventArgs e)
         {
             Donnees.ListeFicheClient.Clear();
             this.Close();
@@ -80,7 +80,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void btnCltDspSupprimer_Click(object sender, EventArgs e)
+        private void btnCltDspSupprimer_Click(object sender, EventArgs e)
         {
             DialogResult rep = new DialogResult();
             rep = MessageBox.Show("Voulez vous vraiment supprimer?", "suppression", MessageBoxButtons.OKCancel);
@@ -108,7 +108,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void grdCltDsp_DoubleClick(object sender, EventArgs e)
+        private void grdCltDsp_DoubleClick(object sender, EventArgs e)
         {
             if (grdCltDsp.CurrentRow != null)
             {
@@ -136,7 +136,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void btnCltDspTous_Click(object sender, EventArgs e)
+        private void btnCltDspTous_Click(object sender, EventArgs e)
         {
             this.txtCltDspNomRecherche.Text = null;
             afficheClients();
@@ -147,7 +147,7 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void grdCltDsp_SelectionChanged(object sender, EventArgs e)
+        private void grdCltDsp_SelectionChanged(object sender, EventArgs e)
         {
             if (grdCltDsp.CurrentRow != null)
             {
@@ -173,7 +173,7 @@ namespace Abi
         /// <summary>
         /// Permets de rendre accessible les bons boutons version non optimisee mais plus secur
         /// </summary>
-        protected virtual void controlesVisuels()
+        private void controlesVisuels()
         {
             //Place tout les controles Accessibles
             this.btnAjouter.Enabled = true;
@@ -204,7 +204,7 @@ namespace Abi
         /// <summary>
         /// Prépare l'affichage et Affiche les Clients dans le dataGrid 
         /// </summary>
-        protected virtual void afficheClients()
+        private void afficheClients()
         {
             DataTable dt = new DataTable();
             DataRow dr;

@@ -54,12 +54,12 @@ namespace Abi
         /// </summary>
         public FicheClient()
         {
-            this.IdClient = Donnees.ListeFicheClient.Count+1;
+          
         }
 
         public FicheClient(int idClient, int effectif, decimal ca, string raisonSociale, string typeSociete, string nature, string adresse, string cp, string ville, string activite, string telephone, string commentComm, List<Contact> listContacts)
         {
-            this.IdClient = Donnees.ListeFicheClient.Count + 1;
+            this.IdClient = idClient;
             this.Effectif = effectif;
             this.CA = ca;
             this.RaisonSociale = raisonSociale;

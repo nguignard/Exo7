@@ -82,18 +82,18 @@ namespace Abi
         /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            if (!IsNewClient)
+            if (IsNewClient)
             {
-                afficheLeClient(this.leClient);
-                controlesVisuels();
+                FicheClient clientVide = new FicheClient();
+                afficheLeClient(clientVide);
             }
             else
             {
-                FicheClient clientVide = new FicheClient();
-                this.afficheLeClient(clientVide);
-                this.controlesVisuels(); //met en place les contrôles visuels
+              this.afficheLeClient(this.leClient);
             }
-            this.DialogResult = DialogResult.Cancel;
+            this.controlesVisuels();
+
+            //this.DialogResult = DialogResult.Cancel;
         }
 
 
@@ -123,9 +123,6 @@ namespace Abi
                 this.afficheLeClient(this.leClient);
             }
         }
-
-
-
         //END - GESTION DES BOUTONS
 
 
@@ -244,6 +241,7 @@ namespace Abi
                 //Création ou modification du Client
                 if (IsNewClient)
                 {
+                    leClient.IdClient = Donnees.ListeFicheClient.Count + 1;
                     Donnees.ListeFicheClient.Add(leClient); //Ajoute le nouveau Client à la liste statique dans données
                 }
                 else
@@ -251,9 +249,6 @@ namespace Abi
                     Donnees.ListeFicheClient.Remove(this.leClient);//remplace le Client par le Client modifié
                     Donnees.ListeFicheClient.Insert(this.leClient.IdClient, this.leClient);
                 }
-
-                // this.idClient = leClient.IdClient;
-
 
             }
             catch (Exception ex)
@@ -263,9 +258,6 @@ namespace Abi
                 MessageBox.Show(ex.Message); // renvoie le message d'exception
             }
         }
-
-
-
 
     }
 }

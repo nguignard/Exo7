@@ -49,6 +49,8 @@
             this.txtActivite = new System.Windows.Forms.TextBox();
             this.txtContact = new System.Windows.Forms.TextBox();
             this.txtProjet = new System.Windows.Forms.TextBox();
+            this.txtidClient = new System.Windows.Forms.TextBox();
+            this.lblidClient = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnDocuments
@@ -231,11 +233,31 @@
             this.txtProjet.Size = new System.Drawing.Size(299, 20);
             this.txtProjet.TabIndex = 49;
             // 
+            // txtidClient
+            // 
+            this.txtidClient.Enabled = false;
+            this.txtidClient.Location = new System.Drawing.Point(536, 115);
+            this.txtidClient.Name = "txtidClient";
+            this.txtidClient.ReadOnly = true;
+            this.txtidClient.Size = new System.Drawing.Size(115, 20);
+            this.txtidClient.TabIndex = 51;
+            // 
+            // lblidClient
+            // 
+            this.lblidClient.AutoSize = true;
+            this.lblidClient.Location = new System.Drawing.Point(552, 99);
+            this.lblidClient.Name = "lblidClient";
+            this.lblidClient.Size = new System.Drawing.Size(88, 13);
+            this.lblidClient.TabIndex = 50;
+            this.lblidClient.Text = "Numéro de Client";
+            // 
             // frmContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 328);
+            this.Controls.Add(this.txtidClient);
+            this.Controls.Add(this.lblidClient);
             this.Controls.Add(this.txtProjet);
             this.Controls.Add(this.txtContact);
             this.Controls.Add(this.txtActivite);
@@ -286,5 +308,7 @@
         private System.Windows.Forms.TextBox txtActivite;
         private System.Windows.Forms.TextBox txtContact;
         private System.Windows.Forms.TextBox txtProjet;
+        private System.Windows.Forms.TextBox txtidClient;
+        private System.Windows.Forms.Label lblidClient;
     }
 }

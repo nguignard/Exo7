@@ -167,7 +167,7 @@ namespace Abi
             this.txtCltDspNomRecherche.ReadOnly = false;
 
             //si il n'y a pas encore de Client, Rechercher, supprimer et tous ne sont pas visible
-            if (Donnees.ListeFicheClient.Count == 0)
+            if (leClient.ListContacts.Count == 0)
             {
                 this.btnAjouter.Enabled = true;
                 this.btnCltDspQuitter.Enabled = true;
@@ -188,7 +188,7 @@ namespace Abi
         /// <summary>
         /// Prépare l'affichage et Affiche les Clients dans le dataGrid 
         /// </summary>
-        protected virtual void afficheContacts()
+        private void afficheContacts()
         {
             DataTable dt = new DataTable();
             DataRow dr;

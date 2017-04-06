@@ -12,17 +12,23 @@ namespace Abi
 {
     public partial class frmContact : Form
     {
-        private FicheClient leClientActif ;
+        private FicheClient leClientActif;
         private Contact leContact; // attribut de classe
         private bool IsNewContact;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
                                   //ou de remplacer le Client actuel à modifier
 
+        Contact contactVide;
+
         public frmContact(FicheClient fc)
         {
+          
             leClientActif = fc;
             IsNewContact = true;
+            contactVide = new Contact(0, leClientActif.IdClient, "", "", "", "", "", "", "");
+
             InitializeComponent();
             controlesVisuels();
+            afficheContact(contactVide);
         }
 
 
@@ -31,10 +37,10 @@ namespace Abi
             leClientActif = fc;
             IsNewContact = false;
             leContact = c;
+
             InitializeComponent();
             controlesVisuels();
-
-            afficheContact();//fonction permettant d'afficher le Contac
+            afficheContact(leContact);//fonction permettant d'afficher le Contac
         }
         //END - CONSTRUCTEUR DE CLASSE
 
@@ -71,8 +77,7 @@ namespace Abi
         /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-
-            this.afficheContact();
+            this.afficheContact(leContact);
         }
 
 
@@ -89,6 +94,7 @@ namespace Abi
             if (IsNewContact)
             {
                 leContact = new Contact();
+
             }
             // tente de rentrer ou modifier un nouveau Client, sinon renvoie une exception (venant des accesseurs)
             try
@@ -99,19 +105,21 @@ namespace Abi
                 this.leContact.Fonction = this.txtFonction.Text.Trim();//ToUpper met en majuscule
                 this.leContact.Telephone = this.txtTelephone.Text.Trim();
                 this.leContact.Projet = this.txtProjet.Text;
+
                 this.leContact.Activite = this.txtActivite.Text;
-                this.leContact.IdClient = (int)(Donnees.ListeFicheClient[Donnees.idClientActif].IdClient);
-              
+                this.leContact.IdClient = leClientActif.IdClient;
+
 
                 //Création ou modification du Client
                 if (IsNewContact)
                 {
-                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Add(this.leContact); //Ajoute le nouveau Contact à la liste statique dans données
+                    this.leContact.IdClient = this.leClientActif.ListContacts.Count;
+                    this.leClientActif.ListContacts.Add(this.leContact); //Ajoute le nouveau Contact à la liste statique dans données
                 }
                 else
                 {
-                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Remove(this.leContact);//remplace le Client par le Client modifié
-                    Donnees.ListeFicheClient[Donnees.idClientActif].ListContacts.Insert(this.leContact.IdContact, this.leContact);
+                    leClientActif.ListContacts.Remove(this.leContact);//remplace le Client par le Client modifié
+                    leClientActif.ListContacts.Insert(this.leContact.IdContact, this.leContact);
                 }
                 this.DialogResult = DialogResult.OK; //ferme la fenetre modale
 
@@ -153,18 +161,18 @@ namespace Abi
         /// <summary>
         /// Affiche le Client en cours de modification
         /// </summary>
-        private void afficheContact()
+        private void afficheContact(Contact c)
         {
-            this.txtEntreprise.Text = leContact.Entreprise.ToString();
-            this.txtNom.Text = leContact.Nom.ToString();
-            this.txtPrenom.Text = leContact.Prenom.ToString();
-            this.txtFonction.Text = leContact.Fonction.ToString();
-            this.txtTelephone.Text = leContact.Telephone.ToString();
-            this.txtProjet.Text = leContact.ToString();
+            this.txtEntreprise.Text = c.Entreprise.ToString();
+            this.txtNom.Text = c.Nom.ToString();
+            this.txtPrenom.Text = c.Prenom.ToString();
+            this.txtFonction.Text = c.Fonction.ToString();
+            this.txtTelephone.Text = c.Telephone.ToString();
+            this.txtProjet.Text = c.ToString();
 
-            this.txtActivite.Text = leContact.Activite.ToString();
-            this.txtContact.Text = leContact.IdContact.ToString();
-
+            this.txtActivite.Text = c.Activite.ToString();
+            this.txtContact.Text = c.IdContact.ToString();
+            this.txtidClient.Text = c.IdClient.ToString();
 
         }
     }
