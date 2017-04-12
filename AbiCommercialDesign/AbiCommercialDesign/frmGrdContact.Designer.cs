@@ -50,7 +50,6 @@
             // 
             // btnCltDspSupprimer
             // 
-            this.btnCltDspSupprimer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCltDspSupprimer.Location = new System.Drawing.Point(451, 368);
             this.btnCltDspSupprimer.Name = "btnCltDspSupprimer";
             this.btnCltDspSupprimer.Size = new System.Drawing.Size(75, 23);
@@ -84,6 +83,8 @@
             this.grdContact.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdContact.Size = new System.Drawing.Size(593, 268);
             this.grdContact.TabIndex = 12;
+            this.grdContact.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdContact_CellDoubleClick);
+
             // 
             // btnCltDspTous
             // 
@@ -101,7 +102,6 @@
             this.txtCltDspNomRecherche.Name = "txtCltDspNomRecherche";
             this.txtCltDspNomRecherche.Size = new System.Drawing.Size(317, 20);
             this.txtCltDspNomRecherche.TabIndex = 9;
-         
             // 
             // lblCltDspNomRecherche
             // 
@@ -111,6 +111,7 @@
             this.lblCltDspNomRecherche.Size = new System.Drawing.Size(94, 13);
             this.lblCltDspNomRecherche.TabIndex = 8;
             this.lblCltDspNomRecherche.Text = "&Nom Recherché : ";
+            this.lblCltDspNomRecherche.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCltDspNomRecherche_KeyUp);
             // 
             // frmGrdContact
             // 
@@ -124,6 +125,7 @@
             this.Controls.Add(this.btnCltDspTous);
             this.Controls.Add(this.txtCltDspNomRecherche);
             this.Controls.Add(this.lblCltDspNomRecherche);
+            this.ImeMode = System.Windows.Forms.ImeMode.Alpha;
             this.Name = "frmGrdContact";
             this.Text = "frmGrdContact";
             ((System.ComponentModel.ISupportInitialize)(this.grdContact)).EndInit();

@@ -124,7 +124,9 @@ namespace Abi
 
 
             frmClt frmClient = new frmClt(ClientActif);
-            if (frmClient.ShowDialog() == DialogResult.OK)
+            DialogResult result = frmClient.ShowDialog();
+            Console.WriteLine("Result " + result);
+            if (frmClient.ShowDialog() == DialogResult.OK) 
             {
                 this.controlesVisuels();
                 this.afficheClients();

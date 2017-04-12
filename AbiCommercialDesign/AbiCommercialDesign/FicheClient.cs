@@ -255,7 +255,6 @@ namespace Abi
                 else
                     throw new Exception(value.ToString() + " : n'est pas un CODE POSTAL valide, il doit être un nombre de 5 chiffres");
 
-
             }
         }
         /// <summary>

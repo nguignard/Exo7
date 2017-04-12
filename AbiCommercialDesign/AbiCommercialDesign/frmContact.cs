@@ -21,7 +21,7 @@ namespace Abi
 
         public frmContact(FicheClient fc)
         {
-          
+
             leClientActif = fc;
             IsNewContact = true;
             contactVide = new Contact(0, leClientActif.IdClient, "", "", "", "", "", "", "");
@@ -37,6 +37,7 @@ namespace Abi
             leClientActif = fc;
             IsNewContact = false;
             leContact = c;
+            contactVide = new Contact(0, leClientActif.IdClient, "", "", "", "", "", "", "");
 
             InitializeComponent();
             controlesVisuels();
@@ -77,7 +78,10 @@ namespace Abi
         /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            this.afficheContact(leContact);
+            if (IsNewContact)
+                this.afficheContact(contactVide);
+           else
+                this.afficheContact(leContact);
         }
 
 
@@ -168,11 +172,16 @@ namespace Abi
             this.txtPrenom.Text = c.Prenom.ToString();
             this.txtFonction.Text = c.Fonction.ToString();
             this.txtTelephone.Text = c.Telephone.ToString();
-            this.txtProjet.Text = c.ToString();
+            this.txtProjet.Text = c.Projet.ToString();
 
             this.txtActivite.Text = c.Activite.ToString();
             this.txtContact.Text = c.IdContact.ToString();
             this.txtidClient.Text = c.IdClient.ToString();
+
+        }
+
+        private void frmContact_Load(object sender, EventArgs e)
+        {
 
         }
     }

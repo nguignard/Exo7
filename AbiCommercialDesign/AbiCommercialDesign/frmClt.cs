@@ -15,10 +15,11 @@ namespace Abi
     /// </summary>
     public partial class frmClt : Form
     {
+        public static bool test = true;
         private FicheClient leClient; // attribut de classe
         private bool IsNewClient;// vrai si le client est nouveau, permet d'ajouter un nouveau client a la liste dans donnees,
                                  //ou de remplacer le Client actuel à modifier
-
+        private FicheClient clientVide;
         //BEGIN - CONSTRUCTEURS DE CLASSE
 
         /// <summary>
@@ -26,6 +27,7 @@ namespace Abi
         /// </summary>
         public frmClt()
         {
+            clientVide = new FicheClient(0, 0, 0, "", "", "", "", "00000", "", "", "", "", new List<Contact>());
             IsNewClient = true;
             InitializeComponent();
             controlesVisuels(); //met en place les contrôles visuels
@@ -37,6 +39,7 @@ namespace Abi
         /// <param name="unClient">unClient est de classe ficheClient est est envoye comme paramettre par double clic de la fenetre frmGrdClt </param>
         public frmClt(FicheClient unClient)
         {
+            clientVide = new FicheClient(0, 0, 0, "", "", "", "", "00000", "", "", "", "", new List<Contact>());
             IsNewClient = false;
             this.leClient = unClient;
             InitializeComponent();
@@ -84,15 +87,13 @@ namespace Abi
         {
             if (IsNewClient)
             {
-                FicheClient clientVide = new FicheClient();
-                afficheLeClient(clientVide);
+                this.afficheLeClient(clientVide);
             }
             else
             {
-              this.afficheLeClient(this.leClient);
+                this.afficheLeClient(leClient);
             }
-            this.controlesVisuels();
-
+           
             //this.DialogResult = DialogResult.Cancel;
         }
 
@@ -108,6 +109,7 @@ namespace Abi
         {
             this.reccordClient();
             this.DialogResult = DialogResult.OK; //ferme la fenetre modale
+          
         }
 
 
@@ -123,6 +125,11 @@ namespace Abi
                 this.afficheLeClient(this.leClient);
             }
         }
+
+
+
+
+
         //END - GESTION DES BOUTONS
 
 

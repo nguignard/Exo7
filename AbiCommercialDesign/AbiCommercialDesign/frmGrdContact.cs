@@ -55,6 +55,7 @@ namespace Abi
             this.Close();
         }
 
+
         /// <summary>
         /// Boutton supprimer , supprime le Client selectionne
         /// </summary>
@@ -77,6 +78,7 @@ namespace Abi
                         leContact = c;
                     }
                 }
+
                 leClient.ListContacts.Remove(leContact);
                 this.controlesVisuels();
                 this.afficheContacts();
@@ -88,7 +90,9 @@ namespace Abi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void grdCltDsp_DoubleClick(object sender, EventArgs e)
+       
+
+        private void grdContact_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (grdContact.CurrentRow != null)
             {
@@ -101,14 +105,18 @@ namespace Abi
                     leContact = c;
                 }
             }
-            frmContact frmContact = new frmContact(leClient,leContact);
+
+
+            frmContact frmContact = new frmContact(this.leClient, this.leContact);
             if (frmContact.ShowDialog() == DialogResult.OK)
             {
                 this.controlesVisuels();
                 this.afficheContacts();
             }
 
-        }
+        
+
+    }
         /// <summary>
         /// Réaffiche la liste complete des Clients
         /// </summary>
@@ -141,6 +149,12 @@ namespace Abi
         {
             ((DataView)(this.grdContact.DataSource)).RowFilter = "[Nom] like '%" + this.txtCltDspNomRecherche.Text + "%'";
         }
+
+
+
+
+
+
         //END - GESTION DES BOUTONS/////////////////////////////////////::
 
 
@@ -202,7 +216,7 @@ namespace Abi
             for (int i = 0; i < leClient.ListContacts.Count; i++)
             {
                 dr = dt.NewRow();
-                dr[0] = leClient.ListContacts[i].IdClient;
+                dr[0] = leClient.ListContacts[i].IdContact;
                 dr[1] = leClient.ListContacts[i].Nom;
                 dr[2] = leClient.ListContacts[i].Prenom;
                 dr[3] = leClient.ListContacts[i].Entreprise;
